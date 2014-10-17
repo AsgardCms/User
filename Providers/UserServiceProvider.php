@@ -23,6 +23,11 @@ class UserServiceProvider extends ServiceProvider
             'permissions' => 'PermissionFilter'
         ],
         'User' => [
+//            'auth.guest' => 'GuestFilter'
+        ]
+    ];
+    protected $middleware = [
+        'User' => [
             'auth.guest' => 'GuestFilter'
         ]
     ];
@@ -36,6 +41,7 @@ class UserServiceProvider extends ServiceProvider
     {
         $this->app->booted(function ($app) {
 			$this->registerFilters($app['router']);
+			$this->registerMiddleware($app['router']);
 			$this->registerBindings();
             $this->registerEvents($app['events']);
 		});
@@ -82,5 +88,16 @@ class UserServiceProvider extends ServiceProvider
 
     private function registerEvents($events)
     {
+    }
+
+    private function registerMiddleware($router)
+    {
+        foreach ($this->middleware as $module => $middlewares) {
+            foreach ($middlewares as $name => $middleware) {
+                $class = "Modules\\{$module}\\Http\\Middleware\\{$middleware}";
+
+                $router->middleware($name, $class);
+            }
+        }
     }
 }
