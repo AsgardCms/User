@@ -30,7 +30,7 @@ class SessionUrlTest extends BaseTestCase
         $this->app['router']->enableFilters();
         Sentinel::logout();
 
-        $crawler = $this->client->request('GET', '/' . Config::get('core::core.admin-prefix'));
+        $this->client->request('GET', '/' . Config::get('core::core.admin-prefix'));
 
         $this->assertRedirectedTo('auth/login');
     }
@@ -44,10 +44,7 @@ class SessionUrlTest extends BaseTestCase
         $user = Sentinel::findById(4);
         Sentinel::login($user);
 
-        $crawler = $this->client->request('GET', '/' . Config::get('core::core.admin-prefix'));
-
-        $this->assertTrue($this->client->getResponse()->isOk());
-        $this->assertCount(1, $crawler->filter('h1:contains("Dashboard")'));
+        $this->checkResponseIsOkAndContains(['GET', '/' . Config::get('core::core.admin-prefix')], 'h1:contains("Dashboard")');
     }
 
 }
