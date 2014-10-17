@@ -21,10 +21,11 @@ class UserController extends AdminBaseController
      */
     private $role;
 
-    public function __construct(UserRepository $user, RoleRepository $role)
+    public function __construct(PermissionManager $permissions, UserRepository $user, RoleRepository $role)
     {
         parent::__construct();
 
+        $this->permissions = $permissions;
         $this->user = $user;
         $this->role = $role;
     }
@@ -61,7 +62,7 @@ class UserController extends AdminBaseController
      */
     public function store(CreateUserRequest $request)
     {
-        $data = $this->mergeRequestWithPermissions($request);
+        $data = array_merge($request->all(), ['permissions' => $this->permissions->clean($request->permissions)]);
 
         $this->user->createWithRoles($data, $request->roles);
 
@@ -95,7 +96,7 @@ class UserController extends AdminBaseController
      */
     public function update($id, UpdateUserRequest $request)
     {
-        $data = $this->mergeRequestWithPermissions($request);
+        $data = array_merge($request->all(), ['permissions' => $this->permissions->clean($request->permissions)]);
 
         $this->user->updateAndSyncRoles($id, $data, $request->roles);
 

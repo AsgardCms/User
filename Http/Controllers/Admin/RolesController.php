@@ -14,10 +14,11 @@ class RolesController extends BaseUserModuleController
      */
     private $role;
 
-    public function __construct(RoleRepository $role)
+    public function __construct(PermissionManager $permissions, RoleRepository $role)
     {
         parent::__construct();
 
+        $this->permissions = $permissions;
         $this->role = $role;
     }
 

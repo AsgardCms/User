@@ -1,21 +1,14 @@
 <?php namespace Modules\User\Http\Controllers\Admin;
 
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
-use Modules\Core\Permissions\PermissionManager;
 
-class BaseUserModuleController extends AdminBaseController
+abstract class BaseUserModuleController extends AdminBaseController
 {
     /**
      * @var PermissionManager
      */
-    private $permissions;
+    protected $permissions;
 
-    public function __construct(PermissionManager $permissions)
-    {
-        parent::__construct();
-
-        $this->permissions = $permissions;
-    }
     /**
      * @param $request
      * @return array
