@@ -22,7 +22,7 @@ class UserServiceProvider extends ServiceProvider
             'permissions' => 'PermissionFilter'
         ],
         'User' => [
-//            'auth.guest' => 'GuestFilter'
+            'auth.guest' => 'GuestFilter'
         ]
     ];
     protected $middleware = [
