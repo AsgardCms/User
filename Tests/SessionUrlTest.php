@@ -2,9 +2,9 @@
 
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Illuminate\Support\Facades\Config;
-use TestCase;
+use Modules\Core\Tests\BaseTestCase;
 
-class SessionUrlTest extends TestCase
+class SessionUrlTest extends BaseTestCase
 {
     /** @test */
     public function loginPageShouldBeAccessible()
@@ -50,12 +50,4 @@ class SessionUrlTest extends TestCase
         $this->assertCount(1, $crawler->filter('h1:contains("Dashboard")'));
     }
 
-    private function checkResponseIsOkAndContains($request, $filter)
-    {
-        $crawler = $this->client->request($request[0], $request[1]);
-
-        $this->assertTrue($this->client->getResponse()->isOk());
-
-        $this->assertCount(1, $crawler->filter($filter));
-    }
 }
