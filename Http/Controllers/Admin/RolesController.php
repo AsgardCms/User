@@ -3,10 +3,8 @@
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Laracasts\Flash\Flash;
-use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 use Modules\Core\Permissions\PermissionManager;
-use Modules\User\Http\Requests\CreateRolesRequest;
-use Modules\User\Http\Requests\UpdateRoleRequest;
+use Modules\User\Http\Requests\RolesRequest;
 use Modules\User\Repositories\RoleRepository;
 
 class RolesController extends BaseUserModuleController
@@ -52,10 +50,10 @@ class RolesController extends BaseUserModuleController
     /**
      * Store a newly created resource in storage.
      *
-     * @param CreateRolesRequest $request
+     * @param RolesRequest $request
      * @return Response
      */
-    public function store(CreateRolesRequest $request)
+    public function store(RolesRequest $request)
     {
         $data = $this->mergeRequestWithPermissions($request);
 
@@ -84,10 +82,10 @@ class RolesController extends BaseUserModuleController
      * Update the specified resource in storage.
      *
      * @param  int $id
-     * @param UpdateRoleRequest $request
+     * @param RolesRequest $request
      * @return Response
      */
-    public function update($id, UpdateRoleRequest $request)
+    public function update($id, RolesRequest $request)
     {
         $data = $this->mergeRequestWithPermissions($request);
 

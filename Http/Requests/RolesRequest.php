@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRolesRequest extends FormRequest
+class RolesRequest extends FormRequest
 {
     public function rules()
     {
