@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Laracasts\Flash\Flash;
-use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 use Modules\Core\Permissions\PermissionManager;
 use Modules\User\Http\Requests\CreateUserRequest;
 use Modules\User\Http\Requests\UpdateUserRequest;
