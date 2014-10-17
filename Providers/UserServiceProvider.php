@@ -42,7 +42,6 @@ class UserServiceProvider extends ServiceProvider
 			$this->registerFilters($app['router']);
 			$this->registerMiddleware($app['router']);
 			$this->registerBindings();
-            $this->registerEvents($app['events']);
 		});
     }
 
@@ -84,10 +83,6 @@ class UserServiceProvider extends ServiceProvider
 			'Modules\User\Repositories\Sentinel\SentinelRoleRepository'
 		);
 	}
-
-    private function registerEvents($events)
-    {
-    }
 
     private function registerMiddleware($router)
     {
