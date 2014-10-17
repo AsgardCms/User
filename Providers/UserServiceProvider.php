@@ -2,7 +2,6 @@
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Modules\User\Events\RegisterSidebarMenuItemEvent;
 
 class UserServiceProvider extends ServiceProvider
 {
