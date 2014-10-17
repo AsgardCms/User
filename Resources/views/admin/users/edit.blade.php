@@ -72,7 +72,7 @@
                 </div>
                 <div class="tab-pane" id="tab_3-3">
                     <div class="box-body">
-                        @include('user::admin.partials.permissions')
+                        @include('user::admin.partials.permissions', ['model' => $user])
                     </div>
                 </div>
                 <div class="box-footer">
