@@ -10,7 +10,7 @@ use Modules\User\Http\Requests\UpdateUserRequest;
 use Modules\User\Repositories\RoleRepository;
 use Modules\User\Repositories\UserRepository;
 
-class UserController extends AdminBaseController
+class UserController extends BaseUserModuleController
 {
     /**
      * @var UserRepository
@@ -62,7 +62,7 @@ class UserController extends AdminBaseController
      */
     public function store(CreateUserRequest $request)
     {
-        $data = array_merge($request->all(), ['permissions' => $this->permissions->clean($request->permissions)]);
+        $data = $this->mergeRequestWithPermissions($request);
 
         $this->user->createWithRoles($data, $request->roles);
 
@@ -96,7 +96,7 @@ class UserController extends AdminBaseController
      */
     public function update($id, UpdateUserRequest $request)
     {
-        $data = array_merge($request->all(), ['permissions' => $this->permissions->clean($request->permissions)]);
+        $data = $this->mergeRequestWithPermissions($request);
 
         $this->user->updateAndSyncRoles($id, $data, $request->roles);
 
