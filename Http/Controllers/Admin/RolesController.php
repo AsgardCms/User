@@ -57,7 +57,7 @@ class RolesController extends AdminBaseController
      */
     public function store(CreateRolesRequest $request)
     {
-        $data = array_merge($request->all(), ['permissions' => $this->permissions->clean($request->permissions)]);
+        $data = $this->mergeRequestWithPermissions($request);
 
         $this->role->create($data);
 
@@ -89,7 +89,7 @@ class RolesController extends AdminBaseController
      */
     public function update($id, UpdateRoleRequest $request)
     {
-        $data = array_merge($request->all(), ['permissions' => $this->permissions->clean($request->permissions)]);
+        $data = $this->mergeRequestWithPermissions($request);
 
         $this->role->update($id, $data);
 
@@ -109,5 +109,14 @@ class RolesController extends AdminBaseController
 
         Flash::success('Role deleted!');
         return Redirect::route('dashboard.role.index');
+    }
+
+    /**
+     * @param $request
+     * @return array
+     */
+    private function mergeRequestWithPermissions($request)
+    {
+        return array_merge($request->all(), ['permissions' => $this->permissions->clean($request->permissions)]);
     }
 }
