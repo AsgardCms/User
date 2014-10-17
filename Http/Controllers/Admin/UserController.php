@@ -13,10 +13,6 @@ use Modules\User\Repositories\UserRepository;
 class UserController extends AdminBaseController
 {
     /**
-     * @var PermissionManager
-     */
-    private $permissions;
-    /**
      * @var UserRepository
      */
     private $user;
@@ -25,11 +21,10 @@ class UserController extends AdminBaseController
      */
     private $role;
 
-    public function __construct(PermissionManager $permissions, UserRepository $user, RoleRepository $role)
+    public function __construct(UserRepository $user, RoleRepository $role)
     {
         parent::__construct();
 
-        $this->permissions = $permissions;
         $this->user = $user;
         $this->role = $role;
     }

@@ -10,18 +10,14 @@ use Modules\User\Repositories\RoleRepository;
 class RolesController extends BaseUserModuleController
 {
     /**
-     * @var PermissionManager
-     */
-    private $permissions;
-    /**
      * @var RoleRepository
      */
     private $role;
 
-    public function __construct(PermissionManager $permissions, RoleRepository $role)
+    public function __construct(RoleRepository $role)
     {
         parent::__construct();
-        $this->permissions = $permissions;
+
         $this->role = $role;
     }
 
