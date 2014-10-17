@@ -9,31 +9,19 @@ class SessionUrlTest extends TestCase
     /** @test */
     public function loginPageShouldBeAccessible()
     {
-        $crawler = $this->client->request('GET', '/auth/login');
-
-        $this->assertTrue($this->client->getResponse()->isOk());
-
-        $this->assertCount(1, $crawler->filter('.header:contains("Sign In")'));
+        $this->checkResponseIsOkAndContains(['GET', '/auth/login'], '.header:contains("Sign In")');
     }
 
     /** @test */
     public function registerPageShouldBeAccessible()
     {
-        $crawler = $this->client->request('GET', '/auth/register');
-
-        $this->assertTrue($this->client->getResponse()->isOk());
-
-        $this->assertCount(1, $crawler->filter('.header:contains("Register New Membership")'));
+        $this->checkResponseIsOkAndContains(['GET', '/auth/register'], '.header:contains("Register New Membership")');
     }
 
     /** @test */
     public function forgotPasswordShouldBeAccessible()
     {
-        $crawler = $this->client->request('GET', '/auth/reset');
-
-        $this->assertTrue($this->client->getResponse()->isOk());
-
-        $this->assertCount(1, $crawler->filter('.header:contains("Reset Password")'));
+        $this->checkResponseIsOkAndContains(['GET', '/auth/reset'], '.header:contains("Reset Password")');
     }
 
     /** @test */
@@ -60,5 +48,14 @@ class SessionUrlTest extends TestCase
 
         $this->assertTrue($this->client->getResponse()->isOk());
         $this->assertCount(1, $crawler->filter('h1:contains("Dashboard")'));
+    }
+
+    private function checkResponseIsOkAndContains($request, $filter)
+    {
+        $crawler = $this->client->request($request[0], $request[1]);
+
+        $this->assertTrue($this->client->getResponse()->isOk());
+
+        $this->assertCount(1, $crawler->filter($filter));
     }
 }
