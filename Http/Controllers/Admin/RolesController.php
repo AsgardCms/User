@@ -9,7 +9,7 @@ use Modules\User\Http\Requests\CreateRolesRequest;
 use Modules\User\Http\Requests\UpdateRoleRequest;
 use Modules\User\Repositories\RoleRepository;
 
-class RolesController extends AdminBaseController
+class RolesController extends BaseUserModuleController
 {
     /**
      * @var PermissionManager
@@ -111,12 +111,4 @@ class RolesController extends AdminBaseController
         return Redirect::route('dashboard.role.index');
     }
 
-    /**
-     * @param $request
-     * @return array
-     */
-    private function mergeRequestWithPermissions($request)
-    {
-        return array_merge($request->all(), ['permissions' => $this->permissions->clean($request->permissions)]);
-    }
 }

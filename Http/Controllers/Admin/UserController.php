@@ -66,7 +66,7 @@ class UserController extends AdminBaseController
      */
     public function store(CreateUserRequest $request)
     {
-        $data = array_merge($request->all(), ['permissions' => $this->permissions->clean($request->permissions)]);
+        $data = $this->mergeRequestWithPermissions($request);
 
         $this->user->createWithRoles($data, $request->roles);
 
@@ -100,7 +100,7 @@ class UserController extends AdminBaseController
      */
     public function update($id, UpdateUserRequest $request)
     {
-        $data = array_merge($request->all(), ['permissions' => $this->permissions->clean($request->permissions)]);
+        $data = $this->mergeRequestWithPermissions($request);
 
         $this->user->updateAndSyncRoles($id, $data, $request->roles);
 
