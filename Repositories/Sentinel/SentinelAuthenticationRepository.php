@@ -1,5 +1,7 @@
 <?php namespace Modules\User\Repositories\Sentinel;
 
+use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
+use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Modules\User\Repositories\AuthenticationRepository;
 
