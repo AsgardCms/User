@@ -33,7 +33,7 @@ class SentinelAuthenticationRepository implements AuthenticationRepository
      */
     public function register(array $user)
     {
-        // TODO: Implement register() method.
+        return Sentinel::getUserRepository()->create((array) $user);
     }
 
     /**
@@ -44,7 +44,7 @@ class SentinelAuthenticationRepository implements AuthenticationRepository
      */
     public function assignRole($user, $role)
     {
-        // TODO: Implement assignRole() method.
+        return $role->users()->attach($user);
     }
 
     /**

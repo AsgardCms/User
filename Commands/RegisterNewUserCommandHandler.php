@@ -4,10 +4,27 @@ use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Illuminate\Support\Facades\Event;
 use Laracasts\Commander\CommandHandler;
 use Modules\User\Events\UserHasRegistered;
+use Modules\User\Repositories\AuthenticationRepository;
+use Modules\User\Repositories\RoleRepository;
 
 class RegisterNewUserCommandHandler implements CommandHandler
 {
     protected $input;
+
+    /**
+     * @var AuthenticationRepository
+     */
+    private $auth;
+    /**
+     * @var RoleRepository
+     */
+    private $role;
+
+    public function __construct(AuthenticationRepository $auth, RoleRepository $role)
+    {
+        $this->auth = $auth;
+        $this->role = $role;
+    }
 
     /**
      * Handle the command
@@ -30,13 +47,13 @@ class RegisterNewUserCommandHandler implements CommandHandler
 
     private function createUser()
     {
-        return Sentinel::getUserRepository()->create((array) $this->input);
+        return $this->auth->register((array) $this->input);
     }
 
     private function assignUserToUsersGroup($user)
     {
-        $group = Sentinel::findRoleByName('User');
+        $role = $this->role->findByName('User');
 
-        $group->users()->attach($user);
+        $this->auth->assignRole($user, $role);
     }
 }
