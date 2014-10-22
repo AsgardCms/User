@@ -1,5 +1,6 @@
 <?php namespace Modules\User\Repositories\Sentinel;
 
+use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Modules\User\Repositories\AuthenticationRepository;
 
 class SentinelAuthenticationRepository implements AuthenticationRepository
@@ -12,7 +13,17 @@ class SentinelAuthenticationRepository implements AuthenticationRepository
      */
     public function login(array $credentials, $remember = false)
     {
-        // TODO: Implement login() method.
+        try {
+            if (Sentinel::authenticate($credentials, $remember)) {
+                return false;
+            }
+            return 'Invalid login or password.';
+        } catch (NotActivatedException $e) {
+            return 'Account not yet validated. Please check your email.';
+        } catch (ThrottlingException $e) {
+            $delay = $e->getDelay();
+            return "Your account is blocked for {$delay} second(s).";
+        }
     }
 
     /**
