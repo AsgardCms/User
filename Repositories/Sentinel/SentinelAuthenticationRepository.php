@@ -49,10 +49,10 @@ class SentinelAuthenticationRepository implements AuthenticationRepository
 
     /**
      * Log the user out of the application.
-     * @return mixed
+     * @return bool
      */
     public function logout()
     {
-        // TODO: Implement logout() method.
+        return Sentinel::logout();
     }
 }

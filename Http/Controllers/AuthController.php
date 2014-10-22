@@ -69,7 +69,7 @@ class AuthController
 
     public function getLogout()
     {
-        Sentinel::logout();
+        $this->auth->logout();
 
         return Redirect::route('login');
     }
