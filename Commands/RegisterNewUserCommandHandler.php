@@ -40,7 +40,7 @@ class RegisterNewUserCommandHandler implements CommandHandler
 
         $this->assignUserToUsersGroup($user);
 
-        Event::fire('Modules.Session.Events.UserHasRegistered', new UserHasRegistered($user));
+        Event::fire('Modules.User.Events.UserHasRegistered', new UserHasRegistered($user));
 
         return $user;
     }
