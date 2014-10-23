@@ -52,4 +52,13 @@ interface AuthenticationRepository
      * @return mixed
      */
     public function createReminderCode($user);
+
+    /**
+     * Completes the reset password process
+     * @param $user
+     * @param string $code
+     * @param string $password
+     * @return bool
+     */
+    public function completeResetPassword($user, $code, $password);
 }

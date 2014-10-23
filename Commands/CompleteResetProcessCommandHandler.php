@@ -1,7 +1,7 @@
 <?php namespace Modules\User\Commands;
 
-use Cartalyst\Sentinel\Laravel\Facades\Reminder;
 use Laracasts\Commander\CommandHandler;
+use Modules\User\Exceptions\InvalidOrExpiredResetCode;
 use Modules\User\Exceptions\UserNotFoundException;
 use Modules\User\Repositories\AuthenticationRepository;
 use Modules\User\Repositories\UserRepository;
@@ -38,7 +38,7 @@ class CompleteResetProcessCommandHandler implements CommandHandler
 
         $user = $this->findUser();
 
-        if (!Reminder::complete($user, $this->input->code, $this->input->password)) {
+        if (!$this->auth->completeResetPassword($user, $this->input->code, $this->input->password)) {
             throw new InvalidOrExpiredResetCode;
         }
 

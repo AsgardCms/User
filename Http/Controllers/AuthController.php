@@ -114,16 +114,13 @@ class AuthController
             );
         } catch (UserNotFoundException $e) {
             Flash::error('The user no longer exists.');
-
             return Redirect::back()->withInput();
         } catch (InvalidOrExpiredResetCode $e) {
             Flash::error('Invalid or expired reset code.');
-
             return Redirect::back()->withInput();
         }
 
         Flash::success('Password has been reset. You can now login with your new password.');
-
         return Redirect::route('login');
     }
 }

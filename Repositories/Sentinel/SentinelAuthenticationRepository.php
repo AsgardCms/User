@@ -94,4 +94,16 @@ class SentinelAuthenticationRepository implements AuthenticationRepository
 
         return $reminder->code;
     }
+
+    /**
+     * Completes the reset password process
+     * @param $user
+     * @param string $code
+     * @param string $password
+     * @return bool
+     */
+    public function completeResetPassword($user, $code, $password)
+    {
+        return Reminder::complete($user, $code, $password);
+    }
 }
