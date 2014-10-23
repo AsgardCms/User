@@ -33,7 +33,7 @@ class BeginResetProcessCommandHandler implements CommandHandler
 
         $reminder = Reminder::exists($user) ?: Reminder::create($user);
 
-        Event::fire('Modules.Session.Events.UserHasBegunResetProcess', new UserHasBegunResetProcess($user, $reminder));
+        Event::fire('Modules.User.Events.UserHasBegunResetProcess', new UserHasBegunResetProcess($user, $reminder));
     }
 
     private function findUser($credentials)
