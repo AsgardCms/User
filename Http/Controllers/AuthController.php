@@ -1,9 +1,5 @@
 <?php namespace Modules\User\Http\Controllers;
 
-use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
-use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
-use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
-use Exception;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Laracasts\Commander\CommanderTrait;
