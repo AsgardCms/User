@@ -2,6 +2,7 @@
 
 use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
 use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
+use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Modules\User\Repositories\AuthenticationRepository;
 
@@ -56,5 +57,28 @@ class SentinelAuthenticationRepository implements AuthenticationRepository
     public function logout()
     {
         return Sentinel::logout();
+    }
+
+    /**
+     * Activate the given used id
+     * @param int $userId
+     * @param string $code
+     * @return mixed
+     */
+    public function activate($userId, $code)
+    {
+        $user = Sentinel::findById($userId);
+
+        return Activation::complete($user, $code);
+    }
+
+    /**
+     * Create an activation code for the given user
+     * @param $user
+     * @return mixed
+     */
+    public function createActivation($user)
+    {
+        return Activation::create($user);
     }
 }

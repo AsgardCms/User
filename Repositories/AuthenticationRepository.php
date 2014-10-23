@@ -18,6 +18,14 @@ interface AuthenticationRepository
     public function register(array $user);
 
     /**
+     * Activate the given used id
+     * @param int $userId
+     * @param string $code
+     * @return mixed
+     */
+    public function activate($userId, $code);
+
+    /**
      * Assign a role to the given user.
      * @param \Modules\User\Repositories\UserRepository $user
      * @param \Modules\User\Repositories\RoleRepository $role
@@ -30,4 +38,11 @@ interface AuthenticationRepository
      * @return mixed
      */
     public function logout();
+
+    /**
+     * Create an activation code for the given user
+     * @param $user
+     * @return mixed
+     */
+    public function createActivation($user);
 }

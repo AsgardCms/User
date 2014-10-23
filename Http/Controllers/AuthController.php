@@ -74,6 +74,16 @@ class AuthController
         return Redirect::route('login');
     }
 
+    public function getActivate($userId, $code)
+    {
+        if ($this->auth->activate($userId, $code)) {
+            Flash::success('Account activated. You can now login.');
+            return Redirect::route('login');
+        }
+        Flash::error('There was an error with the activation.');
+        return Redirect::route('register');
+    }
+
     public function getReset()
     {
         return View::make('user::public.reset.begin');
