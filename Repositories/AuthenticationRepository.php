@@ -45,4 +45,11 @@ interface AuthenticationRepository
      * @return mixed
      */
     public function createActivation($user);
+
+    /**
+     * Create a reminders code for the given user
+     * @param $user
+     * @return mixed
+     */
+    public function createReminderCode($user);
 }

@@ -3,6 +3,7 @@
 use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
 use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
+use Cartalyst\Sentinel\Laravel\Facades\Reminder;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Modules\User\Repositories\AuthenticationRepository;
 
@@ -74,11 +75,23 @@ class SentinelAuthenticationRepository implements AuthenticationRepository
 
     /**
      * Create an activation code for the given user
-     * @param $user
+     * @param \Modules\User\Repositories\UserRepository $user
      * @return mixed
      */
     public function createActivation($user)
     {
         return Activation::create($user);
+    }
+
+    /**
+     * Create a reminders code for the given user
+     * @param \Modules\User\Repositories\UserRepository $user
+     * @return mixed
+     */
+    public function createReminderCode($user)
+    {
+        $reminder = Reminder::exists($user) ?: Reminder::create($user);
+
+        return $reminder->code;
     }
 }

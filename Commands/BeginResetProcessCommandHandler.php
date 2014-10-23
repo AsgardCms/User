@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Event;
 use Laracasts\Commander\CommandHandler;
 use Modules\User\Events\UserHasBegunResetProcess;
 use Modules\User\Exceptions\UserNotFoundException;
+use Modules\User\Repositories\AuthenticationRepository;
 use Modules\User\Repositories\UserRepository;
 
 class BeginResetProcessCommandHandler implements CommandHandler
@@ -14,10 +15,15 @@ class BeginResetProcessCommandHandler implements CommandHandler
      * @var UserRepository
      */
     private $user;
+    /**
+     * @var AuthenticationRepository
+     */
+    private $auth;
 
-    public function __construct(UserRepository $user)
+    public function __construct(UserRepository $user, AuthenticationRepository $auth)
     {
         $this->user = $user;
+        $this->auth = $auth;
     }
 
     /**
@@ -31,9 +37,9 @@ class BeginResetProcessCommandHandler implements CommandHandler
     {
         $user = $this->findUser((array) $command);
 
-        $reminder = Reminder::exists($user) ?: Reminder::create($user);
+        $code = $this->auth->createReminderCode($user);
 
-        Event::fire('Modules.User.Events.UserHasBegunResetProcess', new UserHasBegunResetProcess($user, $reminder));
+        Event::fire('Modules.User.Events.UserHasBegunResetProcess', new UserHasBegunResetProcess($user, $code));
     }
 
     private function findUser($credentials)
