@@ -6,9 +6,20 @@ use Illuminate\Support\Facades\Event;
 use Laracasts\Commander\CommandHandler;
 use Modules\User\Events\UserHasBegunResetProcess;
 use Modules\User\Exceptions\UserNotFoundException;
+use Modules\User\Repositories\UserRepository;
 
 class BeginResetProcessCommandHandler implements CommandHandler
 {
+    /**
+     * @var UserRepository
+     */
+    private $user;
+
+    public function __construct(UserRepository $user)
+    {
+        $this->user = $user;
+    }
+
     /**
      * Handle the command
      *
@@ -27,7 +38,7 @@ class BeginResetProcessCommandHandler implements CommandHandler
 
     private function findUser($credentials)
     {
-        $user = Sentinel::findByCredentials((array) $credentials);
+        $user = $this->user->findByCredentials((array) $credentials);
         if ($user) {
             return $user;
         }
