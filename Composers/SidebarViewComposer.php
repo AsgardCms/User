@@ -3,7 +3,7 @@
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Request;
 use Illuminate\View\View;
-use Modules\Blog\Composers\BaseSidebarViewComposer;
+use Modules\Core\Composers\BaseSidebarViewComposer;
 
 class SidebarViewComposer extends BaseSidebarViewComposer
 {
