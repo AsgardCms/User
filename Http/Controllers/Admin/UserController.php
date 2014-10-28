@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Laracasts\Flash\Flash;
 use Modules\Core\Permissions\PermissionManager;
-use Modules\User\Entities\User;
 use Modules\User\Http\Requests\CreateUserRequest;
 use Modules\User\Http\Requests\UpdateUserRequest;
 use Modules\User\Repositories\RoleRepository;
@@ -73,11 +72,15 @@ class UserController extends BaseUserModuleController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param User $user
+     * @param  int $id
      * @return Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
+        if (!$user = $this->user->find($id)) {
+            Flash::error('User not found');
+            return Redirect::route('dashboard.user.index');
+        }
         $roles = $this->role->all();
 
         return View::make('user::admin.users.edit', compact('user', 'roles'));

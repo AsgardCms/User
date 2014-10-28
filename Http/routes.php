@@ -1,8 +1,5 @@
 <?php
 
-$router->model('users', 'Modules\User\Entities\User');
-$router->model('roles', 'Cartalyst\Sentinel\Roles\EloquentRole');
-
 $router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|auth.admin|permissions'], function($router)
 {
     $router->group(['prefix' => Config::get('core::core.admin-prefix'), 'namespace' => 'Modules\User\Http\Controllers'], function($router)

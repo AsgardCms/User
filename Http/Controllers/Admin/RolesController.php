@@ -1,6 +1,5 @@
 <?php namespace Modules\User\Http\Controllers\Admin;
 
-use Cartalyst\Sentinel\Roles\EloquentRole;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Laracasts\Flash\Flash;
@@ -64,11 +63,15 @@ class RolesController extends BaseUserModuleController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param EloquentRole $role
+     * @param int $id
      * @return Response
      */
-    public function edit(EloquentRole $role)
+    public function edit($id)
     {
+        if (!$role = $this->role->find($id)) {
+            return Redirect::to('user::admin.roles.index');
+        }
+
         return View::make('user::admin.roles.edit', compact('role'));
     }
 
