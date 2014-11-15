@@ -40,6 +40,7 @@ class AuthController
         $remember = (bool)$request->get('remember_me', false);
 
         $error = $this->auth->login($credentials, $remember);
+
         if (!$error) {
             Flash::success('Successfully logged in.');
             return Redirect::intended('/');
