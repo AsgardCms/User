@@ -74,17 +74,17 @@ class UserServiceProvider extends ServiceProvider
 
 	private function registerBindings()
 	{
-        $this->app->bind(
-            'Modules\User\Repositories\UserRepository',
-            'Modules\User\Repositories\Sentry\SentryUserRepository'
-        );
-        $this->app->bind(
-            'Modules\User\Repositories\RoleRepo sitory',
-            'Modules\User\Repositories\Sentry\SentryRoleRepository'
-        );
+		$this->app->bind(
+			'Modules\User\Repositories\UserRepository',
+			'Modules\User\Repositories\Sentinel\SentinelUserRepository'
+		);
+		$this->app->bind(
+			'Modules\User\Repositories\RoleRepository',
+			'Modules\User\Repositories\Sentinel\SentinelRoleRepository'
+		);
         $this->app->bind(
             'Modules\Core\Contracts\Authentication',
-            'Modules\User\Repositories\Sentry\SentryAuthentification'
+            'Modules\User\Repositories\Sentinel\SentinelAuthentication'
         );
 	}
 
