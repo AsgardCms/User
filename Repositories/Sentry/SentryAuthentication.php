@@ -110,6 +110,9 @@ class SentryAuthentication implements Authentication
      */
     public function check()
     {
-        return Sentry::check();
+        if (Sentry::check()) {
+            return Sentry::getUser();
+        }
+        return false;
     }
 }
