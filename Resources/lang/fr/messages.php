@@ -16,4 +16,9 @@ return [
     'user not found' => 'Utilisateur non trouvé.',
     'user updated' => 'Utilisateur mit à jour.',
     'user deleted' => 'Utilisateur supprimer',
+    /* Role management */
+    'role created' => 'Role créer.',
+    'role not found' => 'Role non trouvé.',
+    'role updated' => 'Role mit à jour.',
+    'role deleted' => 'Role supprimer',
 ];

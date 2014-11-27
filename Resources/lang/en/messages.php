@@ -16,4 +16,9 @@ return [
     'user not found' => 'User not found.',
     'user updated' => 'User successfully updated.',
     'user deleted' => 'User successfully deleted.',
+    /* Role management */
+    'role created' => 'Role successfully created.',
+    'role not found' => 'Role not found.',
+    'role updated' => 'Role successfully updated.',
+    'role deleted' => 'Role successfully deleted.',
 ];
