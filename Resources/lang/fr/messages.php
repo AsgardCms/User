@@ -1,6 +1,7 @@
 <?php
 
 return [
+    /* Authentication */
     'successfully logged in' => 'Authentification réussie',
     'account created check email for activation' => 'Compte créer. Contrôller vos emails pour activer votre compte.',
     'account activated you can now login' => 'Compte activer. Vous pouvez désaprésent vous authentifier.',
@@ -10,4 +11,9 @@ return [
     'user no longer exists' => 'Cet utilisateur n\'existe plus.',
     'invalid reset code' => 'Code de réinitialisation non valide ou expirer.',
     'password reset' => 'Mot de passe réinitialiser. Vous pouvez vous authentifier avec votre nouveau mot de passe.',
+    /* User management */
+    'user created' => 'Utilisateur créer.',
+    'user not found' => 'Utilisateur non trouvé.',
+    'user updated' => 'Utilisateur mit à jour.',
+    'user deleted' => 'Utilisateur supprimer',
 ];
