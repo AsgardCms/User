@@ -85,6 +85,13 @@ class SentinelGroupSeedTableSeeder extends Seeder
             'media.destroy' => true,
             /* Settings */
             'settings.index' => true,
+            /* Page */
+            'pages.index' => true,
+            'pages.create' => true,
+            'pages.store' => true,
+            'pages.edit' => true,
+            'pages.update' => true,
+            'pages.destroy' => true,
         ];
         $group->save();
 

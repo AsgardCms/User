@@ -68,6 +68,13 @@ class SentryGroupSeedTableSeeder extends Seeder
                 'media.destroy' => 1,
                 /* Settings */
                 'settings.index' => 1,
+                /* Page */
+                'pages.index' => 1,
+                'pages.create' => 1,
+                'pages.store' => 1,
+                'pages.edit' => 1,
+                'pages.update' => 1,
+                'pages.destroy' => 1,
             ],
         ));
 
