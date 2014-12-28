@@ -42,7 +42,7 @@ interface RoleRepository
 
     /**
      * Find a role by its name
-     * @param string $name
+     * @param  string $name
      * @return mixed
      */
     public function findByName($name);

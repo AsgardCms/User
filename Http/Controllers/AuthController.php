@@ -35,17 +35,19 @@ class AuthController
     {
         $credentials = [
             'email' => $request->email,
-            'password' => $request->password
+            'password' => $request->password,
         ];
-        $remember = (bool)$request->get('remember_me', false);
+        $remember = (bool) $request->get('remember_me', false);
 
         $error = $this->auth->login($credentials, $remember);
         if (!$error) {
             Flash::success(trans('user::messages.successfully logged in'));
+
             return Redirect::intended('/');
         }
 
         Flash::error($error);
+
         return Redirect::back()->withInput();
     }
 
@@ -74,9 +76,11 @@ class AuthController
     {
         if ($this->auth->activate($userId, $code)) {
             Flash::success(trans('user::messages.account activated you can now login'));
+
             return Redirect::route('login');
         }
         Flash::error(lang('user::messages.there was an error with the activation'));
+
         return Redirect::route('register');
     }
 
@@ -96,6 +100,7 @@ class AuthController
         }
 
         Flash::success(trans('user::messages.check email to reset password'));
+
         return Redirect::route('reset');
     }
 
@@ -113,13 +118,16 @@ class AuthController
             );
         } catch (UserNotFoundException $e) {
             Flash::error(trans('user::messages.user no longer exists'));
+
             return Redirect::back()->withInput();
         } catch (InvalidOrExpiredResetCode $e) {
             Flash::error(trans('user::messages.invalid reset code'));
+
             return Redirect::back()->withInput();
         }
 
         Flash::success(trans('user::messages.password reset'));
+
         return Redirect::route('login');
     }
 }

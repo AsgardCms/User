@@ -43,8 +43,8 @@ class SentinelUserRepository implements UserRepository
 
     /**
      * Create a user and assign roles to it
-     * @param array $data
-     * @param array $roles
+     * @param  array $data
+     * @param  array $roles
      * @return void
      */
     public function createWithRoles($data, $roles)
@@ -111,12 +111,12 @@ class SentinelUserRepository implements UserRepository
             return $user->delete();
         };
 
-        throw new UserNotFoundException;
+        throw new UserNotFoundException();
     }
 
     /**
      * Find a user by its credentials
-     * @param array $credentials
+     * @param  array $credentials
      * @return mixed
      */
     public function findByCredentials(array $credentials)

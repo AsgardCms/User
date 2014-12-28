@@ -47,7 +47,7 @@ class RolesController extends BaseUserModuleController
     /**
      * Store a newly created resource in storage.
      *
-     * @param RolesRequest $request
+     * @param  RolesRequest $request
      * @return Response
      */
     public function store(RolesRequest $request)
@@ -57,19 +57,21 @@ class RolesController extends BaseUserModuleController
         $this->role->create($data);
 
         Flash::success(trans('user::messages.role created'));
+
         return Redirect::route('dashboard.role.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param  int      $id
      * @return Response
      */
     public function edit($id)
     {
         if (!$role = $this->role->find($id)) {
             Flash::error(trans('user::messages.role not found'));
+
             return Redirect::to('user::admin.roles.index');
         }
 
@@ -79,8 +81,8 @@ class RolesController extends BaseUserModuleController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
-     * @param RolesRequest $request
+     * @param  int          $id
+     * @param  RolesRequest $request
      * @return Response
      */
     public function update($id, RolesRequest $request)
@@ -90,13 +92,14 @@ class RolesController extends BaseUserModuleController
         $this->role->update($id, $data);
 
         Flash::success(trans('user::messages.role updated'));
+
         return Redirect::route('dashboard.role.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int      $id
      * @return Response
      */
     public function destroy($id)
@@ -104,7 +107,7 @@ class RolesController extends BaseUserModuleController
         $this->role->delete($id);
 
         Flash::success(trans('user::messages.role deleted'));
+
         return Redirect::route('dashboard.role.index');
     }
-
 }

@@ -76,7 +76,7 @@
                                 <div class="form-group">
                                     <label>{{ trans('user::users.tabs.roles') }}</label>
                                     <select multiple="" class="form-control" name="roles[]">
-                                        <?php foreach($roles as $role): ?>
+                                        <?php foreach ($roles as $role): ?>
                                             <option value="{{ $role->id }}">{{ $role->name }}</option>
                                         <?php endforeach; ?>
                                     </select>

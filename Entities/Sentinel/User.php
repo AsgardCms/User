@@ -13,7 +13,7 @@ class User extends EloquentUser implements UserInterface
         'password',
         'permissions',
         'first_name',
-        'last_name'
+        'last_name',
     ];
 
     protected $presenter = 'Modules\User\Presenters\UserPresenter';

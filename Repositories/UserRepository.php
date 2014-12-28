@@ -14,15 +14,15 @@ interface UserRepository
 
     /**
      * Create a user resource
-     * @param array $data
+     * @param  array $data
      * @return mixed
      */
     public function create(array $data);
 
     /**
      * Create a user and assign roles to it
-     * @param array $data
-     * @param array $roles
+     * @param  array $data
+     * @param  array $roles
      * @return void
      */
     public function createWithRoles($data, $roles);
@@ -44,7 +44,7 @@ interface UserRepository
 
     /**
      * Update a user and sync its roles
-     * @param int $userId
+     * @param  int   $userId
      * @param $data
      * @param $roles
      * @return mixed
@@ -60,7 +60,7 @@ interface UserRepository
 
     /**
      * Find a user by its credentials
-     * @param array $credentials
+     * @param  array $credentials
      * @return mixed
      */
     public function findByCredentials(array $credentials);

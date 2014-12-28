@@ -22,7 +22,7 @@ class SentinelUserSeedTableSeeder extends Seeder
                 'email' => 'n.widart@gmail.com',
                 'password' => 'test',
                 'first_name' => 'Nicolas',
-                'last_name' => 'Widart'
+                'last_name' => 'Widart',
             ]
         );
         // Activate the admin directly
@@ -35,5 +35,4 @@ class SentinelUserSeedTableSeeder extends Seeder
         // Assign the group to the user
         $adminGroup->users()->attach($user);
     }
-
 }

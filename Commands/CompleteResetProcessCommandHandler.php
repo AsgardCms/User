@@ -39,7 +39,7 @@ class CompleteResetProcessCommandHandler implements CommandHandler
         $user = $this->findUser();
 
         if (!$this->auth->completeResetPassword($user, $this->input->code, $this->input->password)) {
-            throw new InvalidOrExpiredResetCode;
+            throw new InvalidOrExpiredResetCode();
         }
 
         return $user;
@@ -52,6 +52,6 @@ class CompleteResetProcessCommandHandler implements CommandHandler
             return $user;
         }
 
-        throw new UserNotFoundException;
+        throw new UserNotFoundException();
     }
 }

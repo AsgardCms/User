@@ -17,7 +17,7 @@ class SentryUserRepository implements UserRepository
 
     /**
      * Create a user resource
-     * @param array $data
+     * @param  array $data
      * @return mixed
      */
     public function create(array $data)
@@ -29,7 +29,7 @@ class SentryUserRepository implements UserRepository
      * Create a user and assign roles to it
      * @param array $data
      * @param array $roles
-     * @param bool $activated
+     * @param bool  $activated
      */
     public function createWithRoles($data, $roles, $activated = false)
     {
@@ -67,7 +67,7 @@ class SentryUserRepository implements UserRepository
 
     /**
      * Update a user and sync its roles
-     * @param int $userId
+     * @param  int   $userId
      * @param $data
      * @param $roles
      * @return mixed
@@ -111,12 +111,12 @@ class SentryUserRepository implements UserRepository
         if ($user = Sentry::findUserById($id)) {
             return $user->delete();
         };
-        throw new UserNotFoundException;
+        throw new UserNotFoundException();
     }
 
     /**
      * Find a user by its credentials
-     * @param array $credentials
+     * @param  array $credentials
      * @return mixed
      */
     public function findByCredentials(array $credentials)

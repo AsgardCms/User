@@ -97,9 +97,8 @@ class SentinelGroupSeedTableSeeder extends Seeder
 
         $group = Sentinel::findRoleBySlug('user');
         $group->permissions = [
-            'dashboard.index' => true
+            'dashboard.index' => true,
         ];
         $group->save();
     }
-
 }

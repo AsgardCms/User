@@ -11,8 +11,7 @@ class SendResetCodeEmail extends EventListener
         $user = $event->user;
         $code = $event->code;
 
-        Mail::queue('user::emails.reminder', compact('user', 'code'), function(Message $m) use ($user)
-        {
+        Mail::queue('user::emails.reminder', compact('user', 'code'), function (Message $m) use ($user) {
             $m->to($user->email)->subject('Reset your account password.');
         });
     }

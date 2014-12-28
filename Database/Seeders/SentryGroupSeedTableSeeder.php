@@ -85,7 +85,5 @@ class SentryGroupSeedTableSeeder extends Seeder
                 'dashboard.index' => 1,
             ],
         ));
-
     }
-
 }

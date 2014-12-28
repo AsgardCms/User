@@ -16,7 +16,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
                 'route' => '#',
                 'icon-class' => 'fa fa-user',
                 'title' => 'Users & Roles',
-                'permission' => $this->auth->hasAccess('users.index') or $this->auth->hasAccess('roles.index')
+                'permission' => $this->auth->hasAccess('users.index') or $this->auth->hasAccess('roles.index'),
             ],
             [
                 'request' => "*/{$view->prefix}/users*",
@@ -31,7 +31,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
                 'icon-class' => 'fa fa-flag-o',
                 'title' => 'Roles',
                 'permission' => $this->auth->hasAccess('roles.index')
-            ]
+            ],
         ]));
     }
 }

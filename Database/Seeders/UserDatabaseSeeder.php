@@ -16,5 +16,4 @@ class UserDatabaseSeeder extends Seeder
 
         $this->call("Modules\\User\\Database\\Seeders\\SentinelGroupSeedTableSeeder");
     }
-
 }

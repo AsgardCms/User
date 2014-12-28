@@ -25,10 +25,10 @@ class SendRegistrationConfirmationEmail extends EventListener
 
         $data = [
             'user' => $user,
-            'activationcode' => $activation->code
+            'activationcode' => $activation->code,
         ];
 
-        Mail::queue('user::emails.welcome',$data,
+        Mail::queue('user::emails.welcome', $data,
             function (Message $m) use ($user) {
                 $m->to($user->email)->subject('Welcome.');
             }

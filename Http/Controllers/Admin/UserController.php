@@ -68,7 +68,7 @@ class UserController extends BaseUserModuleController
     /**
      * Store a newly created resource in storage.
      *
-     * @param CreateUserRequest $request
+     * @param  CreateUserRequest $request
      * @return Response
      */
     public function store(CreateUserRequest $request)
@@ -78,19 +78,21 @@ class UserController extends BaseUserModuleController
         $this->user->createWithRoles($data, $request->roles, true);
 
         Flash::success(trans('user::messages.user created'));
+
         return Redirect::route('dashboard.user.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int      $id
      * @return Response
      */
     public function edit($id)
     {
         if (!$user = $this->user->find($id)) {
             Flash::error(trans('user::messages.user not found'));
+
             return Redirect::route('dashboard.user.index');
         }
         $roles = $this->role->all();
@@ -101,8 +103,8 @@ class UserController extends BaseUserModuleController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
-     * @param UpdateUserRequest $request
+     * @param  int               $id
+     * @param  UpdateUserRequest $request
      * @return Response
      */
     public function update($id, UpdateUserRequest $request)
@@ -112,13 +114,14 @@ class UserController extends BaseUserModuleController
         $this->user->updateAndSyncRoles($id, $data, $request->roles);
 
         Flash::success(trans('user::messages.user updated'));
+
         return Redirect::route('dashboard.user.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int      $id
      * @return Response
      */
     public function destroy($id)
@@ -126,7 +129,7 @@ class UserController extends BaseUserModuleController
         $this->user->delete($id);
 
         Flash::success(trans('user::messages.user deleted'));
+
         return Redirect::route('dashboard.user.index');
     }
-
 }

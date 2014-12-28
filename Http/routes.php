@@ -2,10 +2,8 @@
 
 use Illuminate\Routing\Router;
 
-$router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|auth.admin|permissions'], function(Router $router)
-{
-    $router->group(['prefix' => Config::get('core::core.admin-prefix'), 'namespace' => 'Modules\User\Http\Controllers'], function(Router $router)
-    {
+$router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|auth.admin|permissions'], function (Router $router) {
+    $router->group(['prefix' => Config::get('core::core.admin-prefix'), 'namespace' => 'Modules\User\Http\Controllers'], function (Router $router) {
         $router->resource('users', 'Admin\UserController', ['except' => ['show'], 'names' => [
                 'index' => 'dashboard.user.index',
                 'create' => 'dashboard.user.create',
@@ -25,8 +23,7 @@ $router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'Larav
     });
 });
 
-$router->group(['prefix' => 'auth', 'namespace' => 'Modules\User\Http\Controllers'], function(Router $router)
-{
+$router->group(['prefix' => 'auth', 'namespace' => 'Modules\User\Http\Controllers'], function (Router $router) {
     # Login
     $router->get('login', ['before' => 'auth.guest', 'as' => 'login', 'uses' => 'AuthController@getLogin']);
     $router->post('login', array('as' => 'login.post', 'uses' => 'AuthController@postLogin'));

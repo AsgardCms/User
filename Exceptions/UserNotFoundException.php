@@ -4,5 +4,4 @@ use Exception;
 
 class UserNotFoundException extends Exception
 {
-
 }

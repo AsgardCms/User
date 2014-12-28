@@ -4,7 +4,7 @@ interface UserInterface
 {
     /**
      * Checks if a user belongs to the given Role ID
-     * @param int $roleId
+     * @param  int  $roleId
      * @return bool
      */
     public function hasRole($roleId);

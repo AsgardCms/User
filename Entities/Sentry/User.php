@@ -14,7 +14,7 @@ class User extends SentryModel implements UserInterface
         'password',
         'permissions',
         'first_name',
-        'last_name'
+        'last_name',
     ];
 
     protected $presenter = 'Modules\User\Presenters\UserPresenter';
@@ -26,7 +26,7 @@ class User extends SentryModel implements UserInterface
 
     /**
      * Checks if a user belongs to the given Role ID
-     * @param int $roleId
+     * @param  int  $roleId
      * @return bool
      */
     public function hasRole($roleId)

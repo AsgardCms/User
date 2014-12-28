@@ -2,7 +2,7 @@
 
 return [
     'button' => [
-        'new-role'=> 'New role'
+        'new-role' => 'New role',
     ],
     'title' => [
         'roles' => 'Roles',
@@ -15,14 +15,14 @@ return [
         'edit' => 'Edit role',
     ],
     'table' => [
-        'name' => 'Name'
+        'name' => 'Name',
     ],
     'tabs' => [
         'data' => 'Data',
-        'permissions' => 'Permissions'
+        'permissions' => 'Permissions',
     ],
     'form' => [
         'name' => 'Role name',
-        'slug' => 'Role slug'
+        'slug' => 'Role slug',
     ],
 ];

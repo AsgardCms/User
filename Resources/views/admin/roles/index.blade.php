@@ -35,7 +35,7 @@
                     </thead>
                     <tbody>
                     <?php if (isset($roles)): ?>
-                        <?php foreach($roles as $role): ?>
+                        <?php foreach ($roles as $role): ?>
                             <tr>
                                 <td>
                                     <a href="{{ URL::route('dashboard.role.edit', [$role->id]) }}">
@@ -74,7 +74,7 @@
 </div>
 
 <?php if (isset($roles)): ?>
-    <?php foreach($roles as $role): ?>
+    <?php foreach ($roles as $role): ?>
     <!-- Modal -->
     <div class="modal fade" id="confirmation-{{ $role->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
