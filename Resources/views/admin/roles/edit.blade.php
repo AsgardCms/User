@@ -6,7 +6,7 @@
 </h1>
 <ol class="breadcrumb">
     <li><a href="{{ URL::route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
-    <li class=""><a href="{{ URL::route('dashboard.role.index') }}">{{ trans('user::roles.breadcrumb.roles') }}</a></li>
+    <li class=""><a href="{{ URL::route('admin.user.role.index') }}">{{ trans('user::roles.breadcrumb.roles') }}</a></li>
     <li class="active">{{ trans('user::roles.breadcrumb.edit') }}</li>
 </ol>
 @stop
@@ -16,7 +16,7 @@
 @stop
 
 @section('content')
-{!! Form::open(['route' => ['dashboard.role.update', $role->id], 'method' => 'put']) !!}
+{!! Form::open(['route' => ['admin.user.role.update', $role->id], 'method' => 'put']) !!}
 <div class="row">
     <div class="col-md-12">
         <div class="nav-tabs-custom">
@@ -57,7 +57,7 @@
                                 <ul>
                                     <?php foreach ($role->users()->get() as $user): ?>
                                         <li>
-                                            <a href="{{ URL::route('dashboard.user.edit', [$user->id]) }}">{{ $user->present()->fullname() }}</a>
+                                            <a href="{{ URL::route('admin.user.user.edit', [$user->id]) }}">{{ $user->present()->fullname() }}</a>
                                         </li>
                                     <?php endforeach; ?>
                                 </ul>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary btn-flat">{{ trans('user::button.update') }}</button>
-                    <a class="btn btn-danger pull-right btn-flat" href="{{ URL::route('dashboard.role.index')}}"><i class="fa fa-times"></i> {{ trans('user::button.cancel') }}</a>
+                    <a class="btn btn-danger pull-right btn-flat" href="{{ URL::route('admin.user.role.index')}}"><i class="fa fa-times"></i> {{ trans('user::button.cancel') }}</a>
                 </div>
             </div><!-- /.tab-content -->
         </div>

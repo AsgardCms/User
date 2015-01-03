@@ -58,7 +58,7 @@ class RolesController extends BaseUserModuleController
 
         Flash::success(trans('user::messages.role created'));
 
-        return Redirect::route('dashboard.role.index');
+        return Redirect::route('admin.user.role.index');
     }
 
     /**
@@ -93,7 +93,7 @@ class RolesController extends BaseUserModuleController
 
         Flash::success(trans('user::messages.role updated'));
 
-        return Redirect::route('dashboard.role.index');
+        return Redirect::route('admin.user.role.index');
     }
 
     /**
@@ -108,6 +108,6 @@ class RolesController extends BaseUserModuleController
 
         Flash::success(trans('user::messages.role deleted'));
 
-        return Redirect::route('dashboard.role.index');
+        return Redirect::route('admin.user.role.index');
     }
 }

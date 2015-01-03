@@ -79,7 +79,7 @@ class UserController extends BaseUserModuleController
 
         Flash::success(trans('user::messages.user created'));
 
-        return Redirect::route('dashboard.user.index');
+        return Redirect::route('admin.user.user.index');
     }
 
     /**
@@ -93,7 +93,7 @@ class UserController extends BaseUserModuleController
         if (!$user = $this->user->find($id)) {
             Flash::error(trans('user::messages.user not found'));
 
-            return Redirect::route('dashboard.user.index');
+            return Redirect::route('admin.user.user.index');
         }
         $roles = $this->role->all();
 
@@ -115,7 +115,7 @@ class UserController extends BaseUserModuleController
 
         Flash::success(trans('user::messages.user updated'));
 
-        return Redirect::route('dashboard.user.index');
+        return Redirect::route('admin.user.user.index');
     }
 
     /**
@@ -130,6 +130,6 @@ class UserController extends BaseUserModuleController
 
         Flash::success(trans('user::messages.user deleted'));
 
-        return Redirect::route('dashboard.user.index');
+        return Redirect::route('admin.user.user.index');
     }
 }

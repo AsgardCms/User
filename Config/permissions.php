@@ -1,6 +1,6 @@
 <?php
 return [
-    'users' => [
+    'user.users' => [
         'index',
         'create',
         'store',
@@ -8,7 +8,7 @@ return [
         'update',
         'destroy',
     ],
-    'roles' => [
+    'user.roles' => [
         'index',
         'create',
         'store',

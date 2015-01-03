@@ -3,22 +3,22 @@
 use Illuminate\Routing\Router;
 
 $router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|auth.admin|permissions'], function (Router $router) {
-    $router->group(['prefix' => Config::get('core::core.admin-prefix'), 'namespace' => 'Modules\User\Http\Controllers'], function (Router $router) {
+    $router->group(['prefix' => Config::get('core::core.admin-prefix') . '/user', 'namespace' => 'Modules\User\Http\Controllers'], function (Router $router) {
         $router->resource('users', 'Admin\UserController', ['except' => ['show'], 'names' => [
-                'index' => 'dashboard.user.index',
-                'create' => 'dashboard.user.create',
-                'store' => 'dashboard.user.store',
-                'edit' => 'dashboard.user.edit',
-                'update' => 'dashboard.user.update',
-                'destroy' => 'dashboard.user.destroy',
+                'index' => 'admin.user.user.index',
+                'create' => 'admin.user.user.create',
+                'store' => 'admin.user.user.store',
+                'edit' => 'admin.user.user.edit',
+                'update' => 'admin.user.user.update',
+                'destroy' => 'admin.user.user.destroy',
             ]]);
         $router->resource('roles', 'Admin\RolesController', ['except' => ['show'], 'names' => [
-            'index' => 'dashboard.role.index',
-            'create' => 'dashboard.role.create',
-            'store' => 'dashboard.role.store',
-            'edit' => 'dashboard.role.edit',
-            'update' => 'dashboard.role.update',
-            'destroy' => 'dashboard.role.destroy',
+            'index' => 'admin.user.role.index',
+            'create' => 'admin.user.role.create',
+            'store' => 'admin.user.role.store',
+            'edit' => 'admin.user.role.edit',
+            'update' => 'admin.user.role.update',
+            'destroy' => 'admin.user.role.destroy',
         ]]);
     });
 });
