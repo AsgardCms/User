@@ -1,13 +1,12 @@
 <?php namespace Modules\User\Commands;
 
 use Illuminate\Support\Facades\Event;
-use Laracasts\Commander\CommandHandler;
 use Modules\User\Events\UserHasBegunResetProcess;
 use Modules\User\Exceptions\UserNotFoundException;
 use Modules\User\Repositories\AuthenticationRepository;
 use Modules\User\Repositories\UserRepository;
 
-class BeginResetProcessCommandHandler implements CommandHandler
+class BeginResetProcessCommandHandler
 {
     /**
      * @var UserRepository

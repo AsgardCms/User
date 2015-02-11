@@ -1,12 +1,11 @@
 <?php namespace Modules\User\Commands;
 
 use Illuminate\Support\Facades\Event;
-use Laracasts\Commander\CommandHandler;
 use Modules\User\Events\UserHasRegistered;
 use Modules\User\Repositories\AuthenticationRepository;
 use Modules\User\Repositories\RoleRepository;
 
-class RegisterNewUserCommandHandler implements CommandHandler
+class RegisterNewUserCommandHandler
 {
     protected $input;
 
