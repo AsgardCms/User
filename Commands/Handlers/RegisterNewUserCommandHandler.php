@@ -1,4 +1,4 @@
-<?php namespace Modules\User\Commands;
+<?php namespace Modules\User\Commands\Handlers;
 
 use Illuminate\Support\Facades\Event;
 use Modules\User\Events\UserHasRegistered;

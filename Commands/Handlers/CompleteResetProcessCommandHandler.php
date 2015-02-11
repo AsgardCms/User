@@ -1,4 +1,4 @@
-<?php namespace Modules\User\Commands;
+<?php namespace Modules\User\Commands\Handlers;
 
 use Modules\User\Exceptions\InvalidOrExpiredResetCode;
 use Modules\User\Exceptions\UserNotFoundException;
