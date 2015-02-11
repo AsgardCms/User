@@ -1,8 +1,8 @@
 <?php namespace Modules\User\Database\Seeders;
 
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
 class SentinelGroupSeedTableSeeder extends Seeder
 {

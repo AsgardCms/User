@@ -1,8 +1,6 @@
 <?php namespace Modules\User\Http\Middleware;
 
-use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Closure;
-use Illuminate\Contracts\Routing\Middleware;
 use Illuminate\Support\Facades\Redirect;
 use Modules\Core\Contracts\Authentication;
 

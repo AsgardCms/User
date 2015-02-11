@@ -1,8 +1,8 @@
 <?php namespace Modules\User\Repositories\Sentry;
 
-use Modules\User\Repositories\UserRepository;
 use Cartalyst\Sentry\Facades\Laravel\Sentry;
 use Cartalyst\Sentry\Users\UserNotFoundException;
+use Modules\User\Repositories\UserRepository;
 
 class SentryUserRepository implements UserRepository
 {

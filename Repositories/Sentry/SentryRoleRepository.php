@@ -1,7 +1,7 @@
 <?php namespace Modules\User\Repositories\Sentry;
 
-use Modules\User\Repositories\RoleRepository;
 use Cartalyst\Sentry\Facades\Laravel\Sentry;
+use Modules\User\Repositories\RoleRepository;
 
 class SentryRoleRepository implements RoleRepository
 {

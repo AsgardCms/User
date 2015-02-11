@@ -27,9 +27,9 @@ class UserServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->booted(function ($app) {
-			$this->registerMiddleware($app['router']);
-			$this->registerBindings();
-		});
+            $this->registerMiddleware($app['router']);
+            $this->registerBindings();
+        });
     }
 
     /**
@@ -37,8 +37,7 @@ class UserServiceProvider extends ServiceProvider
      */
     public function boot(Dispatcher $dispatcher)
     {
-        $dispatcher->mapUsing(function($command)
-        {
+        $dispatcher->mapUsing(function ($command) {
             return Dispatcher::simpleMapping(
                 $command, 'Modules\User\Commands', 'Modules\User\Commands\Handlers'
             );
@@ -55,21 +54,21 @@ class UserServiceProvider extends ServiceProvider
         return array();
     }
 
-	private function registerBindings()
-	{
-		$this->app->bind(
-			'Modules\User\Repositories\UserRepository',
-			'Modules\User\Repositories\Sentinel\SentinelUserRepository'
-		);
-		$this->app->bind(
-			'Modules\User\Repositories\RoleRepository',
-			'Modules\User\Repositories\Sentinel\SentinelRoleRepository'
-		);
+    private function registerBindings()
+    {
+        $this->app->bind(
+            'Modules\User\Repositories\UserRepository',
+            'Modules\User\Repositories\Sentinel\SentinelUserRepository'
+        );
+        $this->app->bind(
+            'Modules\User\Repositories\RoleRepository',
+            'Modules\User\Repositories\Sentinel\SentinelRoleRepository'
+        );
         $this->app->bind(
             'Modules\Core\Contracts\Authentication',
             'Modules\User\Repositories\Sentinel\SentinelAuthentication'
         );
-	}
+    }
 
     private function registerMiddleware($router)
     {

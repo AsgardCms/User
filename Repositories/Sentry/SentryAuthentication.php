@@ -1,5 +1,6 @@
 <?php namespace Modules\User\Repositories\Sentry;
 
+use Cartalyst\Sentry\Facades\Laravel\Sentry;
 use Cartalyst\Sentry\Throttling\UserBannedException;
 use Cartalyst\Sentry\Throttling\UserSuspendedException;
 use Cartalyst\Sentry\Users\LoginRequiredException;
@@ -8,7 +9,6 @@ use Cartalyst\Sentry\Users\UserNotActivatedException;
 use Cartalyst\Sentry\Users\UserNotFoundException;
 use Cartalyst\Sentry\Users\WrongPasswordException;
 use Modules\Core\Contracts\Authentication;
-use Cartalyst\Sentry\Facades\Laravel\Sentry;
 
 class SentryAuthentication implements Authentication
 {

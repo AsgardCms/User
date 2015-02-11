@@ -20,4 +20,3 @@ $router->group(['prefix' => '/user'], function (Router $router) {
         'destroy' => 'admin.user.role.destroy',
     ]]);
 });
-

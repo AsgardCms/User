@@ -1,8 +1,8 @@
 <?php namespace Modules\User\Database\Seeders;
 
 use Cartalyst\Sentry\Facades\Laravel\Sentry;
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
 class SentryGroupSeedTableSeeder extends Seeder
 {

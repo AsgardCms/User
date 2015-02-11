@@ -1,6 +1,5 @@
 <?php namespace Modules\User\Providers;
 
-use Illuminate\Routing\Router;
 use Modules\Core\Providers\RoutingServiceProvider as CoreRoutingServiceProvider;
 
 class RouteServiceProvider extends CoreRoutingServiceProvider
