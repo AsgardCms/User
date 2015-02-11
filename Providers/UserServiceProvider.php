@@ -1,5 +1,6 @@
 <?php namespace Modules\User\Providers;
 
+use Illuminate\Bus\Dispatcher;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
@@ -43,6 +44,19 @@ class UserServiceProvider extends ServiceProvider
 			$this->registerMiddleware($app['router']);
 			$this->registerBindings();
 		});
+    }
+
+    /**
+     * @param Dispatcher $dispatcher
+     */
+    public function boot(Dispatcher $dispatcher)
+    {
+        $dispatcher->mapUsing(function($command)
+        {
+            return Dispatcher::simpleMapping(
+                $command, 'Modules\User\Commands', 'Modules\User\Commands\Handlers'
+            );
+        });
     }
 
     /**
