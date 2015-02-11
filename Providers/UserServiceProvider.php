@@ -13,22 +13,9 @@ class UserServiceProvider extends ServiceProvider
      */
     protected $defer = false;
 
-    /**
-     * The filters base class name.
-     *
-     * @var array
-     */
-    protected $filters = [
-        'Core' => [
-            'permissions' => 'PermissionFilter'
-        ],
-        'User' => [
-            'auth.guest' => 'GuestFilter'
-        ]
-    ];
     protected $middleware = [
         'User' => [
-            'auth.guest' => 'GuestFilter'
+            'auth.guest' => 'GuestMiddleware'
         ]
     ];
 
@@ -40,7 +27,6 @@ class UserServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->booted(function ($app) {
-			$this->registerFilters($app['router']);
 			$this->registerMiddleware($app['router']);
 			$this->registerBindings();
 		});
@@ -67,23 +53,6 @@ class UserServiceProvider extends ServiceProvider
     public function provides()
     {
         return array();
-    }
-
-    /**
-     * Register the filters.
-     *
-     * @param  Router $router
-     * @return void
-     */
-    public function registerFilters(Router $router)
-    {
-        foreach ($this->filters as $module => $filters) {
-            foreach ($filters as $name => $filter) {
-                $class = "Modules\\{$module}\\Http\\Filters\\{$filter}";
-
-                $router->filter($name, $class);
-            }
-        }
     }
 
 	private function registerBindings()

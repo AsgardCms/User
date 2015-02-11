@@ -4,9 +4,20 @@ use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Closure;
 use Illuminate\Contracts\Routing\Middleware;
 use Illuminate\Support\Facades\Redirect;
+use Modules\Core\Contracts\Authentication;
 
-class GuestMiddleware implements Middleware
+class GuestMiddleware
 {
+    /**
+     * @var Authentication
+     */
+    private $auth;
+
+    public function __construct(Authentication $auth)
+    {
+        $this->auth = $auth;
+    }
+
     /**
      * Handle an incoming request.
      *
@@ -14,11 +25,12 @@ class GuestMiddleware implements Middleware
      * @param  \Closure                 $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, \Closure $next)
     {
-        dd('ok?');
-        if (Sentinel::check()) {
+        if ($this->auth->check()) {
             return Redirect::route('dashboard.index');
         }
+
+        return $next($request);
     }
 }
