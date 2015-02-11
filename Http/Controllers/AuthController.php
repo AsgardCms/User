@@ -1,8 +1,8 @@
 <?php namespace Modules\User\Http\Controllers;
 
+use Barryvdh\Debugbar\Controllers\BaseController;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
-use Laracasts\Commander\CommanderTrait;
 use Laracasts\Flash\Flash;
 use Modules\Core\Contracts\Authentication;
 use Modules\User\Exceptions\InvalidOrExpiredResetCode;
@@ -12,10 +12,8 @@ use Modules\User\Http\Requests\RegisterRequest;
 use Modules\User\Http\Requests\ResetCompleteRequest;
 use Modules\User\Http\Requests\ResetRequest;
 
-class AuthController
+class AuthController extends BaseController
 {
-    use CommanderTrait;
-
     /**
      * @var AuthenticationRepository
      */
