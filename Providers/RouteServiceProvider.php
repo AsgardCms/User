@@ -1,46 +1,30 @@
 <?php namespace Modules\User\Providers;
 
 use Illuminate\Routing\Router;
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Modules\Core\Providers\RoutingServiceProvider as CoreRoutingServiceProvider;
 
-class RouteServiceProvider extends ServiceProvider
+class RouteServiceProvider extends CoreRoutingServiceProvider
 {
     /**
      * The root namespace to assume when generating URLs to actions.
      *
      * @var string
      */
-    protected $rootUrlNamespace = 'Modules\User\Http\Controllers';
+    protected $namespace = 'Modules\User\Http\Controllers';
 
     /**
-     * The controllers to scan for route annotations.
-     *
-     * @var array
+     * @return string
      */
-    protected $scan = [
-        'Modules\User\Http\Controllers',
-    ];
-
-    /**
-     * Called before routes are registered.
-     *
-     * Register any model bindings or pattern based filters.
-     *
-     * @param  Router $router
-     * @return void
-     */
-    public function before(Router $router)
+    protected function getFrontendRoute()
     {
-        //
+        return false;
     }
 
     /**
-     * Define the routes for the application.
-     *
-     * @return void
+     * @return string
      */
-    public function map(Router $router)
+    protected function getBackendRoute()
     {
-        require __DIR__.'/../Http/routes.php';
+        return __DIR__ . '/../Http/backendRoutes.php';
     }
 }
