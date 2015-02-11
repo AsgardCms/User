@@ -1,6 +1,7 @@
 <?php namespace Modules\User\Http\Controllers;
 
 use Barryvdh\Debugbar\Controllers\BaseController;
+use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Laracasts\Flash\Flash;
@@ -14,6 +15,7 @@ use Modules\User\Http\Requests\ResetRequest;
 
 class AuthController extends BaseController
 {
+    use DispatchesCommands;
     /**
      * @var AuthenticationRepository
      */
@@ -56,7 +58,7 @@ class AuthController extends BaseController
 
     public function postRegister(RegisterRequest $request)
     {
-        $this->execute('Modules\User\Commands\RegisterNewUserCommand', $request->all());
+        $this->dispatchFrom('Modules\User\Commands\RegisterNewUserCommand', $request);
 
         Flash::success(trans('user::messages.account created check email for activation'));
 
@@ -90,7 +92,7 @@ class AuthController extends BaseController
     public function postReset(ResetRequest $request)
     {
         try {
-            $this->execute('Modules\User\Commands\BeginResetProcessCommand', $request->all());
+            $this->dispatchFrom('Modules\User\Commands\BeginResetProcessCommand', $request);
         } catch (UserNotFoundException $e) {
             Flash::error(trans('user::messages.no user found'));
 
@@ -110,7 +112,7 @@ class AuthController extends BaseController
     public function postResetComplete($userId, $code, ResetCompleteRequest $request)
     {
         try {
-            $this->execute(
+            $this->dispatchFromArray(
                 'Modules\User\Commands\CompleteResetProcessCommand',
                 array_merge($request->all(), ['userId' => $userId, 'code' => $code])
             );
