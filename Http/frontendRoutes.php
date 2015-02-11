@@ -4,10 +4,10 @@ use Illuminate\Routing\Router;
 
 $router->group(['prefix' => 'auth'], function (Router $router) {
     # Login
-    $router->get('login', ['before' => 'auth.guest', 'as' => 'login', 'uses' => 'AuthController@getLogin']);
+    $router->get('login', ['middleware' => 'auth.guest', 'as' => 'login', 'uses' => 'AuthController@getLogin']);
     $router->post('login', array('as' => 'login.post', 'uses' => 'AuthController@postLogin'));
     # Register
-    $router->get('register', ['before' => 'auth.guest', 'as' => 'register', 'uses' => 'AuthController@getRegister']);
+    $router->get('register', ['middleware' => 'auth.guest', 'as' => 'register', 'uses' => 'AuthController@getRegister']);
     $router->post('register', array('as' => 'register.post', 'uses' => 'AuthController@postRegister'));
     # Account Activation
     $router->get('activate/{userId}/{activationCode}', 'AuthController@getActivate');
