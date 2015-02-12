@@ -1,15 +1,21 @@
 {
-    "name": "User",
-    "alias": "user",
-    "description": "",
-    "keywords": [],
-    "active": 1,
-    "priority": 1,
-    "providers": [
-        "Modules\\User\\Providers\\UserServiceProvider",
-        "Modules\\User\\Providers\\RouteServiceProvider"
-    ],
-    "files": [
-        "start.php"
-    ]
+  "name": "User",
+  "alias": "user",
+  "description": "",
+  "keywords": [],
+  "active": 1,
+  "priority": 1,
+  "providers": [
+    "Modules\\User\\Providers\\UserServiceProvider",
+    "Modules\\User\\Providers\\RouteServiceProvider"
+  ],
+  "aliases": {
+    "Sentinel": "Cartalyst\\Sentinel\\Laravel\\Facades\\Sentinel",
+    "Sentry": "Cartalyst\\Sentry\\Facades\\Laravel\\Sentry",
+    "Activation": "Cartalyst\\Sentinel\\Laravel\\Facades\\Activation",
+    "Reminder": "Cartalyst\\Sentinel\\Laravel\\Facades\\Reminder"
+  },
+  "files": [
+    "start.php"
+  ]
 }

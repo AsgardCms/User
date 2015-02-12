@@ -13,6 +13,17 @@ class UserServiceProvider extends ServiceProvider
      */
     protected $defer = false;
 
+    /**
+     * @var array
+     */
+    protected $providers = [
+        'Sentinel' => 'Cartalyst\\Sentinel\\Laravel\\SentinelServiceProvider',
+        'Sentry'   => 'Cartalyst\\Sentry\\SentryServiceProvider'
+    ];
+
+    /**
+     * @var array
+     */
     protected $middleware = [
         'User' => [
             'auth.guest' => 'GuestMiddleware'
@@ -37,6 +48,10 @@ class UserServiceProvider extends ServiceProvider
      */
     public function boot(Dispatcher $dispatcher)
     {
+        $this->app->register(
+            $this->getUserPackageServiceProvider()
+        );
+
         $dispatcher->mapUsing(function ($command) {
             return Dispatcher::simpleMapping(
                 $command, 'Modules\User\Commands', 'Modules\User\Commands\Handlers'
@@ -81,5 +96,16 @@ class UserServiceProvider extends ServiceProvider
                 $router->middleware($name, $class);
             }
         }
+    }
+
+    private function getUserPackageServiceProvider()
+    {
+        $driver = config('asgard.user.users.driver', 'Sentry');
+
+        if(!isset($this->providers[$driver])) {
+            throw new \Exception("Driver [{$driver}] does not exist");
+        }
+
+        return $this->providers[$driver];
     }
 }
