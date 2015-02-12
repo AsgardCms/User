@@ -54,8 +54,8 @@ class UserServiceProvider extends ServiceProvider
         return array();
     }
 
-	private function registerBindings()
-	{
+    private function registerBindings()
+    {
         $driver = config('asgard.user.users.driver', 'Sentry');
 
         $this->app->bind(
