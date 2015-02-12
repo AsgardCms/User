@@ -54,19 +54,21 @@ class UserServiceProvider extends ServiceProvider
         return array();
     }
 
-    private function registerBindings()
-    {
+	private function registerBindings()
+	{
+        $driver = config('asgard.user.users.driver', 'Sentry');
+
         $this->app->bind(
             'Modules\User\Repositories\UserRepository',
-            'Modules\User\Repositories\Sentinel\SentinelUserRepository'
+            "Modules\\User\\Repositories\\{$driver}\\{$driver}UserRepository"
         );
         $this->app->bind(
             'Modules\User\Repositories\RoleRepository',
-            'Modules\User\Repositories\Sentinel\SentinelRoleRepository'
+            "Modules\\User\\Repositories\\{$driver}\\{$driver}RoleRepository"
         );
         $this->app->bind(
             'Modules\Core\Contracts\Authentication',
-            'Modules\User\Repositories\Sentinel\SentinelAuthentication'
+            "Modules\\User\\Repositories\\{$driver}\\{$driver}Authentication"
         );
     }
 
