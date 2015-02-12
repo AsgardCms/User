@@ -18,7 +18,7 @@ class UserServiceProvider extends ServiceProvider
      */
     protected $providers = [
         'Sentinel' => 'Cartalyst\\Sentinel\\Laravel\\SentinelServiceProvider',
-        'Sentry'   => 'Cartalyst\\Sentry\\SentryServiceProvider'
+        'Sentry'   => 'Cartalyst\\Sentry\\SentryServiceProvider',
     ];
 
     /**
@@ -26,8 +26,8 @@ class UserServiceProvider extends ServiceProvider
      */
     protected $middleware = [
         'User' => [
-            'auth.guest' => 'GuestMiddleware'
-        ]
+            'auth.guest' => 'GuestMiddleware',
+        ],
     ];
 
     /**
@@ -102,7 +102,7 @@ class UserServiceProvider extends ServiceProvider
     {
         $driver = config('asgard.user.users.driver', 'Sentry');
 
-        if(!isset($this->providers[$driver])) {
+        if (!isset($this->providers[$driver])) {
             throw new \Exception("Driver [{$driver}] does not exist");
         }
 

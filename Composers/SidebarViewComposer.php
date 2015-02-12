@@ -23,14 +23,14 @@ class SidebarViewComposer extends BaseSidebarViewComposer
                 'route' => 'admin.user.user.index',
                 'icon-class' => 'fa fa-user',
                 'title' => 'Users',
-                'permission' => $this->auth->hasAccess('user.users.index')
+                'permission' => $this->auth->hasAccess('user.users.index'),
             ],
             [
                 'request' => "*/{$view->prefix}/user/roles*",
                 'route' => 'admin.user.role.index',
                 'icon-class' => 'fa fa-flag-o',
                 'title' => 'Roles',
-                'permission' => $this->auth->hasAccess('user.roles.index')
+                'permission' => $this->auth->hasAccess('user.roles.index'),
             ],
         ]));
     }

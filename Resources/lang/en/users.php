@@ -33,5 +33,5 @@ return [
         'last-name' => 'Last name',
         'email' => 'Email',
         'actions' => 'Actions',
-    ]
+    ],
 ];
