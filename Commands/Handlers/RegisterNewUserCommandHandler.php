@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Event;
 use Modules\Core\Contracts\Authentication;
 use Modules\User\Events\UserHasRegistered;
-use Modules\User\Repositories\AuthenticationRepository;
 use Modules\User\Repositories\RoleRepository;
 
 class RegisterNewUserCommandHandler
@@ -11,7 +10,7 @@ class RegisterNewUserCommandHandler
     protected $input;
 
     /**
-     * @var AuthenticationRepository
+     * @var Authentication
      */
     private $auth;
     /**

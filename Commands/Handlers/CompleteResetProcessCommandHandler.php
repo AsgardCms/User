@@ -1,8 +1,8 @@
 <?php namespace Modules\User\Commands\Handlers;
 
+use Modules\Core\Contracts\Authentication;
 use Modules\User\Exceptions\InvalidOrExpiredResetCode;
 use Modules\User\Exceptions\UserNotFoundException;
-use Modules\User\Repositories\AuthenticationRepository;
 use Modules\User\Repositories\UserRepository;
 
 class CompleteResetProcessCommandHandler
@@ -13,11 +13,11 @@ class CompleteResetProcessCommandHandler
      */
     private $user;
     /**
-     * @var AuthenticationRepository
+     * @var Authentication
      */
     private $auth;
 
-    public function __construct(UserRepository $user, AuthenticationRepository $auth)
+    public function __construct(UserRepository $user, Authentication $auth)
     {
         $this->user = $user;
         $this->auth = $auth;

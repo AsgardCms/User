@@ -1,9 +1,9 @@
 <?php namespace Modules\User\Commands\Handlers;
 
 use Illuminate\Support\Facades\Event;
+use Modules\Core\Contracts\Authentication;
 use Modules\User\Events\UserHasBegunResetProcess;
 use Modules\User\Exceptions\UserNotFoundException;
-use Modules\User\Repositories\AuthenticationRepository;
 use Modules\User\Repositories\UserRepository;
 
 class BeginResetProcessCommandHandler
@@ -13,11 +13,11 @@ class BeginResetProcessCommandHandler
      */
     private $user;
     /**
-     * @var AuthenticationRepository
+     * @var Authentication
      */
     private $auth;
 
-    public function __construct(UserRepository $user, AuthenticationRepository $auth)
+    public function __construct(UserRepository $user, Authentication $auth)
     {
         $this->user = $user;
         $this->auth = $auth;
