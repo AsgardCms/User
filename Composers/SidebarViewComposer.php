@@ -13,7 +13,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
                 $this->auth->hasAccess('user.users.index') or $this->auth->hasAccess('user.roles.index')
             );
 
-            $group->addItem('users', function($item) {
+            $group->addItem('Users', function($item) {
 
                 $item->addItem('users', function($item) {
                     $item->route('admin.user.user.index');
