@@ -8,6 +8,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
     public function compose(View $view)
     {
         $view->sidebar->group('Users', function($group) {
+            $group->weight = 1;
             $group->authorize(
                 $this->auth->hasAccess('user.users.index') or $this->auth->hasAccess('user.roles.index')
             );
