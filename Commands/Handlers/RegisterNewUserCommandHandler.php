@@ -1,6 +1,7 @@
 <?php namespace Modules\User\Commands\Handlers;
 
 use Illuminate\Support\Facades\Event;
+use Modules\Core\Contracts\Authentication;
 use Modules\User\Events\UserHasRegistered;
 use Modules\User\Repositories\AuthenticationRepository;
 use Modules\User\Repositories\RoleRepository;
@@ -18,7 +19,7 @@ class RegisterNewUserCommandHandler
      */
     private $role;
 
-    public function __construct(AuthenticationRepository $auth, RoleRepository $role)
+    public function __construct(Authentication $auth, RoleRepository $role)
     {
         $this->auth = $auth;
         $this->role = $role;
