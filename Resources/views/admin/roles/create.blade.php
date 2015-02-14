@@ -10,7 +10,7 @@
 @stop
 
 @section('styles')
-<link href="{{{ Module::asset('core:css/vendor/iCheck/flat/blue.css') }}}" rel="stylesheet" type="text/css" />
+    {!! Theme::style('css/vendor/iCheck/flat/blue.css') !!}
 @stop
 
 @section('content')
