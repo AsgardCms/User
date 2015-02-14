@@ -18,6 +18,6 @@ class UserPresenter extends Presenter
 
     public function fullname()
     {
-        return $this->first_name.' '.$this->last_name;
+        return $this->first_name . ' ' . $this->last_name;
     }
 }
