@@ -1,23 +1,23 @@
-<?php namespace Modules\User\Listeners;
+<?php namespace Modules\User\Events\Handlers;
 
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Mail;
-use Laracasts\Commander\Events\EventListener;
-use Modules\User\Repositories\AuthenticationRepository;
+use Modules\Core\Contracts\Authentication;
+use Modules\User\Events\UserHasRegistered;
 
-class SendRegistrationConfirmationEmail extends EventListener
+class SendRegistrationConfirmationEmail
 {
     /**
      * @var AuthenticationRepository
      */
     private $auth;
 
-    public function __construct(AuthenticationRepository $auth)
+    public function __construct(Authentication $auth)
     {
         $this->auth = $auth;
     }
 
-    public function whenUserHasRegistered($event)
+    public function handle(UserHasRegistered $event)
     {
         $user = $event->user;
 

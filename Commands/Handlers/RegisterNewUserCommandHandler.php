@@ -38,7 +38,7 @@ class RegisterNewUserCommandHandler
 
         $this->assignUserToUsersGroup($user);
 
-        Event::fire('Modules.User.Events.UserHasRegistered', new UserHasRegistered($user));
+        event(new UserHasRegistered($user));
 
         return $user;
     }

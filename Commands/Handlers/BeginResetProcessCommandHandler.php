@@ -36,7 +36,7 @@ class BeginResetProcessCommandHandler
 
         $code = $this->auth->createReminderCode($user);
 
-        Event::fire('Modules.User.Events.UserHasBegunResetProcess', new UserHasBegunResetProcess($user, $code));
+        event(new UserHasBegunResetProcess($user, $code));
     }
 
     private function findUser($credentials)

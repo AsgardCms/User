@@ -1,12 +1,12 @@
-<?php namespace Modules\User\Listeners;
+<?php namespace Modules\User\Events\Handlers;
 
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Mail;
-use Laracasts\Commander\Events\EventListener;
+use Modules\User\Events\UserHasBegunResetProcess;
 
-class SendResetCodeEmail extends EventListener
+class SendResetCodeEmail
 {
-    public function whenUserHasBegunResetProcess($event)
+    public function handle(UserHasBegunResetProcess $event)
     {
         $user = $event->user;
         $code = $event->code;
