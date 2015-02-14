@@ -16,6 +16,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
             $group->addItem('Users', function($item) {
 
                 $item->addItem('users', function($item) {
+                    $item->weight = 0;
                     $item->route('admin.user.user.index');
                     $item->icon = 'fa fa-user';
                     $item->name = 'Users';
@@ -25,6 +26,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
                 });
 
                 $item->addItem('roles', function($item) {
+                    $item->weight = 1;
                     $item->route('admin.user.role.index');
                     $item->icon = 'fa fa-flag-o';
                     $item->name = 'Roles';
