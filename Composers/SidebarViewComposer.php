@@ -7,29 +7,28 @@ class SidebarViewComposer extends BaseSidebarViewComposer
 {
     public function compose(View $view)
     {
-        $view->sidebar->group('Users', function ($group) {
-            $group->weight = 1;
-            $group->authorize(
-                $this->auth->hasAccess('user.users.index') or $this->auth->hasAccess('user.roles.index')
-            );
+        $view->sidebar->group(trans('workshop::workshop.title'), function ($group) {
 
             $group->addItem('Users', function ($item) {
+                $item->weight = 0;
+                $item->icon = 'fa fa-user';
+                $item->authorize(
+                    $this->auth->hasAccess('user.users.index') or $this->auth->hasAccess('user.roles.index')
+                );
 
-                $item->addItem('users', function ($item) {
+                $item->addItem(trans('user::users.title.users'), function ($item) {
                     $item->weight = 0;
-                    $item->route('admin.user.user.index');
                     $item->icon = 'fa fa-user';
-                    $item->name = 'Users';
+                    $item->route('admin.user.user.index');
                     $item->authorize(
                         $this->auth->hasAccess('user.users.index')
                     );
                 });
 
-                $item->addItem('roles', function ($item) {
+                $item->addItem(trans('user::roles.title.roles'), function ($item) {
                     $item->weight = 1;
-                    $item->route('admin.user.role.index');
                     $item->icon = 'fa fa-flag-o';
-                    $item->name = 'Roles';
+                    $item->route('admin.user.role.index');
                     $item->authorize(
                         $this->auth->hasAccess('user.roles.index')
                     );
