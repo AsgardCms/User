@@ -48,12 +48,10 @@ class UserServiceProvider extends ServiceProvider
      */
     public function boot(Dispatcher $dispatcher)
     {
-        if ($this->asgardIsInstalled() === true) {
-            $this->app->register(
-                $this->getUserPackageServiceProvider()
-            );
-        }
-
+        $this->app->register(
+            $this->getUserPackageServiceProvider()
+        );
+ 
         $dispatcher->mapUsing(function ($command) {
             return Dispatcher::simpleMapping(
                 $command, 'Modules\User\Commands', 'Modules\User\Commands\Handlers'
