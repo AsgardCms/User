@@ -56,13 +56,28 @@
 </div>
 {!! Form::close() !!}
 @stop
-
+@section('footer')
+    <p class="text-muted">
+        <a data-toggle="modal" data-target="#keyboardShortcutsModal"><i class="fa fa-keyboard-o"></i></a>
+    </p>
+@stop
+@section('shortcuts')
+    <dl class="dl-horizontal">
+        <dt><code>b</code></dt>
+        <dd>{{ trans('user::roles.navigation.back to index') }}</dd>
+    </dl>
+@stop
 @section('scripts')
 <script>
 $( document ).ready(function() {
     $('input[type="checkbox"].flat-blue, input[type="radio"].flat-blue').iCheck({
         checkboxClass: 'icheckbox_flat-blue',
         radioClass: 'iradio_flat-blue'
+    });
+    $(document).keypressAction({
+        actions: [
+            { key: 'b', route: "<?= route('admin.user.role.index') ?>" }
+        ]
     });
 });
 </script>
