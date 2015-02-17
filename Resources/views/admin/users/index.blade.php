@@ -118,6 +118,11 @@
 @section('scripts')
 <?php $locale = App::getLocale(); ?>
 <script type="text/javascript">
+    $(document).keypressAction({
+        actions: [
+            { key: 'c', route: "<?= route('admin.user.user.create') ?>" }
+        ]
+    });
     $(function () {
         $('.data-table').dataTable({
             "paginate": true,
