@@ -34,4 +34,7 @@ return [
         'email' => 'Email',
         'actions' => 'Actions',
     ],
+    'navigation' => [
+        'back to index' => 'Back to users index'
+    ]
 ];
