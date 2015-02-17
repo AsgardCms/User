@@ -25,4 +25,7 @@ return [
         'name' => 'Nom du rôle',
         'slug' => 'Slug du rôle',
     ],
+    'navigation' => [
+        'back to index' => 'Retour vers l\'index des roles'
+    ]
 ];
