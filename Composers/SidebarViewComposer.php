@@ -9,7 +9,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
     {
         $view->sidebar->group(trans('workshop::workshop.title'), function ($group) {
 
-            $group->addItem('Users', function ($item) {
+            $group->addItem(trans('user::users.title.users'), function ($item) {
                 $item->weight = 0;
                 $item->icon = 'fa fa-user';
                 $item->authorize(
