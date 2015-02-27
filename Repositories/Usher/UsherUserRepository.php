@@ -184,7 +184,8 @@ class UsherUserRepository implements UserRepository
      */
     public function delete($id)
     {
-        return $this->user->delete($id);
+        $user = $this->find($id);
+        return $this->user->delete($user);
     }
 
     /**
