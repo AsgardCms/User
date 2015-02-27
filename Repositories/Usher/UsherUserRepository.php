@@ -163,16 +163,12 @@ class UsherUserRepository implements UserRepository
         $user = $this->user->find($userId);
         $user = $this->update($user, $data);
 
-        $roleInstances = [];
-        array_unique($roles);
-
         if (!empty($roles) && is_array($roles)) {
             foreach ($roles as $id) {
-                $roleInstances[] = $this->role->find($id);
+                $role = $this->role->find($id);
+                $user->assignRole($role);
             }
         }
-
-        $user->syncRoles($roleInstances);
 
         $this->user->persist($user);
         $this->user->flush();
