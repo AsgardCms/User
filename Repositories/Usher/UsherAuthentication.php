@@ -127,6 +127,6 @@ class UsherAuthentication implements Authentication
      */
     public function check()
     {
-        return $this->guard->check();
+        return $this->guard->user();
     }
 }

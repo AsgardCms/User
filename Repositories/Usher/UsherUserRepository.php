@@ -1,5 +1,8 @@
 <?php namespace Modules\User\Repositories\Usher;
 
+use Maatwebsite\Usher\Domain\Users\Embeddables\Email;
+use Maatwebsite\Usher\Domain\Users\Embeddables\Name;
+use Maatwebsite\Usher\Domain\Users\Embeddables\Password;
 use Modules\User\Repositories\UserRepository;
 use Modules\User\Exceptions\UserNotFoundException;
 use Maatwebsite\Usher\Contracts\Roles\RoleRepository;
@@ -19,7 +22,7 @@ class UsherUserRepository implements UserRepository
     protected $role;
 
     /**
-     * @param UsherUserRepo $user
+     * @param UsherUserRepo  $user
      * @param RoleRepository $role
      */
     public function __construct(UsherUserRepo $user, RoleRepository $role)
@@ -44,7 +47,23 @@ class UsherUserRepository implements UserRepository
      */
     public function create(array $data)
     {
-        $user = $this->user->create((array) $data);
+        $entity = $this->user->getClassName();
+        $user = new $entity;
+
+        $name = new Name(
+            $data['first_name'],
+            $data['last_name']
+        );
+
+        $email = new Email(
+            $data['email']
+        );
+
+        $password = new Password(
+            $data['password']
+        );
+
+        $user = $user->register($name, $email, $password);
 
         $this->user->persist($user);
         $this->user->flush();
@@ -60,7 +79,7 @@ class UsherUserRepository implements UserRepository
      */
     public function createWithRoles($data, $roles)
     {
-        $user = $this->user->create((array) $data);
+        $user = $this->create((array) $data);
 
         if (!empty($roles)) {
             foreach ($roles as $id) {
@@ -93,7 +112,24 @@ class UsherUserRepository implements UserRepository
      */
     public function update($user, $data)
     {
-        $user = $this->user->update($user, $data);
+        $name = new Name(
+            $data['first_name'],
+            $data['last_name']
+        );
+
+        $email = new Email(
+            $data['email']
+        );
+
+        $password = new Password(
+            $data['password']
+        );
+
+        if ($password->equals($user->getPassword())) {
+            $password = null;
+        }
+
+        $user = $user->update($name, $email, $password);
 
         $this->user->persist($user);
         $this->user->flush();
@@ -111,7 +147,7 @@ class UsherUserRepository implements UserRepository
     public function updateAndSyncRoles($userId, $data, $roles)
     {
         $user = $this->user->find($userId);
-        $user = $this->user->update($user, $data);
+        $user = $this->update($user, $data);
 
         $roleInstances = [];
         if (!empty($roles)) {

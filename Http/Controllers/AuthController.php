@@ -1,11 +1,11 @@
 <?php namespace Modules\User\Http\Controllers;
 
-use Barryvdh\Debugbar\Controllers\BaseController;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Laracasts\Flash\Flash;
 use Modules\Core\Contracts\Authentication;
+use Modules\Core\Http\Controllers\BasePublicController;
 use Modules\User\Exceptions\InvalidOrExpiredResetCode;
 use Modules\User\Exceptions\UserNotFoundException;
 use Modules\User\Http\Requests\LoginRequest;
@@ -13,7 +13,7 @@ use Modules\User\Http\Requests\RegisterRequest;
 use Modules\User\Http\Requests\ResetCompleteRequest;
 use Modules\User\Http\Requests\ResetRequest;
 
-class AuthController extends BaseController
+class AuthController extends BasePublicController
 {
     use DispatchesCommands;
     /**
