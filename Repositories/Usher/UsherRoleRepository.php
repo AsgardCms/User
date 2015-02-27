@@ -34,7 +34,13 @@ class UsherRoleRepository implements RoleRepository
      */
     public function create($data)
     {
-        $role = $this->role->create($data);
+        $entity = $this->role->getClassName();
+        $role = new $entity;
+
+        $role->create(
+            $data['name'],
+            $data['permissions']
+        );
 
         $this->role->persist($role);
         $this->role->flush();
@@ -62,7 +68,10 @@ class UsherRoleRepository implements RoleRepository
     {
         $role = $this->role->find($id);
 
-        $role = $this->role->update($role, $data);
+        $role->update(
+            $data['name'],
+            $data['permissions']
+        );
 
         $this->role->persist($role);
         $this->role->flush();
@@ -77,7 +86,8 @@ class UsherRoleRepository implements RoleRepository
      */
     public function delete($id)
     {
-        return $this->role->delete($id);
+        $role = $this->find($id);
+        return $this->role->delete($role);
     }
 
     /**
