@@ -72,7 +72,7 @@ class User extends UsherUser implements UserInterface
         $method = 'get' . studly_case($attribute);
 
         if (method_exists($this, $method)) {
-            return (string) $this->{$method}();
+            return $this->{$method}();
         }
 
         return null;

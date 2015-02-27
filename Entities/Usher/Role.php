@@ -12,6 +12,7 @@ use Maatwebsite\Usher\Contracts\Roles\Role as RoleInterface;
  */
 class Role extends UsherRole implements RoleInterface
 {
+
     /**
      * @ORM\ManyToMany(targetEntity="User", mappedBy="roles")
      * @var ArrayCollection|\Maatwebsite\Usher\Contracts\Users\User[]
@@ -24,6 +25,11 @@ class Role extends UsherRole implements RoleInterface
     public function getUsers()
     {
         return $this->users;
+    }
+
+    public function users()
+    {
+        return $this->getUsers();
     }
 
     /**
@@ -43,7 +49,7 @@ class Role extends UsherRole implements RoleInterface
         $method = 'get' . studly_case($attribute);
 
         if (method_exists($this, $method)) {
-            return (string) $this->{$method}();
+            return $this->{$method}();
         }
 
         return null;
