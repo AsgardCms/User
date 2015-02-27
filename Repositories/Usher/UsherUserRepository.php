@@ -81,7 +81,7 @@ class UsherUserRepository implements UserRepository
     {
         $user = $this->create((array) $data);
 
-        if (!empty($roles)) {
+        if (!empty($roles) && is_array($roles)) {
             foreach ($roles as $id) {
                 $role = $this->role->find($id);
                 $user->assignRole($role);
@@ -121,12 +121,16 @@ class UsherUserRepository implements UserRepository
             $data['email']
         );
 
-        $password = new Password(
-            $data['password']
-        );
+        $password = null;
+        if (isset($data['password'])) {
 
-        if ($password->equals($user->getPassword())) {
-            $password = null;
+            $password = new Password(
+                $data['password']
+            );
+
+            if ($password->equals($user->getPassword())) {
+                $password = null;
+            }
         }
 
         $user = $user->update($name, $email, $password);
@@ -150,13 +154,13 @@ class UsherUserRepository implements UserRepository
         $user = $this->update($user, $data);
 
         $roleInstances = [];
-        if (!empty($roles)) {
+        if (!empty($roles) && is_array($roles)) {
             foreach ($roles as $id) {
                 $roleInstances[] = $this->role->find($id);
             }
         }
 
-        $user->syncRoles($roles);
+        $user->syncRoles($roleInstances);
 
         $this->user->persist($user);
         $this->user->flush();

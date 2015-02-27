@@ -33,4 +33,34 @@ class Role extends UsherRole implements RoleInterface
     {
         $this->users = $users;
     }
+
+    /**
+     * @param $attribute
+     * @return null|string
+     */
+    public function __get($attribute)
+    {
+        $method = 'get' . studly_case($attribute);
+
+        if (method_exists($this, $method)) {
+            return (string) $this->{$method}();
+        }
+
+        return null;
+    }
+
+    /**
+     * @param $attribute
+     * @return bool
+     */
+    public function __isset($attribute)
+    {
+        $method = 'get' . studly_case($attribute);
+
+        if (method_exists($this, $method)) {
+            return true;
+        }
+
+        return false;
+    }
 }
