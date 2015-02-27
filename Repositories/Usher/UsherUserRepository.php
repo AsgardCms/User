@@ -63,6 +63,11 @@ class UsherUserRepository implements UserRepository
             $data['password']
         );
 
+        if(isset($data['permissions']) && !empty($data['permissions']))
+        {
+            $user->setPermissions($data['permissions']);
+        }
+
         $user = $user->register($name, $email, $password);
 
         $this->user->persist($user);
@@ -133,6 +138,11 @@ class UsherUserRepository implements UserRepository
             }
         }
 
+        if(isset($data['permissions']) && !empty($data['permissions']))
+        {
+            $user->setPermissions($data['permissions']);
+        }
+
         $user = $user->update($name, $email, $password);
 
         $this->user->persist($user);
@@ -154,6 +164,8 @@ class UsherUserRepository implements UserRepository
         $user = $this->update($user, $data);
 
         $roleInstances = [];
+        array_unique($roles);
+
         if (!empty($roles) && is_array($roles)) {
             foreach ($roles as $id) {
                 $roleInstances[] = $this->role->find($id);
