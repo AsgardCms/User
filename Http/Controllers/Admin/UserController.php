@@ -25,6 +25,12 @@ class UserController extends BaseUserModuleController
      */
     private $auth;
 
+    /**
+     * @param PermissionManager $permissions
+     * @param UserRepository    $user
+     * @param RoleRepository    $role
+     * @param Authentication    $auth
+     */
     public function __construct(
         PermissionManager $permissions,
         UserRepository $user,
