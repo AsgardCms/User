@@ -8,6 +8,7 @@
                     <?php foreach ($permissionName as $permissionAction): ?>
                         <div class="checkbox">
                             <label for="<?php echo "$subPermissionTitle.$permissionAction" ?>">
+                                <input name="permissions[<?php echo "$subPermissionTitle.$permissionAction" ?>]" type="hidden" value="false" />
                                 <input id="<?php echo "$subPermissionTitle.$permissionAction" ?>" name="permissions[<?php echo "$subPermissionTitle.$permissionAction" ?>]" type="checkbox" class="flat-blue" value="true" /> {{ ucfirst($permissionAction) }}
                             </label>
                         </div>

@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 class UserServiceProvider extends ServiceProvider
 {
+
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -19,6 +20,7 @@ class UserServiceProvider extends ServiceProvider
     protected $providers = [
         'Sentinel' => 'Cartalyst\\Sentinel\\Laravel\\SentinelServiceProvider',
         'Sentry'   => 'Cartalyst\\Sentry\\SentryServiceProvider',
+        'Usher'    => 'Maatwebsite\\Usher\\UsherServiceProvider'
     ];
 
     /**
@@ -77,6 +79,7 @@ class UserServiceProvider extends ServiceProvider
             'Modules\User\Repositories\UserRepository',
             "Modules\\User\\Repositories\\{$driver}\\{$driver}UserRepository"
         );
+
         $this->app->bind(
             'Modules\User\Repositories\RoleRepository',
             "Modules\\User\\Repositories\\{$driver}\\{$driver}RoleRepository"

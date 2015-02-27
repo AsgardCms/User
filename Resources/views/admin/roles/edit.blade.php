@@ -55,7 +55,7 @@
                             <div class="col-md-12">
                                 <h3>{{ trans('user::roles.title.users-with-roles') }}</h3>
                                 <ul>
-                                    <?php foreach ($role->users()->get() as $user): ?>
+                                    <?php foreach ($role->users as $user): ?>
                                         <li>
                                             <a href="{{ URL::route('admin.user.user.edit', [$user->id]) }}">{{ $user->present()->fullname() }}</a>
                                         </li>
