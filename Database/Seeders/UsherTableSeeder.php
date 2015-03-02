@@ -81,6 +81,7 @@ class UsherTableSeeder extends Seeder
                 'media.media.destroy' => 1,
                 /* Settings */
                 'setting.settings.index' => 1,
+                'setting.settings.store' => 1,
                 'setting.settings.getModuleSettings' => 1,
                 /* Page */
                 'page.pages.index' => 1,

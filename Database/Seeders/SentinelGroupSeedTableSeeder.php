@@ -85,6 +85,7 @@ class SentinelGroupSeedTableSeeder extends Seeder
             'media.media.destroy' => true,
             /* Settings */
             'setting.settings.index' => true,
+            'setting.settings.store' => true,
             'setting.settings.getModuleSettings' => true,
             /* Page */
             'page.pages.index' => true,
