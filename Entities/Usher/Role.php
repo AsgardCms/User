@@ -1,9 +1,9 @@
 <?php namespace Modules\User\Entities\Usher;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use Maatwebsite\Usher\Domain\Roles\Role as UsherRole;
+use Doctrine\ORM\Mapping as ORM;
 use Maatwebsite\Usher\Contracts\Roles\Role as RoleInterface;
+use Maatwebsite\Usher\Domain\Roles\Role as UsherRole;
 
 /**
  * @ORM\Entity

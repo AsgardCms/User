@@ -1,10 +1,10 @@
 <?php namespace Modules\User\Entities\Usher;
 
-use Doctrine\ORM\Mapping as ORM;
-use Modules\User\Entities\UserInterface;
-use Laracasts\Presenter\PresentableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use Laracasts\Presenter\PresentableTrait;
 use Maatwebsite\Usher\Domain\Users\User as UsherUser;
+use Modules\User\Entities\UserInterface;
 
 /**
  * @ORM\Entity

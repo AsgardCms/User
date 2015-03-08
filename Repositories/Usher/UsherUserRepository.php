@@ -1,12 +1,12 @@
 <?php namespace Modules\User\Repositories\Usher;
 
+use Maatwebsite\Usher\Contracts\Roles\RoleRepository;
+use Maatwebsite\Usher\Contracts\Users\UserRepository as UsherUserRepo;
 use Maatwebsite\Usher\Domain\Users\Embeddables\Email;
 use Maatwebsite\Usher\Domain\Users\Embeddables\Name;
 use Maatwebsite\Usher\Domain\Users\Embeddables\Password;
-use Modules\User\Repositories\UserRepository;
 use Modules\User\Exceptions\UserNotFoundException;
-use Maatwebsite\Usher\Contracts\Roles\RoleRepository;
-use Maatwebsite\Usher\Contracts\Users\UserRepository as UsherUserRepo;
+use Modules\User\Repositories\UserRepository;
 
 class UsherUserRepository implements UserRepository
 {
@@ -63,8 +63,7 @@ class UsherUserRepository implements UserRepository
             $data['password']
         );
 
-        if(isset($data['permissions']) && !empty($data['permissions']))
-        {
+        if (isset($data['permissions']) && !empty($data['permissions'])) {
             $user->setPermissions($data['permissions']);
         }
 
@@ -128,7 +127,6 @@ class UsherUserRepository implements UserRepository
 
         $password = null;
         if (isset($data['password'])) {
-
             $password = new Password(
                 $data['password']
             );
@@ -138,8 +136,7 @@ class UsherUserRepository implements UserRepository
             }
         }
 
-        if(isset($data['permissions']) && !empty($data['permissions']))
-        {
+        if (isset($data['permissions']) && !empty($data['permissions'])) {
             $user->setPermissions($data['permissions']);
         }
 
@@ -185,6 +182,7 @@ class UsherUserRepository implements UserRepository
     public function delete($id)
     {
         $user = $this->find($id);
+
         return $this->user->delete($user);
     }
 

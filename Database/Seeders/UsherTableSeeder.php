@@ -1,10 +1,7 @@
 <?php namespace Modules\User\Database\Seeders;
 
-use Cartalyst\Sentry\Facades\Laravel\Sentry;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 use Modules\User\Repositories\RoleRepository;
-use Modules\User\Repositories\UserRepository;
 
 class UsherTableSeeder extends Seeder
 {

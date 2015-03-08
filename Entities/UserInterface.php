@@ -1,8 +1,5 @@
 <?php namespace Modules\User\Entities;
 
-use Illuminate\Database\Eloquent\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
-
 interface UserInterface
 {
     /**

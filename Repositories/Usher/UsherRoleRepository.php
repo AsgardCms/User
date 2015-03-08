@@ -1,7 +1,7 @@
 <?php namespace Modules\User\Repositories\Usher;
 
-use Modules\User\Repositories\RoleRepository;
 use Maatwebsite\Usher\Contracts\Roles\RoleRepository as UsherRoleRepo;
+use Modules\User\Repositories\RoleRepository;
 
 class UsherRoleRepository implements RoleRepository
 {
@@ -87,6 +87,7 @@ class UsherRoleRepository implements RoleRepository
     public function delete($id)
     {
         $role = $this->find($id);
+
         return $this->role->delete($role);
     }
 
