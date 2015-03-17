@@ -1,6 +1,5 @@
 <?php namespace Modules\User\Http\Middleware;
 
-use Illuminate\Support\Facades\Redirect;
 use Modules\Core\Contracts\Authentication;
 
 class LoggedInMiddleware
@@ -24,7 +23,7 @@ class LoggedInMiddleware
     public function handle($request, \Closure $next)
     {
         if ( ! $this->auth->check()) {
-            return Redirect::route('login');
+            return redirect()->guest('auth/login');
         }
 
         return $next($request);
