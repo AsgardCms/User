@@ -6,4 +6,4 @@ View::composer([
         'user::admin.partials.permissions-create',
     ], 'Modules\User\Composers\PermissionsViewComposer');
 
-View::composer(['partials.sidebar-nav', 'partials.top-nav'], 'Modules\User\Composers\UsernameViewComposer');
+View::composer(['partials.sidebar-nav', 'partials.top-nav', 'layouts.master'], 'Modules\User\Composers\UsernameViewComposer');
