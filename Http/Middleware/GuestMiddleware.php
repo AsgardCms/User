@@ -26,7 +26,7 @@ class GuestMiddleware
     public function handle($request, \Closure $next)
     {
         if ($this->auth->check()) {
-            return Redirect::route('homepage');
+            return Redirect::route(config('asgard.user.users.redirect_route_after_login'));
         }
 
         return $next($request);
