@@ -43,7 +43,7 @@ class AuthController extends BasePublicController
         if (!$error) {
             Flash::success(trans('user::messages.successfully logged in'));
 
-            return Redirect::intended(config('asgard.user.users.redirect_route_after_login'));
+            return Redirect::intended('/');
         }
 
         Flash::error($error);
