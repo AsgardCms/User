@@ -29,6 +29,7 @@ class UserServiceProvider extends ServiceProvider
     protected $middleware = [
         'User' => [
             'auth.guest' => 'GuestMiddleware',
+            'logged.in' => 'LoggedInMiddleware'
         ],
     ];
 
