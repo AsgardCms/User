@@ -26,7 +26,7 @@ class GuestMiddleware
     public function handle($request, \Closure $next)
     {
         if ($this->auth->check()) {
-            return Redirect::route('dashboard.index');
+            return Redirect::route('homepage');
         }
 
         return $next($request);
