@@ -76,7 +76,7 @@
 <?php if (isset($roles)): ?>
     <?php foreach ($roles as $role): ?>
     <!-- Modal -->
-    <div class="modal fade" id="confirmation-{{ $role->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade modal-danger" id="confirmation-{{ $role->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -87,9 +87,9 @@
                     {{ trans('core::core.modal.confirmation-message') }}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('core::core.button.cancel') }}</button>
+                    <button type="button" class="btn btn-outline btn-flat" data-dismiss="modal">{{ trans('core::core.button.cancel') }}</button>
                     {!! Form::open(['route' => ['admin.user.role.destroy', $role->id], 'method' => 'delete', 'class' => 'pull-left']) !!}
-                        <button type="submit" class="btn btn-danger btn-flat"><i class="glyphicon glyphicon-trash"></i> {{ trans('core::core.button.delete') }}</button>
+                        <button type="submit" class="btn btn-outline btn-flat"><i class="glyphicon glyphicon-trash"></i> {{ trans('core::core.button.delete') }}</button>
                     {!! Form::close() !!}
                 </div>
             </div>
