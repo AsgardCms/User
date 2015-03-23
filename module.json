@@ -1,8 +1,9 @@
 {
   "name": "User",
   "alias": "user",
-  "description": "",
+  "description": "The user module is responsible for managing users and permissions.",
   "keywords": [],
+  "version": "v0.1.0",
   "active": 1,
   "order": 1,
   "providers": [
