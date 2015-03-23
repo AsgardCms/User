@@ -83,6 +83,8 @@ class SentinelGroupSeedTableSeeder extends Seeder
             'media.media.edit' => true,
             'media.media.update' => true,
             'media.media.destroy' => true,
+            'media.media-grid.index' => true,
+            'media.media-grid.ckIndex' => true,
             /* Settings */
             'setting.settings.index' => true,
             'setting.settings.store' => true,

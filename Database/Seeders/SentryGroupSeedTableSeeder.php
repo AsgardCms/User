@@ -66,6 +66,8 @@ class SentryGroupSeedTableSeeder extends Seeder
                 'media.media.edit' => 1,
                 'media.media.update' => 1,
                 'media.media.destroy' => 1,
+                'media.media-grid.index' => 1,
+                'media.media-grid.ckIndex' => 1,
                 /* Settings */
                 'setting.settings.index' => 1,
                 'setting.settings.store' => 1,
