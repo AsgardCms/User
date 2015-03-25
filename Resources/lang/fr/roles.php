@@ -27,5 +27,8 @@ return [
     ],
     'navigation' => [
         'back to index' => 'Retour vers l\'index des roles'
-    ]
+    ],
+    'select all' => 'Sélectionner tous',
+    'deselect all' => 'Déselectionner tous',
+    'swap' => 'Intervertir',
 ];
