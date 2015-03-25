@@ -6,7 +6,7 @@
                     <h3>{{ ucfirst($name) }}</h3>
                 </div>
                 <?php foreach ($value as $subPermissionTitle => $permissionActions): ?>
-                    <div class="permissionGroup col-md-6">
+                    <div class="permissionGroup">
                         <div class="col-md-8">
                             <h4 class="pull-left">{{ ucfirst($subPermissionTitle) }}</h4>
                             <p class="pull-right" style="margin-top: 10px;">
