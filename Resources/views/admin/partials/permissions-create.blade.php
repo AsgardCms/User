@@ -4,6 +4,8 @@
             <?php foreach ($permissions as $name => $value): ?>
                 <h3>{{ $name }} Module</h3>
                 <?php foreach ($value as $subPermissionTitle => $permissionName): ?>
+                    <?php $subPermissionTitle = strstr($subPermissionTitle, '.'); ?>
+                    <?php $subPermissionTitle = str_replace('.', '', $subPermissionTitle); ?>
                     <h4>{{ ucfirst($subPermissionTitle) }}</h4>
                     <?php foreach ($permissionName as $permissionAction): ?>
                         <div class="checkbox">
