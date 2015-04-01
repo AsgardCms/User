@@ -24,7 +24,7 @@
                         <div class="clearfix"></div>
                         <?php foreach (array_chunk($permissionActions, ceil(count($permissionActions)/2)) as $permissionActionGroup): ?>
                             <div class="col-md-3">
-                                <?php foreach($permissionActionGroup as $permissionAction): ?>
+                                <?php foreach ($permissionActionGroup as $permissionAction): ?>
                                     <div class="checkbox">
                                         <label for="<?php echo "$subPermissionTitle.$permissionAction" ?>">
                                             <input name="permissions[<?php echo "$subPermissionTitle.$permissionAction" ?>]" type="hidden" value="false" />
