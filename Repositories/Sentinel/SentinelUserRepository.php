@@ -2,6 +2,7 @@
 
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+use Illuminate\Support\Facades\Hash;
 use Modules\User\Exceptions\UserNotFoundException;
 use Modules\User\Repositories\UserRepository;
 
@@ -49,6 +50,7 @@ class SentinelUserRepository implements UserRepository
      */
     public function createWithRoles($data, $roles, $activated = false)
     {
+        $this->hashPassword($data);
         $user = $this->create((array) $data);
 
         if (!empty($roles)) {
@@ -124,5 +126,14 @@ class SentinelUserRepository implements UserRepository
     public function findByCredentials(array $credentials)
     {
         return Sentinel::findByCredentials($credentials);
+    }
+
+    /**
+     * Hash the password key
+     * @param array $data
+     */
+    private function hashPassword(array &$data)
+    {
+        $data['password'] = Hash::make($data['password']);
     }
 }
