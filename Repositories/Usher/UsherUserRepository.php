@@ -79,9 +79,10 @@ class UsherUserRepository implements UserRepository
      * Create a user and assign roles to it
      * @param  array $data
      * @param  array $roles
-     * @return void
+     * @param bool $activated
+     * @return mixed
      */
-    public function createWithRoles($data, $roles)
+    public function createWithRoles($data, $roles, $activated = false)
     {
         $user = $this->create((array) $data);
 
