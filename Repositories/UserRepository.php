@@ -21,11 +21,11 @@ interface UserRepository
 
     /**
      * Create a user and assign roles to it
-     * @param  array $data
-     * @param  array $roles
-     * @return void
+     * @param array $data
+     * @param array $roles
+     * @param bool $activated
      */
-    public function createWithRoles($data, $roles);
+    public function createWithRoles($data, $roles, $activated = false);
 
     /**
      * Find a user by its ID
