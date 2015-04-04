@@ -45,9 +45,9 @@ class SentinelUserRepository implements UserRepository
      * Create a user and assign roles to it
      * @param  array $data
      * @param  array $roles
-     * @return void
+     * @param bool $activated
      */
-    public function createWithRoles($data, $roles)
+    public function createWithRoles($data, $roles, $activated = false)
     {
         $user = $this->create((array) $data);
 
@@ -55,8 +55,10 @@ class SentinelUserRepository implements UserRepository
             $user->roles()->attach($roles);
         }
 
-        $activation = Activation::create($user);
-        Activation::complete($user, $activation->code);
+        if ($activated) {
+            $activation = Activation::create($user);
+            Activation::complete($user, $activation->code);
+        }
     }
 
     /**
