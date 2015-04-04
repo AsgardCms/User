@@ -82,7 +82,7 @@ class SentinelAuthentication implements Authentication
      */
     public function createActivation($user)
     {
-        return Activation::create($user);
+        return Activation::create($user)->code;
     }
 
     /**
