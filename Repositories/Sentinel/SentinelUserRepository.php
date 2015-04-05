@@ -95,6 +95,8 @@ class SentinelUserRepository implements UserRepository
     {
         $user = $this->user->find($userId);
 
+        $this->checkForNewPassword($data);
+
         $user = $user->fill($data);
         $user->save();
 
@@ -134,6 +136,20 @@ class SentinelUserRepository implements UserRepository
      */
     private function hashPassword(array &$data)
     {
+        $data['password'] = Hash::make($data['password']);
+    }
+
+    /**
+     * Check if there is a new password given
+     * If not, unset the password field
+     * @param array $data
+     */
+    private function checkForNewPassword(array &$data)
+    {
+        if (! $data['password']) {
+            unset($data['password']);
+        }
+
         $data['password'] = Hash::make($data['password']);
     }
 }
