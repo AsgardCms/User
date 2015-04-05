@@ -19,6 +19,8 @@ return [
         'data' => 'Data',
         'roles' => 'Roles',
         'permissions' => 'Permissions',
+        'new password' => 'New password',
+        'or send reset password mail' => 'or, send reset password email',
     ],
     'form' => [
         'first-name' => 'First name',

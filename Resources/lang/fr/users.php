@@ -19,6 +19,8 @@ return [
         'data' => 'Données',
         'roles' => 'Rôles',
         'permissions' => 'Permissions',
+        'new password' => 'Nouveau mot de passe',
+        'or send reset password mail' => 'ou, envoyer email de reinitialisation de mot de passe',
     ],
     'form' => [
         'first-name' => 'Prénom',

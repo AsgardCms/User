@@ -24,6 +24,7 @@
                 <li class="active"><a href="#tab_1-1" data-toggle="tab">{{ trans('user::users.tabs.data') }}</a></li>
                 <li class=""><a href="#tab_2-2" data-toggle="tab">{{ trans('user::users.tabs.roles') }}</a></li>
                 <li class=""><a href="#tab_3-3" data-toggle="tab">{{ trans('user::users.tabs.permissions') }}</a></li>
+                <li class=""><a href="#password_tab" data-toggle="tab">{{ trans('user::users.tabs.new password') }}</a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="tab_1-1">
@@ -70,6 +71,18 @@
                 <div class="tab-pane" id="tab_3-3">
                     <div class="box-body">
                         @include('user::admin.partials.permissions', ['model' => $user])
+                    </div>
+                </div>
+                <div class="tab-pane" id="password_tab">
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>{{ trans('user::users.tabs.new password') }}</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>{{ trans('user::users.tabs.or send reset password mail') }}</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="box-footer">
