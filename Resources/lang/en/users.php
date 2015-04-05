@@ -28,6 +28,8 @@ return [
         'email' => 'Email',
         'password' => 'Password',
         'password-confirmation' => 'Password confirmation',
+        'new password' => 'New password',
+        'new password confirmation' => 'New password confirmation',
     ],
     'table' => [
         'created-at' => 'Created At',
@@ -38,5 +40,8 @@ return [
     ],
     'navigation' => [
         'back to index' => 'Back to users index'
-    ]
+    ],
+    'new password setup' => 'Setup a new password',
+    'or send reset password mail' => 'or, send reset password email',
+    'send reset password email' => 'Send reset password email',
 ];

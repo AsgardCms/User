@@ -19,8 +19,6 @@ return [
         'data' => 'Données',
         'roles' => 'Rôles',
         'permissions' => 'Permissions',
-        'new password' => 'Nouveau mot de passe',
-        'or send reset password mail' => 'ou, envoyer email de reinitialisation de mot de passe',
     ],
     'form' => [
         'first-name' => 'Prénom',
@@ -28,6 +26,8 @@ return [
         'email' => 'Adresse email',
         'password' => 'Mot de passe',
         'password-confirmation' => 'Confirmation de mot de passe',
+        'new password' => 'Nouveau mot de passe',
+        'new password confirmation' => 'Confirmation du nouveau mot de passe',
     ],
     'table' => [
         'created-at' => 'Crée à',
@@ -38,5 +38,8 @@ return [
     ],
     'navigation' => [
         'back to index' => 'Retour vers l\'index des utilisateurs'
-    ]
+    ],
+    'new password' => 'Nouveau mot de passe',
+    'or send reset password mail' => 'ou, envoyer email de reinitialisation de mot de passe',
+    'send reset password email' => 'Envoyer email de reinitialisation du mot de passe',
 ];

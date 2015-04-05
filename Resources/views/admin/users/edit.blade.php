@@ -77,10 +77,23 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4>{{ trans('user::users.tabs.new password') }}</h4>
+                                <h4>{{ trans('user::users.new password setup') }}</h4>
+                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                    {!! Form::label('password', trans('user::users.form.new password')) !!}
+                                    {!! Form::text('password', '', ['class' => 'form-control']) !!}
+                                    {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
+                                </div>
+                                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                                    {!! Form::label('password_confirmation', trans('user::users.form.new password confirmation')) !!}
+                                    {!! Form::text('password_confirmation', '', ['class' => 'form-control']) !!}
+                                    {!! $errors->first('password_confirmation', '<span class="help-block">:message</span>') !!}
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <h4>{{ trans('user::users.tabs.or send reset password mail') }}</h4>
+                                <a href="" class="btn btn-flat bg-maroon">
+                                    {{ trans('user::users.send reset password email') }}
+                                </a>
                             </div>
                         </div>
                     </div>
