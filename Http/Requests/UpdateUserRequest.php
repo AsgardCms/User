@@ -12,6 +12,7 @@ class UpdateUserRequest extends FormRequest
             'email' => "required|email|unique:users,email,{$userId}",
             'first_name' => 'required',
             'last_name' => 'required',
+            'password' => 'confirmed',
         ];
     }
 

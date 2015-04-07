@@ -34,6 +34,8 @@ class SentryUserRepository implements UserRepository
     public function createWithRoles($data, $roles, $activated = false)
     {
         $user = Sentry::createUser(array_merge($data, ['activated' => $activated]));
+        $user->activated = $activated ? 1 : 0;
+        $user->save();
         if (!empty($roles)) {
             foreach ($roles as $roleId) {
                 $group = Sentry::findGroupById($roleId);
@@ -75,6 +77,9 @@ class SentryUserRepository implements UserRepository
     public function updateAndSyncRoles($userId, $data, $roles)
     {
         $user = Sentry::findUserById($userId);
+
+        $this->checkForNewPassword($data);
+
         $user->update($data);
 
         if (!empty($roles)) {
@@ -122,5 +127,19 @@ class SentryUserRepository implements UserRepository
     public function findByCredentials(array $credentials)
     {
         return Sentry::findUserByCredentials($credentials);
+    }
+
+    /**
+     * Check if there is a new password given
+     * If not, unset the password field
+     * @param array $data
+     */
+    private function checkForNewPassword(array &$data)
+    {
+        if (! $data['password']) {
+            unset($data['password']);
+        }
+
+        $data['password'] = Hash::make($data['password']);
     }
 }

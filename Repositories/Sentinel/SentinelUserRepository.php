@@ -2,6 +2,7 @@
 
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+use Illuminate\Support\Facades\Hash;
 use Modules\User\Exceptions\UserNotFoundException;
 use Modules\User\Repositories\UserRepository;
 
@@ -45,18 +46,21 @@ class SentinelUserRepository implements UserRepository
      * Create a user and assign roles to it
      * @param  array $data
      * @param  array $roles
-     * @return void
+     * @param bool $activated
      */
-    public function createWithRoles($data, $roles)
+    public function createWithRoles($data, $roles, $activated = false)
     {
+        $this->hashPassword($data);
         $user = $this->create((array) $data);
 
         if (!empty($roles)) {
             $user->roles()->attach($roles);
         }
 
-        $activation = Activation::create($user);
-        Activation::complete($user, $activation->code);
+        if ($activated) {
+            $activation = Activation::create($user);
+            Activation::complete($user, $activation->code);
+        }
     }
 
     /**
@@ -91,6 +95,8 @@ class SentinelUserRepository implements UserRepository
     {
         $user = $this->user->find($userId);
 
+        $this->checkForNewPassword($data);
+
         $user = $user->fill($data);
         $user->save();
 
@@ -122,5 +128,28 @@ class SentinelUserRepository implements UserRepository
     public function findByCredentials(array $credentials)
     {
         return Sentinel::findByCredentials($credentials);
+    }
+
+    /**
+     * Hash the password key
+     * @param array $data
+     */
+    private function hashPassword(array &$data)
+    {
+        $data['password'] = Hash::make($data['password']);
+    }
+
+    /**
+     * Check if there is a new password given
+     * If not, unset the password field
+     * @param array $data
+     */
+    private function checkForNewPassword(array &$data)
+    {
+        if (! $data['password']) {
+            unset($data['password']);
+        }
+
+        $data['password'] = Hash::make($data['password']);
     }
 }

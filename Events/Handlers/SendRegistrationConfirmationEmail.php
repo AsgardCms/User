@@ -21,11 +21,11 @@ class SendRegistrationConfirmationEmail
     {
         $user = $event->user;
 
-        $activation = $this->auth->createActivation($user);
+        $activationCode = $this->auth->createActivation($user);
 
         $data = [
             'user' => $user,
-            'activationcode' => $activation->code,
+            'activationcode' => $activationCode,
         ];
 
         Mail::queue('user::emails.welcome', $data,

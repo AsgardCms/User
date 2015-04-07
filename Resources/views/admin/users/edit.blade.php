@@ -24,6 +24,7 @@
                 <li class="active"><a href="#tab_1-1" data-toggle="tab">{{ trans('user::users.tabs.data') }}</a></li>
                 <li class=""><a href="#tab_2-2" data-toggle="tab">{{ trans('user::users.tabs.roles') }}</a></li>
                 <li class=""><a href="#tab_3-3" data-toggle="tab">{{ trans('user::users.tabs.permissions') }}</a></li>
+                <li class=""><a href="#password_tab" data-toggle="tab">{{ trans('user::users.tabs.new password') }}</a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="tab_1-1">
@@ -70,6 +71,31 @@
                 <div class="tab-pane" id="tab_3-3">
                     <div class="box-body">
                         @include('user::admin.partials.permissions', ['model' => $user])
+                    </div>
+                </div>
+                <div class="tab-pane" id="password_tab">
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>{{ trans('user::users.new password setup') }}</h4>
+                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                    {!! Form::label('password', trans('user::users.form.new password')) !!}
+                                    {!! Form::input('password', 'password', '', ['class' => 'form-control']) !!}
+                                    {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
+                                </div>
+                                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                                    {!! Form::label('password_confirmation', trans('user::users.form.new password confirmation')) !!}
+                                    {!! Form::input('password', 'password_confirmation', '', ['class' => 'form-control']) !!}
+                                    {!! $errors->first('password_confirmation', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>{{ trans('user::users.tabs.or send reset password mail') }}</h4>
+                                <a href="" class="btn btn-flat bg-maroon">
+                                    {{ trans('user::users.send reset password email') }}
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="box-footer">

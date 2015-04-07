@@ -56,7 +56,7 @@ class UserController extends BaseUserModuleController
 
         $currentUser = $this->auth->check();
 
-        return View::make('user::admin.users.index', compact('users', 'currentUser'));
+        return view('user::admin.users.index', compact('users', 'currentUser'));
     }
 
     /**
@@ -68,7 +68,7 @@ class UserController extends BaseUserModuleController
     {
         $roles = $this->role->all();
 
-        return View::make('user::admin.users.create', compact('roles'));
+        return view('user::admin.users.create', compact('roles'));
     }
 
     /**
@@ -85,7 +85,7 @@ class UserController extends BaseUserModuleController
 
         Flash::success(trans('user::messages.user created'));
 
-        return Redirect::route('admin.user.user.index');
+        return redirect()->route('admin.user.user.index');
     }
 
     /**
@@ -99,11 +99,11 @@ class UserController extends BaseUserModuleController
         if (!$user = $this->user->find($id)) {
             Flash::error(trans('user::messages.user not found'));
 
-            return Redirect::route('admin.user.user.index');
+            return redirect()->route('admin.user.user.index');
         }
         $roles = $this->role->all();
 
-        return View::make('user::admin.users.edit', compact('user', 'roles'));
+        return view('user::admin.users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -121,7 +121,7 @@ class UserController extends BaseUserModuleController
 
         Flash::success(trans('user::messages.user updated'));
 
-        return Redirect::route('admin.user.user.index');
+        return redirect()->route('admin.user.user.index');
     }
 
     /**
@@ -136,6 +136,6 @@ class UserController extends BaseUserModuleController
 
         Flash::success(trans('user::messages.user deleted'));
 
-        return Redirect::route('admin.user.user.index');
+        return redirect()->route('admin.user.user.index');
     }
 }
