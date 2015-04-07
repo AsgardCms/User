@@ -96,25 +96,6 @@ $( document ).ready(function() {
         checkboxClass: 'icheckbox_flat-blue',
         radioClass: 'iradio_flat-blue'
     });
-
-    $('.jsSelectAllInGroup').on('click',function (event) {
-        event.preventDefault();
-        $(this).closest('.permissionGroup').find('input[type=checkbox]').each(function (index, value) {
-            $(value).iCheck('check');
-        });
-    });
-    $('.jsDeselectAllInGroup').on('click',function (event) {
-        event.preventDefault();
-        $(this).closest('.permissionGroup').find('input[type=checkbox]').each(function (index, value) {
-            $(value).iCheck('uncheck');
-        });
-    });
-    $('.jsSwapAllInGroup').on('click',function (event) {
-        event.preventDefault();
-        $(this).closest('.permissionGroup').find('input[type=checkbox]').each(function (index, value) {
-            $(value).iCheck('toggle');
-        });
-    });
 });
 </script>
 @stop
