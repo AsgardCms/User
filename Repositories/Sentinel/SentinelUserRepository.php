@@ -9,7 +9,7 @@ use Modules\User\Repositories\UserRepository;
 class SentinelUserRepository implements UserRepository
 {
     /**
-     * @var \Modules\User\Entities\User\Sentinel
+     * @var \Modules\User\Entities\Sentinel\User
      */
     protected $user;
     /**
