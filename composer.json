@@ -37,6 +37,11 @@
       "Modules\\": "Modules/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Modules\\User\\Tests\\": "Tests"
+    }
+  },
   "minimum-stability": "dev",
   "prefer-stable": true
 }
