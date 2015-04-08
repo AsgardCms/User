@@ -140,7 +140,5 @@ class SentryUserRepository implements UserRepository
         if (! $data['password']) {
             unset($data['password']);
         }
-
-        $data['password'] = Hash::make($data['password']);
     }
 }
