@@ -2,7 +2,6 @@
 
 use Cartalyst\Sentry\Facades\Laravel\Sentry;
 use Cartalyst\Sentry\Users\UserNotFoundException;
-use Illuminate\Support\Facades\Hash;
 use Modules\User\Repositories\UserRepository;
 
 class SentryUserRepository implements UserRepository
