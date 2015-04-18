@@ -2,6 +2,7 @@
 
 use Cartalyst\Sentry\Facades\Laravel\Sentry;
 use Cartalyst\Sentry\Users\Eloquent\User as SentryModel;
+use Illuminate\Support\Facades\Config;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\User\Entities\UserInterface;
 
@@ -34,5 +35,22 @@ class User extends SentryModel implements UserInterface
         $role = Sentry::findGroupById($roleId);
 
         return $this->inGroup($role);
+    }
+
+    public function __call($method, $parameters)
+    {
+        $class_name = class_basename($this);
+
+        #i: Convert array to dot notation
+        $config = implode('.', ['relations', $class_name, $method]);
+
+        #i: Relation method resolver
+        if (Config::has($config)) {
+            $function = Config::get($config);
+            return $function($this);
+        }
+
+        #i: No relation found, return the call to parent (Eloquent) to handle it.
+        return parent::__call($method, $parameters);
     }
 }
