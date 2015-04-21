@@ -9,7 +9,7 @@ return [
     'password' => 'Password',
     'password confirmation' => 'Password confirmation',
     'register me' => 'Register',
-    'I already have a membership' => 'I already have a membership.',
+    'I already have a membership' => 'I already have a membership',
     'reset password' => 'Reset password',
-    'I remembered my password' => 'I remembered my password.',
+    'I remembered my password' => 'I remembered my password',
 ];
