@@ -1,32 +1,32 @@
 @extends('layouts.account')
 @section('title')
-Register | @parent
+    {{ trans('user::auth.register') }} | @parent
 @stop
 
 @section('content')
-<div class="header">Register New Membership</div>
+<div class="header">{{ trans('user::auth.register') }}</div>
 @include('flash::message')
 {!! Form::open(array('route' => 'register.post')) !!}
     <div class="body bg-gray">
         <div class="form-group{{ $errors->has('email') ? ' has-error has-feedback' : '' }}">
-            {!! Form::label('email', 'Email:') !!}
-            {!! Form::text('email', Input::old('email'), ['class' => 'form-control', 'placeholder' => 'Email']) !!}
+            {!! Form::label('email', trans('user::auth.email')) !!}
+            {!! Form::text('email', Input::old('email'), ['class' => 'form-control', 'placeholder' => trans('user::auth.email')]) !!}
             {!! $errors->first('email', '<span class="help-block">:message</span>') !!}
         </div>
         <div class="form-group{{ $errors->has('password') ? ' has-error has-feedback' : '' }}">
-            {!! Form::label('password', 'Password:') !!}
-            {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password']) !!}
+            {!! Form::label('password', trans('user::auth.password')) !!}
+            {!! Form::password('password', ['class' => 'form-control', 'placeholder' => trans('user::auth.password')]) !!}
             {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
         </div>
         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error has-feedback' : '' }}">
-            {!! Form::label('password_confirmation', 'Password Confirmation:') !!}
-            {!! Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Password Confirmation']) !!}
+            {!! Form::label('password_confirmation', trans('user::auth.password confirmation')) !!}
+            {!! Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => trans('user::auth.password confirmation')]) !!}
             {!! $errors->first('password_confirmation', '<span class="help-block">:message</span>') !!}
         </div>
     </div>
     <div class="footer">
-        <button type="submit" class="btn btn-info btn-block">Sign me up</button>
-        <a href="{{ URL::route('login') }}" class="text-center">I already have a membership</a>
+        <button type="submit" class="btn btn-info btn-block">{{ trans('user::auth.register me')}}</button>
+        <a href="{{ URL::route('login') }}" class="text-center">{{ trans('user::auth.I already have a membership') }}</a>
     </div>
 {!! Form::close() !!}
 @stop
