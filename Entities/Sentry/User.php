@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Config;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\User\Entities\UserInterface;
 
+/**
+ * @property bool activated
+ */
 class User extends SentryModel implements UserInterface
 {
     use PresentableTrait;
@@ -35,6 +38,15 @@ class User extends SentryModel implements UserInterface
         $role = Sentry::findGroupById($roleId);
 
         return $this->inGroup($role);
+    }
+
+    /**
+     * Check if the current user is activated
+     * @return bool
+     */
+    public function isActivated()
+    {
+        return (bool) $this->activated;
     }
 
     public function __call($method, $parameters)
