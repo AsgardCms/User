@@ -19,6 +19,7 @@ class User extends SentryModel implements UserInterface
         'permissions',
         'first_name',
         'last_name',
+        'activated',
     ];
 
     protected $presenter = 'Modules\User\Presenters\UserPresenter';
