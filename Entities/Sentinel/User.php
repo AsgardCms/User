@@ -1,6 +1,7 @@
 <?php namespace Modules\User\Entities\Sentinel;
 
 use Cartalyst\Sentinel\Users\EloquentUser;
+use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Illuminate\Support\Facades\Config;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\User\Entities\UserInterface;
@@ -22,6 +23,19 @@ class User extends EloquentUser implements UserInterface
     public function hasRole($roleId)
     {
         return $this->roles()->whereId($roleId)->count() >= 1;
+    }
+
+    /**
+     * Check if the current user is activated
+     * @return bool
+     */
+    public function isActivated()
+    {
+        if ($activation = Activation::completed($this)) {
+            return true;
+        }
+
+        return false;
     }
 
     public function __call($method, $parameters)
