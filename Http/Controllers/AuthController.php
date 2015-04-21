@@ -56,7 +56,7 @@ class AuthController extends BasePublicController
 
     public function postRegister(RegisterRequest $request)
     {
-        $this->dispatchFrom('Modules\User\Commands\RegisterNewUserCommand', $request);
+        app('Modules\User\Services\UserRegistration')->register($request->all());
 
         Flash::success(trans('user::messages.account created check email for activation'));
 
