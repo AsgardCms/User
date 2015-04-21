@@ -1,4 +1,4 @@
-@extends('user::layouts.account')
+@extends('layouts.account')
 
 @section('title')
 Login | @parent

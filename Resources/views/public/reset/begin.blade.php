@@ -1,4 +1,4 @@
-@extends('user::layouts.account')
+@extends('layouts.account')
 
 @section('title')
 Reset password | @parent
@@ -16,9 +16,9 @@ Reset password | @parent
         </div>
     </div>
     <div class="footer">
-        <button type="submit" class="btn bg-olive btn-block">Reset</button>
+        <button type="submit" class="btn btn-info btn-block">Reset</button>
         <p><a href="{{URL::route('login')}}">I remembered my password.</a></p>
     </div>
-{!! Form::close(); !!}
+{!! Form::close() !!}
 
 @stop
