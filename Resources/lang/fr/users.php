@@ -24,6 +24,7 @@ return [
         'first-name' => 'Prénom',
         'last-name' => 'Nom de famille',
         'email' => 'Adresse email',
+        'status' => 'Status',
         'password' => 'Mot de passe',
         'password-confirmation' => 'Confirmation de mot de passe',
         'new password' => 'Nouveau mot de passe',

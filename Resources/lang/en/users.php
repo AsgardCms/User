@@ -26,6 +26,7 @@ return [
         'first-name' => 'First name',
         'last-name' => 'Last name',
         'email' => 'Email',
+        'status' => 'Status',
         'password' => 'Password',
         'password-confirmation' => 'Password confirmation',
         'new password' => 'New password',
