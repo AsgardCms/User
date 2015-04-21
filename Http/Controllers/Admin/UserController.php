@@ -68,7 +68,9 @@ class UserController extends BaseUserModuleController
     {
         $roles = $this->role->all();
 
-        return view('user::admin.users.create', compact('roles'));
+        $currentUser = $this->auth->check();
+
+        return view('user::admin.users.create', compact('roles', 'currentUser'));
     }
 
     /**
@@ -103,7 +105,9 @@ class UserController extends BaseUserModuleController
         }
         $roles = $this->role->all();
 
-        return view('user::admin.users.edit', compact('user', 'roles'));
+        $currentUser = $this->auth->check();
+
+        return view('user::admin.users.edit', compact('user', 'roles', 'currentUser'));
     }
 
     /**
