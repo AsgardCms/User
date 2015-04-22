@@ -7,7 +7,14 @@ interface UserInterface
      * @param  int $roleId
      * @return bool
      */
-    public function hasRole($roleId);
+    public function hasRoleId($roleId);
+
+    /**
+     * Checks if a user belongs to the given Role Name
+     * @param  string $name
+     * @return bool
+     */
+    public function hasRoleName($name);
 
     /**
      * Check if the current user is activated

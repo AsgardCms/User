@@ -92,4 +92,33 @@ class User extends UsherUser implements UserInterface
 
         return false;
     }
+
+    /**
+     * Checks if a user belongs to the given Role ID
+     * @param  int $roleId
+     * @return bool
+     */
+    public function hasRoleId($roleId)
+    {
+        // TODO: Implement hasRoleId() method.
+    }
+
+    /**
+     * Checks if a user belongs to the given Role Name
+     * @param  string $name
+     * @return bool
+     */
+    public function hasRoleName($name)
+    {
+        // TODO: Implement hasRoleName() method.
+    }
+
+    /**
+     * Check if the current user is activated
+     * @return bool
+     */
+    public function isActivated()
+    {
+        // TODO: Implement isActivated() method.
+    }
 }

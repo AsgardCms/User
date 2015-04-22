@@ -20,9 +20,24 @@ class User extends EloquentUser implements UserInterface
 
     protected $presenter = 'Modules\User\Presenters\UserPresenter';
 
-    public function hasRole($roleId)
+    /**
+     * Checks if a user belongs to the given Role ID
+     * @param  int $roleId
+     * @return bool
+     */
+    public function hasRoleId($roleId)
     {
         return $this->roles()->whereId($roleId)->count() >= 1;
+    }
+
+    /**
+     * Checks if a user belongs to the given Role Name
+     * @param  string $name
+     * @return bool
+     */
+    public function hasRoleName($name)
+    {
+        return $this->roles()->whereName($name)->count() >= 1;
     }
 
     /**
