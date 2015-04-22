@@ -8,4 +8,10 @@ interface UserInterface
      * @return bool
      */
     public function hasRole($roleId);
+
+    /**
+     * Check if the current user is activated
+     * @return bool
+     */
+    public function isActivated();
 }
