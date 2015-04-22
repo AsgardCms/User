@@ -91,7 +91,7 @@ class SentryAuthentication implements Authentication
      */
     public function createActivation($user)
     {
-        return $user->getResetPasswordCode();
+        return $user->getActivationCode();
     }
 
     /**
