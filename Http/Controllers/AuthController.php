@@ -77,7 +77,7 @@ class AuthController extends BasePublicController
 
             return redirect()->route('login');
         }
-        Flash::error(lang('user::messages.there was an error with the activation'));
+        Flash::error(trans('user::messages.there was an error with the activation'));
 
         return redirect()->route('register');
     }
