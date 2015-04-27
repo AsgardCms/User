@@ -62,9 +62,7 @@ class SentryUserRepository implements UserRepository
      */
     public function update($user, $data)
     {
-        $user = $user->update($data);
-
-        return $user->save();
+        return $user->update($data);
     }
 
     /**
