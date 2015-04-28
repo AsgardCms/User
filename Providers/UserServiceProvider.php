@@ -47,19 +47,12 @@ class UserServiceProvider extends ServiceProvider
     }
 
     /**
-     * @param Dispatcher $dispatcher
      */
-    public function boot(Dispatcher $dispatcher)
+    public function boot()
     {
         $this->app->register(
             $this->getUserPackageServiceProvider()
         );
-
-        $dispatcher->mapUsing(function ($command) {
-            return Dispatcher::simpleMapping(
-                $command, 'Modules\User\Commands', 'Modules\User\Commands\Handlers'
-            );
-        });
 
         $this->publishes([
             __DIR__.'/../Resources/views' => base_path('resources/views/asgard/user'),
