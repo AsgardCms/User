@@ -20,20 +20,13 @@ class SentryGroupSeedTableSeeder extends Seeder
             'name'        => 'Admin',
             'permissions' => [
                 'dashboard.index' => 1,
+                'dashboard.grid.save' => 1,
+                'dashboard.grid.reset' => 1,
                 /* Workbench */
-                'workshop.workbench.index' => 1,
-                'workshop.workbench.generate' => 1,
-                'workshop.workbench.migrate' => 1,
-                'workshop.workbench.install' => 1,
-                'workshop.workbench.seed' => 1,
                 'workshop.modules.index' => 1,
                 'workshop.modules.show' => 1,
                 'workshop.modules.disable' => 1,
                 'workshop.modules.enable' => 1,
-                'workshop.generate.generate' => 1,
-                'workshop.install.install' => 1,
-                'workshop.migrate.migrate' => 1,
-                'workshop.seed.seed' => 1,
                 /* Roles */
                 'user.roles.index' => 1,
                 'user.roles.create' => 1,
