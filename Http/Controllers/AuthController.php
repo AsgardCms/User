@@ -1,5 +1,6 @@
 <?php namespace Modules\User\Http\Controllers;
 
+use Exception;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Laracasts\Flash\Flash;
 use Modules\Core\Contracts\Authentication;
@@ -91,7 +92,7 @@ class AuthController extends BasePublicController
     {
         try {
             $this->dispatchFrom('Modules\User\Commands\BeginResetProcessCommand', $request);
-        } catch (UserNotFoundException $e) {
+        } catch (Exception $e) {
             Flash::error(trans('user::messages.no user found'));
 
             return redirect()->back()->withInput();
