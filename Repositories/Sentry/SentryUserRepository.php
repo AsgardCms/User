@@ -2,6 +2,7 @@
 
 use Cartalyst\Sentry\Facades\Laravel\Sentry;
 use Cartalyst\Sentry\Users\UserNotFoundException;
+use Modules\User\Exceptions\UserNotFoundException as BaseUserNotFoundException;
 use Modules\User\Repositories\UserRepository;
 
 class SentryUserRepository implements UserRepository
@@ -121,10 +122,17 @@ class SentryUserRepository implements UserRepository
      * Find a user by its credentials
      * @param  array $credentials
      * @return mixed
+     * @throws BaseUserNotFoundException
      */
     public function findByCredentials(array $credentials)
     {
-        return Sentry::findUserByCredentials($credentials);
+        try {
+            $user = Sentry::findUserByCredentials($credentials);
+        } catch (\Exception $e) {
+            throw new BaseUserNotFoundException();
+        }
+
+        return $user;
     }
 
     /**
