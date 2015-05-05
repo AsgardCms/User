@@ -55,13 +55,17 @@ class SentryAuthentication implements Authentication
      * Activate the given used id
      * @param  int    $userId
      * @param  string $code
-     * @return mixed
+     * @return bool
      */
     public function activate($userId, $code)
     {
         $user = Sentry::findUserById($userId);
 
-        return $user->attemptActivation($code);
+        try {
+            return $user->attemptActivation($code);
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 
     /**
