@@ -55,7 +55,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="checkbox{{ $errors->has('activated') ? ' has-error' : '' }}">
-                                    <input type="hidden" value="0" name="activated"/>
+                                    <input type="hidden" value="{{ $user->id === $currentUser->id ? '1' : '0' }}" name="activated"/>
                                     <?php $oldValue = (bool) $user->isActivated() ? 'checked' : ''; ?>
                                     <label for="activated">
                                         <input id="activated"
