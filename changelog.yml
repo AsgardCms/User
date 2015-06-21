@@ -1,5 +1,10 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.0.4":
+        added:
+            - Using new sidebar extender class
+        removed:
+            - Old SidebarViewComposer
     "1.0.3":
         added:
             - Implementing the new <code>id</code> method on Sentry and Sentinel Authentication implementations
