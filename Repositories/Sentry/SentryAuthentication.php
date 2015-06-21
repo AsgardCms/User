@@ -142,4 +142,17 @@ class SentryAuthentication implements Authentication
 
         return false;
     }
+
+    /**
+     * Get the ID for the currently authenticated user
+     * @return int
+     */
+    public function id()
+    {
+        if (! $user = $this->check()) {
+            return;
+        }
+
+        return $user->id;
+    }
 }

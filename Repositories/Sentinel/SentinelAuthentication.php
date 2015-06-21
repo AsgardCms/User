@@ -127,4 +127,17 @@ class SentinelAuthentication implements Authentication
     {
         return Sentinel::check();
     }
+
+    /**
+     * Get the ID for the currently authenticated user
+     * @return int
+     */
+    public function id()
+    {
+        if (! $user = $this->check()) {
+            return;
+        }
+
+        return $user->id;
+    }
 }
