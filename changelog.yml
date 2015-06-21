@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.0.3":
+        changed:
+            - Implementing the new <code>id</code> method on Sentry and Sentinel Authentication implementations
     "1.0.2":
         changed:
             - Adding changelog file
