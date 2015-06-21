@@ -127,7 +127,7 @@ class SentryAuthentication implements Authentication
      */
     public function hasAccess($permission)
     {
-        return Sentry::hasAccess($permission);
+        return Sentry::getUser()->hasAccess($permission);
     }
 
     /**

@@ -40,19 +40,18 @@ class UserServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->booted(function ($app) {
-            $this->registerMiddleware($app['router']);
-            $this->registerBindings();
-        });
+        $this->app->register(
+            $this->getUserPackageServiceProvider()
+        );
+
+        $this->registerBindings();
     }
 
     /**
      */
     public function boot()
     {
-        $this->app->register(
-            $this->getUserPackageServiceProvider()
-        );
+        $this->registerMiddleware($this->app['router']);
 
         $this->publishes([
             __DIR__.'/../Resources/views' => base_path('resources/views/asgard/user'),
