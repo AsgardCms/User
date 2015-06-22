@@ -2,9 +2,20 @@
 
 use Illuminate\Contracts\View\View;
 use Modules\Core\Composers\BaseSidebarViewComposer;
+use Modules\Core\Contracts\Authentication;
 
-class UsernameViewComposer extends BaseSidebarViewComposer
+class UsernameViewComposer
 {
+    /**
+     * @var Authentication
+     */
+    private $auth;
+
+    public function __construct(Authentication $auth)
+    {
+        $this->auth = $auth;
+    }
+
     public function compose(View $view)
     {
         $view->with('user', $this->auth->check());
