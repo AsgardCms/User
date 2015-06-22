@@ -14,15 +14,6 @@ use Modules\User\Http\Requests\ResetRequest;
 class AuthController extends BasePublicController
 {
     use DispatchesCommands;
-    /**
-     * @var AuthenticationRepository
-     */
-    private $auth;
-
-    public function __construct(Authentication $auth)
-    {
-        $this->auth = $auth;
-    }
 
     public function getLogin()
     {
