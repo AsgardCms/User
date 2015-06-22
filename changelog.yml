@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.0.6":
+        changed:
+            - Make the UsernameViewComposer independent
     "1.0.5":
         changed:
             - Fix the hasAccess method on the sentry implementation
