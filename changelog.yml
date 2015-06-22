@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.0.7":
+        changed:
+            - Remove the Authentication contract injection from the AuthController
     "1.0.6":
         changed:
             - Make the UsernameViewComposer independent
