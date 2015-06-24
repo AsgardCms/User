@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.0.8":
+        changed:
+            - Sentinel - checking if user is logged in before checking for permissions
     "1.0.7":
         changed:
             - Remove the Authentication contract injection from the AuthController
