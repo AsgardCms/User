@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.0.9":
+        changed:
+            - Changing index views ordering of columns
     "1.0.8":
         changed:
             - Sentinel - checking if user is logged in before checking for permissions
