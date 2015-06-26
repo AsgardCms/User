@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.0.10":
+        changed:
+            - Fixing datatable
     "1.0.9":
         changed:
             - Changing index views ordering of columns
