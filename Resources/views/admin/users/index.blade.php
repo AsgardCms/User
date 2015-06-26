@@ -28,10 +28,11 @@
                 <table class="data-table table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>{{ trans('user::users.table.created-at') }}</th>
+                            <th>Id</th>
                             <th>{{ trans('user::users.table.first-name') }}</th>
                             <th>{{ trans('user::users.table.last-name') }}</th>
                             <th>{{ trans('user::users.table.email') }}</th>
+                            <th>{{ trans('user::users.table.created-at') }}</th>
                             <th>{{ trans('user::users.table.actions') }}</th>
                         </tr>
                     </thead>
@@ -41,7 +42,7 @@
                             <tr>
                                 <td>
                                     <a href="{{ URL::route('admin.user.user.edit', [$user->id]) }}">
-                                        {{ $user->created_at }}
+                                        {{ $user->id }}
                                     </a>
                                 </td>
                                 <td>
@@ -60,6 +61,11 @@
                                     </a>
                                 </td>
                                 <td>
+                                    <a href="{{ URL::route('admin.user.user.edit', [$user->id]) }}">
+                                        {{ $user->created_at }}
+                                    </a>
+                                </td>
+                                <td>
                                     <div class="btn-group">
                                         <a href="{{ URL::route('admin.user.user.edit', [$user->id]) }}" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-pencil"></i></a>
                                         <?php if ($user->id != $currentUser->id): ?>
@@ -73,10 +79,11 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>{{ trans('user::users.table.created-at') }}</th>
+                            <th>Id</th>
                             <th>{{ trans('user::users.table.first-name') }}</th>
                             <th>{{ trans('user::users.table.last-name') }}</th>
                             <th>{{ trans('user::users.table.email') }}</th>
+                            <th>{{ trans('user::users.table.created-at') }}</th>
                             <th>{{ trans('user::users.table.actions') }}</th>
                         </tr>
                     </tfoot>

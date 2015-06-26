@@ -28,8 +28,9 @@
                 <table class="data-table table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>{{ trans('user::users.table.created-at') }}</th>
+                            <td>Id</td>
                             <th>{{ trans('user::roles.table.name') }}</th>
+                            <th>{{ trans('user::users.table.created-at') }}</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -39,12 +40,17 @@
                             <tr>
                                 <td>
                                     <a href="{{ URL::route('admin.user.role.edit', [$role->id]) }}">
-                                        {{ $role->created_at }}
+                                        {{ $role->id }}
                                     </a>
                                 </td>
                                 <td>
                                     <a href="{{ URL::route('admin.user.role.edit', [$role->id]) }}">
                                         {{ $role->name }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ URL::route('admin.user.role.edit', [$role->id]) }}">
+                                        {{ $role->created_at }}
                                     </a>
                                 </td>
                                 <td>
@@ -59,8 +65,9 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>{{ trans('user::users.table.created-at') }}</th>
+                            <td>Id</td>
                             <th>{{ trans('user::roles.table.name') }}</th>
+                            <th>{{ trans('user::users.table.created-at') }}</th>
                             <th>Actions</th>
                         </tr>
                     </tfoot>
