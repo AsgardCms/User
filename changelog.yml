@@ -1,5 +1,10 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.0.11":
+        added:
+            - Added a UserWasUpdated event
+            - Added a RoleWasUpdated event
+            - Flushing sidebar cache when user or role was updated
     "1.0.10":
         changed:
             - Fixing datatable
