@@ -2,7 +2,6 @@
 
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Laracasts\Flash\Flash;
-use Modules\Core\Contracts\Authentication;
 use Modules\Core\Http\Controllers\BasePublicController;
 use Modules\User\Exceptions\InvalidOrExpiredResetCode;
 use Modules\User\Exceptions\UserNotFoundException;

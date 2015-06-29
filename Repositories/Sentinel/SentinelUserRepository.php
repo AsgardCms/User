@@ -155,6 +155,7 @@ class SentinelUserRepository implements UserRepository
     {
         if (! $data['password']) {
             unset($data['password']);
+
             return;
         }
 

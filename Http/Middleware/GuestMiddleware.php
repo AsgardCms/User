@@ -1,6 +1,5 @@
 <?php namespace Modules\User\Http\Middleware;
 
-use Closure;
 use Illuminate\Support\Facades\Redirect;
 use Modules\Core\Contracts\Authentication;
 

@@ -1,6 +1,5 @@
 <?php namespace Modules\User\Providers;
 
-use Illuminate\Bus\Dispatcher;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
@@ -54,10 +53,10 @@ class UserServiceProvider extends ServiceProvider
         $this->registerMiddleware($this->app['router']);
 
         $this->publishes([
-            __DIR__.'/../Resources/views' => base_path('resources/views/asgard/user'),
+            __DIR__ . '/../Resources/views' => base_path('resources/views/asgard/user'),
         ]);
         $this->loadViewsFrom(base_path('resources/views/asgard/user'), 'user');
-        $this->loadViewsFrom(__DIR__.'/../Resources/views', 'user');
+        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'user');
     }
 
     /**

@@ -72,6 +72,7 @@ class User extends SentryModel implements UserInterface
         #i: Relation method resolver
         if (Config::has($config)) {
             $function = Config::get($config);
+
             return $function($this);
         }
 

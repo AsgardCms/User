@@ -1,7 +1,6 @@
 <?php namespace Modules\User\Composers;
 
 use Illuminate\Contracts\View\View;
-use Modules\Core\Composers\BaseSidebarViewComposer;
 use Modules\Core\Contracts\Authentication;
 
 class UsernameViewComposer

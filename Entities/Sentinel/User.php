@@ -1,7 +1,7 @@
 <?php namespace Modules\User\Entities\Sentinel;
 
-use Cartalyst\Sentinel\Users\EloquentUser;
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
+use Cartalyst\Sentinel\Users\EloquentUser;
 use Illuminate\Support\Facades\Config;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\User\Entities\UserInterface;
@@ -63,6 +63,7 @@ class User extends EloquentUser implements UserInterface
         #i: Relation method resolver
         if (Config::has($config)) {
             $function = Config::get($config);
+
             return $function($this);
         }
 
