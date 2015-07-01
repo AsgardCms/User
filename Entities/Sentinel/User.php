@@ -18,7 +18,19 @@ class User extends EloquentUser implements UserInterface
         'last_name',
     ];
 
+    /**
+     * {@inheritDoc}
+     */
+    protected $loginNames = ['email'];
+
     protected $presenter = 'Modules\User\Presenters\UserPresenter';
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        $this->loginNames = config('asgard.user.users.login-columns');
+    }
 
     /**
      * Checks if a user belongs to the given Role ID
