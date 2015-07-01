@@ -4,6 +4,8 @@ versions:
         added:
             - Adding the loginNames property on the Sentinel User entity
             - Adding configuration to setup which login column names to use
+        changed:
+            - Cleaning up <code>composers.php</code> file
     "1.0.11":
         added:
             - Added a UserWasUpdated event
