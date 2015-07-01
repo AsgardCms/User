@@ -1,5 +1,9 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.1.0":
+        added:
+            - Adding the loginNames property on the Sentinel User entity
+            - Adding configuration to setup which login column names to use
     "1.0.11":
         added:
             - Added a UserWasUpdated event
