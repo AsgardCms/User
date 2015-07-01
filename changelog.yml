@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.2.0":
+        added:
+            - Set the user fillable fields dynamically from the user configuration file
     "1.1.0":
         added:
             - Adding the loginNames property on the Sentinel User entity
