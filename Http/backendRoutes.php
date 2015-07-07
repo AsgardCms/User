@@ -1,22 +1,17 @@
 <?php
 
-use Illuminate\Routing\Router;
+$router->group(['prefix' => '/user'], function () {
+    get('users', ['as' => 'admin.user.user.index', 'uses' => 'UserController@index']);
+    get('users/create', ['as' => 'admin.user.user.create', 'uses' => 'UserController@create']);
+    post('users', ['as' => 'admin.user.user.store', 'uses' => 'UserController@store']);
+    get('users/{users}/edit', ['as' => 'admin.user.user.edit', 'uses' => 'UserController@edit']);
+    put('users/{users}/edit', ['as' => 'admin.user.user.update', 'uses' => 'UserController@update']);
+    delete('users/{users}', ['as' => 'admin.user.user.destroy', 'uses' => 'UserController@destroy']);
 
-$router->group(['prefix' => '/user'], function (Router $router) {
-    $router->resource('users', 'UserController', ['except' => ['show'], 'names' => [
-            'index' => 'admin.user.user.index',
-            'create' => 'admin.user.user.create',
-            'store' => 'admin.user.user.store',
-            'edit' => 'admin.user.user.edit',
-            'update' => 'admin.user.user.update',
-            'destroy' => 'admin.user.user.destroy',
-        ]]);
-    $router->resource('roles', 'RolesController', ['except' => ['show'], 'names' => [
-        'index' => 'admin.user.role.index',
-        'create' => 'admin.user.role.create',
-        'store' => 'admin.user.role.store',
-        'edit' => 'admin.user.role.edit',
-        'update' => 'admin.user.role.update',
-        'destroy' => 'admin.user.role.destroy',
-    ]]);
+    get('roles', ['as' => 'admin.user.role.index', 'uses' => 'RolesController@index']);
+    get('roles/create', ['as' => 'admin.user.role.create', 'uses' => 'RolesController@create']);
+    post('roles', ['as' => 'admin.user.role.store', 'uses' => 'RolesController@store']);
+    get('roles/{roles}/edit', ['as' => 'admin.user.role.edit', 'uses' => 'RolesController@edit']);
+    put('roles/{roles}/edit', ['as' => 'admin.user.role.update', 'uses' => 'RolesController@update']);
+    delete('roles/{roles}', ['as' => 'admin.user.role.destroy', 'uses' => 'RolesController@destroy']);
 });
