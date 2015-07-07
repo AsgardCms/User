@@ -1,8 +1,5 @@
 <?php namespace Modules\User\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\View;
-use Laracasts\Flash\Flash;
 use Modules\Core\Contracts\Authentication;
 use Modules\Core\Permissions\PermissionManager;
 use Modules\User\Http\Requests\CreateUserRequest;
@@ -83,7 +80,7 @@ class UserController extends BaseUserModuleController
 
         $this->user->createWithRoles($data, $request->roles, true);
 
-        Flash::success(trans('user::messages.user created'));
+        flash(trans('user::messages.user created'));
 
         return redirect()->route('admin.user.user.index');
     }
@@ -97,7 +94,7 @@ class UserController extends BaseUserModuleController
     public function edit($id)
     {
         if (!$user = $this->user->find($id)) {
-            Flash::error(trans('user::messages.user not found'));
+            flash()->error(trans('user::messages.user not found'));
 
             return redirect()->route('admin.user.user.index');
         }
@@ -121,7 +118,7 @@ class UserController extends BaseUserModuleController
 
         $this->user->updateAndSyncRoles($id, $data, $request->roles);
 
-        Flash::success(trans('user::messages.user updated'));
+        flash(trans('user::messages.user updated'));
 
         return redirect()->route('admin.user.user.index');
     }
@@ -136,7 +133,7 @@ class UserController extends BaseUserModuleController
     {
         $this->user->delete($id);
 
-        Flash::success(trans('user::messages.user deleted'));
+        flash(trans('user::messages.user deleted'));
 
         return redirect()->route('admin.user.user.index');
     }
