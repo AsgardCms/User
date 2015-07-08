@@ -82,7 +82,7 @@ class SentinelUserRepository implements UserRepository
      */
     public function update($user, $data)
     {
-        $user = $this->user->update($user, $data);
+        $user = $user->update($data);
 
         event(new UserWasUpdated($user));
 
