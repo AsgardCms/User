@@ -71,7 +71,7 @@ class UserServiceProvider extends ServiceProvider
 
     private function registerBindings()
     {
-        $driver = config('asgard.user.users.driver', 'Sentry');
+        $driver = config('asgard.user.users.driver', 'Sentinel');
 
         $this->app->bind(
             'Modules\User\Repositories\UserRepository',
@@ -101,7 +101,7 @@ class UserServiceProvider extends ServiceProvider
 
     private function getUserPackageServiceProvider()
     {
-        $driver = config('asgard.user.users.driver', 'Sentry');
+        $driver = config('asgard.user.users.driver', 'Sentinel');
 
         if (!isset($this->providers[$driver])) {
             throw new \Exception("Driver [{$driver}] does not exist");
