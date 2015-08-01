@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.5.0":
+        added:
+            - Spanish translations
     "1.4.0":
         changed:
             - Default fallback user provider set to Sentinel
