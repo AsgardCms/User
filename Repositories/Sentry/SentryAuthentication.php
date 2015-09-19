@@ -9,6 +9,7 @@ use Cartalyst\Sentry\Users\UserNotActivatedException;
 use Cartalyst\Sentry\Users\UserNotFoundException;
 use Cartalyst\Sentry\Users\WrongPasswordException;
 use Modules\Core\Contracts\Authentication;
+use Modules\User\Events\UserHasActivatedAccount;
 
 class SentryAuthentication implements Authentication
 {
@@ -62,7 +63,11 @@ class SentryAuthentication implements Authentication
         $user = Sentry::findUserById($userId);
 
         try {
-            return $user->attemptActivation($code);
+            $success = $user->attemptActivation($code);
+            if ($success) {
+                event(new UserHasActivatedAccount($user));
+            }
+            return $success;
         } catch (\Exception $e) {
             return false;
         }
