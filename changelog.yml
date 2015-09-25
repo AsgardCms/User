@@ -1,5 +1,9 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.7.0":
+        added:
+            - Chinese Simplified language
+            - Added a <code>UserHasActivatedAccount</code> event
     "1.6.0":
         added:
             - Dutch and Portuguese language
