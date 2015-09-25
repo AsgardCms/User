@@ -13,7 +13,6 @@ use Modules\User\Entities\UserInterface;
  */
 class User extends UsherUser implements UserInterface
 {
-
     /**
      * Traits
      */

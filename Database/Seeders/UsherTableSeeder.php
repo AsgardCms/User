@@ -5,7 +5,6 @@ use Modules\User\Repositories\RoleRepository;
 
 class UsherTableSeeder extends Seeder
 {
-
     /**
      * @var RoleRepository
      */

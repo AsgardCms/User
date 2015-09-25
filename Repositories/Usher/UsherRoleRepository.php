@@ -5,7 +5,6 @@ use Modules\User\Repositories\RoleRepository;
 
 class UsherRoleRepository implements RoleRepository
 {
-
     /**
      * @var UsherRoleRepo
      */

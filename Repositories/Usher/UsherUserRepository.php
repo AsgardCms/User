@@ -10,7 +10,6 @@ use Modules\User\Repositories\UserRepository;
 
 class UsherUserRepository implements UserRepository
 {
-
     /**
      * @var UsherUserRepo
      */

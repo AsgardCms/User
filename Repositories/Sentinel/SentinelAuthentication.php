@@ -77,6 +77,7 @@ class SentinelAuthentication implements Authentication
         if ($success) {
             event(new UserHasActivatedAccount($user));
         }
+
         return $success;
     }
 

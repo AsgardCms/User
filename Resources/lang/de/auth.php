@@ -16,7 +16,7 @@ return [
     'welcome title' => 'Willkommen',
     'please confirm email' => 'Bitte bestätigen Sie Ihre E-Mail-Adresse, indem Sie auf den Link unten.',
     'additional confirm email message' => 'We may need to send you critical information about our service and it is important that we have an accurate email address.',
-	'Möglicherweise müssen wir Ihnen wichtige Informationen über unseren Service zu senden, es ist wichtig, dass wir eine genaue E-Mail Adresse haben.',
+    'Möglicherweise müssen wir Ihnen wichtige Informationen über unseren Service zu senden, es ist wichtig, dass wir eine genaue E-Mail Adresse haben.',
     'confirm email button' => 'bestätigen Email-Adresse',
     'end greeting' => 'Das Team',
 ];

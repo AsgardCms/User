@@ -12,7 +12,6 @@ use Maatwebsite\Usher\Domain\Roles\Role as UsherRole;
  */
 class Role extends UsherRole implements RoleInterface
 {
-
     /**
      * @ORM\ManyToMany(targetEntity="User", mappedBy="roles")
      * @var ArrayCollection|\Maatwebsite\Usher\Contracts\Users\User[]

@@ -6,7 +6,6 @@ use Modules\User\Repositories\UserRepository;
 
 class UsherAuthentication implements Authentication
 {
-
     /**
      * @var Guard
      */

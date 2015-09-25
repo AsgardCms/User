@@ -67,6 +67,7 @@ class SentryAuthentication implements Authentication
             if ($success) {
                 event(new UserHasActivatedAccount($user));
             }
+
             return $success;
         } catch (\Exception $e) {
             return false;
