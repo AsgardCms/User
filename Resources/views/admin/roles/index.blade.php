@@ -31,7 +31,7 @@
                             <td>Id</td>
                             <th>{{ trans('user::roles.table.name') }}</th>
                             <th>{{ trans('user::users.table.created-at') }}</th>
-                            <th>Actions</th>
+                            <th>{{ trans('user::users.table.actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,7 +68,7 @@
                             <td>Id</td>
                             <th>{{ trans('user::roles.table.name') }}</th>
                             <th>{{ trans('user::users.table.created-at') }}</th>
-                            <th>Actions</th>
+                            <th>{{ trans('user::users.table.actions') }}</th>
                         </tr>
                     </tfoot>
                 </table>
@@ -138,3 +138,4 @@
     });
 </script>
 @stop
+
