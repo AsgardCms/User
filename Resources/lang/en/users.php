@@ -31,6 +31,7 @@ return [
         'password-confirmation' => 'Password confirmation',
         'new password' => 'New password',
         'new password confirmation' => 'New password confirmation',
+        'is activated' => 'Activated'
     ],
     'table' => [
         'created-at' => 'Created At',
