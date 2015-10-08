@@ -171,13 +171,9 @@ class SentinelUserRepository implements UserRepository
      */
     private function checkForManualActivation($user, array &$data)
     {
-        if (Activation::completed($user))
-        {
-            if (!$data['activated'])
-            {
-                Activation::remove($user);
-
-                return;
+        if (Activation::completed($user)) {
+            if (!$data['activated']) {
+                return Activation::remove($user); 
             }
 
             $activation = Activation::create($user);
