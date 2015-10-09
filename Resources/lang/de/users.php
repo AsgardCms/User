@@ -5,14 +5,14 @@ return [
         'new-user' => 'Neuer Benutzer',
     ],
     'title' => [
-        'users' => 'Benutzern',
+        'users' => 'Benutzer',
         'new-user' => 'Neuer Benutzer',
         'edit-user' => 'Benutzer bearbeiten',
     ],
     'breadcrumb' => [
-        'home' => 'Anfang',
-        'users' => 'Benutzern',
-        'new' => 'Neuer',
+        'home' => 'Startseite',
+        'users' => 'Benutzer',
+        'new' => 'Neu',
         'edit-user' => 'Benutzer bearbeiten',
     ],
     'tabs' => [
@@ -20,7 +20,7 @@ return [
         'roles' => 'Rollen',
         'permissions' => 'Berechtigungen',
         'new password' => 'Neues Passwort',
-        'or send reset password mail' => 'oder eine E-Mail mit Anweisungen zum Passwort zurücksetzen senden',
+        'or send reset password mail' => 'oder eine E-Mail, mit Anweisungen zum Passwort zurücksetzen, senden',
     ],
     'form' => [
         'first-name' => 'Vorname',
@@ -30,7 +30,7 @@ return [
         'password' => 'Passwort',
         'password-confirmation' => 'Passwort Bestätigung',
         'new password' => 'Neues Passwort',
-        'new password confirmation' => 'New Passwortbestätigung',
+        'new password confirmation' => 'Neue Passwortbestätigung',
     ],
     'table' => [
         'created-at' => 'Erstellt am',
@@ -40,9 +40,9 @@ return [
         'actions' => 'Aktionen',
     ],
     'navigation' => [
-        'back to index' => 'Zurück zu den Benutzern Index'
+        'back to index' => 'Zurück zur Übersicht'
     ],
-    'new password setup' => 'Setup ein neues Passwort',
-    'or send reset password mail' => 'oder eine E-Mail mit Anweisungen zum Passwort zurücksetzen senden',
+    'new password setup' => 'Ein neues Passwort setzen',
+    'or send reset password mail' => 'oder eine E-Mail, mit Anweisungen zum Passwort zurücksetzen, senden',
     'send reset password email' => 'E-Mail mit Anweisungen zum Passwort zurücksetzen senden',
 ];
