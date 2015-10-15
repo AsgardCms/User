@@ -15,7 +15,7 @@ return [
         'edit' => 'Rolle ändern',
     ],
     'table' => [
-        'name' => 'Namen',
+        'name' => 'Name',
     ],
     'tabs' => [
         'data' => 'Daten',
@@ -26,7 +26,7 @@ return [
         'slug' => 'Rolle slug',
     ],
     'navigation' => [
-        'back to index' => 'Zurück zu Rollen Index'
+        'back to index' => 'Zurück zur Übersicht'
     ],
     'select all' => 'Alle auswählen',
     'deselect all' => 'Alle abwählen',
