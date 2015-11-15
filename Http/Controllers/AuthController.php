@@ -1,6 +1,6 @@
 <?php namespace Modules\User\Http\Controllers;
 
-use Illuminate\Foundation\Bus\DispatchesCommands;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Laracasts\Flash\Flash;
 use Modules\Core\Http\Controllers\BasePublicController;
 use Modules\User\Exceptions\InvalidOrExpiredResetCode;
@@ -12,7 +12,7 @@ use Modules\User\Http\Requests\ResetRequest;
 
 class AuthController extends BasePublicController
 {
-    use DispatchesCommands;
+    use DispatchesJobs;
 
     public function getLogin()
     {
