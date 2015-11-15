@@ -102,7 +102,7 @@ class SentinelUserRepository implements UserRepository
 
         $this->checkForNewPassword($data);
 
-        $this->checkForManualActivation($user,$data);
+        $this->checkForManualActivation($user, $data);
 
         $user = $user->fill($data);
         $user->save();
@@ -177,6 +177,7 @@ class SentinelUserRepository implements UserRepository
 
         if (!Activation::completed($user) && $data['activated']) {
             $activation = Activation::create($user);
+
             return Activation::complete($user, $activation->code);
         }
     }
