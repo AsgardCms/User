@@ -1,5 +1,10 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.9.0":
+        changed:
+            - Fixing user manual activation via backend
+            - Removing deprecated code usage
+            - Minor consistancy changes
     "1.8.0":
         added:
             - Added Russian translations
