@@ -4,7 +4,7 @@ versions:
         changed:
             - Fixing user manual activation via backend
             - Removing deprecated code usage
-            - Minor consistancy changes
+            - Minor consistency changes
     "1.8.0":
         added:
             - Added Russian translations
