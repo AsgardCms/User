@@ -29,6 +29,7 @@ return [
         'password-confirmation' => 'Confirmation de mot de passe',
         'new password' => 'Nouveau mot de passe',
         'new password confirmation' => 'Confirmation du nouveau mot de passe',
+        'is activated' => 'Activé'
     ],
     'table' => [
         'created-at' => 'Crée à',

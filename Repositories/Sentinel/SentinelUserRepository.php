@@ -102,6 +102,8 @@ class SentinelUserRepository implements UserRepository
 
         $this->checkForNewPassword($data);
 
+        $this->checkForManualActivation($user,$data);
+
         $user = $user->fill($data);
         $user->save();
 
@@ -160,5 +162,22 @@ class SentinelUserRepository implements UserRepository
         }
 
         $data['password'] = Hash::make($data['password']);
+    }
+
+    /**
+     * Check and manually activate or remove activation for the user
+     * @param $user
+     * @param array $data
+     */
+    private function checkForManualActivation($user, array &$data)
+    {
+        if (Activation::completed($user) && !$data['activated']) {
+            return Activation::remove($user);
+        }
+
+        if (!Activation::completed($user) && $data['activated']) {
+            $activation = Activation::create($user);
+            return Activation::complete($user, $activation->code);
+        }
     }
 }
