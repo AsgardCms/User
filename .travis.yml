@@ -14,3 +14,8 @@ script:
 
 after_script:
   - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
+
+notifications:
+  email:
+    - n.widart@gmail.com
+    - josh@joshbrown.me
