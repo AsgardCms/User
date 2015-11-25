@@ -1,7 +1,7 @@
 <?php namespace Modules\User\Http\Controllers\Admin;
 
-use Modules\Core\Permissions\PermissionManager;
 use Modules\User\Http\Requests\RolesRequest;
+use Modules\User\Permissions\PermissionManager;
 use Modules\User\Repositories\RoleRepository;
 
 class RolesController extends BaseUserModuleController

@@ -1,7 +1,7 @@
 <?php namespace Modules\User\Http\Controllers\Admin;
 
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
-use Modules\Core\Permissions\PermissionManager;
+use Modules\User\Permissions\PermissionManager;
 
 abstract class BaseUserModuleController extends AdminBaseController
 {

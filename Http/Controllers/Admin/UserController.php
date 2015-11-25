@@ -1,9 +1,9 @@
 <?php namespace Modules\User\Http\Controllers\Admin;
 
 use Modules\Core\Contracts\Authentication;
-use Modules\Core\Permissions\PermissionManager;
 use Modules\User\Http\Requests\CreateUserRequest;
 use Modules\User\Http\Requests\UpdateUserRequest;
+use Modules\User\Permissions\PermissionManager;
 use Modules\User\Repositories\RoleRepository;
 use Modules\User\Repositories\UserRepository;
 
