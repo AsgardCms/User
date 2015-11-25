@@ -1,6 +1,6 @@
 # User module
 
-[![Latest Version](https://img.shields.io/github/release/asgardcms/user.svg?style=flat-square)](https://github.com/asgardcms/user/releases)
+[![Latest Version](https://img.shields.io/packagist/v/asgardcms/user-module.svg?style=flat-square)](https://github.com/asgardcms/user/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Quality Score](https://img.shields.io/scrutinizer/g/asgardcms/user.svg?style=flat-square)](https://scrutinizer-ci.com/g/asgardcms/user)
 [![SensioLabs Insight](https://img.shields.io/sensiolabs/i/304d1d01-3347-4958-915f-b2daabfe5f5a.svg)](https://insight.sensiolabs.com/projects/304d1d01-3347-4958-915f-b2daabfe5f5a)
