@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.10.1":
+        changed:
+            - Adding the permissions for the Themes part of the workshop Module on initial seed
     "1.10.0":
         changed:
             - The <code>PermissionManager</code> class has been moved to the User Module
