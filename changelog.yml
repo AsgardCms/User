@@ -1,5 +1,9 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.10.0":
+        changed:
+            - The <code>PermissionManager</code> class has been moved to the User Module
+            - Fixing issue with basic permissions
     "1.9.0":
         changed:
             - Fixing user manual activation via backend
