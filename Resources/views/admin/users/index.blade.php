@@ -97,28 +97,32 @@
 </div>
 
 <?php if (isset($users)): ?>
-    <?php foreach ($users as $user): ?>
-    <!-- Modal -->
-    <div class="modal fade modal-danger" id="confirmation-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">{{ trans('core::core.modal.title') }}</h4>
-                </div>
-                <div class="modal-body">
-                    {{ trans('core::core.modal.confirmation-message') }}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline btn-flat" data-dismiss="modal">{{ trans('core::core.button.cancel') }}</button>
-                    {!! Form::open(['route' => ['admin.user.user.destroy', $user->id], 'method' => 'delete', 'class' => 'pull-left']) !!}
-                        <button type="submit" class="btn btn-outline btn-flat"><i class="glyphicon glyphicon-trash"></i> {{ trans('core::core.button.delete') }}</button>
-                    {!! Form::close() !!}
-                </div>
+<?php $modalTitle = trans('core::core.modal.title'); ?>
+<?php $modalMessage = trans('core::core.modal.confirmation-message'); ?>
+<?php $modalCancel = trans('core::core.button.cancel'); ?>
+<?php $modalDelete = trans('core::core.button.delete'); ?>
+<?php foreach ($users as $user): ?>
+        <!-- Modal -->
+<div class="modal fade modal-danger" id="confirmation-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{ $modalTitle }}</h4>
+            </div>
+            <div class="modal-body">
+                {{ $modalMessage }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline btn-flat" data-dismiss="modal">{{ $modalCancel }}</button>
+                {!! Form::open(['route' => ['admin.user.user.destroy', $user->id], 'method' => 'delete', 'class' => 'pull-left']) !!}
+                <button type="submit" class="btn btn-outline btn-flat"><i class="glyphicon glyphicon-trash"></i> {{ $modalDelete }}</button>
+                {!! Form::close() !!}
             </div>
         </div>
     </div>
-    <?php endforeach; ?>
+</div>
+<?php endforeach; ?>
 <?php endif; ?>
 @stop
 
