@@ -59,7 +59,7 @@ class User extends EloquentUser implements UserInterface
      */
     public function isActivated()
     {
-        if ($activation = Activation::completed($this)) {
+        if (Activation::completed($this)) {
             return true;
         }
 
