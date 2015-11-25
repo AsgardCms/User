@@ -99,7 +99,6 @@ class User extends UsherUser implements UserInterface
      */
     public function hasRoleId($roleId)
     {
-        // TODO: Implement hasRoleId() method.
     }
 
     /**
@@ -109,7 +108,6 @@ class User extends UsherUser implements UserInterface
      */
     public function hasRoleName($name)
     {
-        // TODO: Implement hasRoleName() method.
     }
 
     /**
@@ -118,6 +116,5 @@ class User extends UsherUser implements UserInterface
      */
     public function isActivated()
     {
-        // TODO: Implement isActivated() method.
     }
 }
