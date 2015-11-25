@@ -44,6 +44,8 @@ class SentinelGroupSeedTableSeeder extends Seeder
             'workshop.modules.show' => true,
             'workshop.modules.disable' => true,
             'workshop.modules.enable' => true,
+            'workshop.themes.index' => true,
+            'workshop.themes.show' => true,
             /* Roles */
             'user.roles.index' => true,
             'user.roles.create' => true,
