@@ -1,6 +1,5 @@
 <?php namespace Modules\User\Providers;
 
-use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
 class UserServiceProvider extends ServiceProvider
