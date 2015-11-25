@@ -17,3 +17,11 @@ view()->composer(
     ],
     'Modules\User\Composers\UsernameViewComposer'
 );
+
+
+view()->composer(
+    [
+        'user::admin.partials.permissions'
+    ],
+    'Modules\User\Composers\UsersPermissionsViewComposer'
+);
