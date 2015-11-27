@@ -1,5 +1,9 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.11.0":
+        changed:
+            - Manual inclusing of iCheck css file has been removed
+            - Use the new datatables way of marking column not sortable
     "1.10.1":
         changed:
             - Adding the permissions for the Themes part of the workshop Module on initial seed
