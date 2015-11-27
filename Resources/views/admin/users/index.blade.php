@@ -33,7 +33,7 @@
                             <th>{{ trans('user::users.table.last-name') }}</th>
                             <th>{{ trans('user::users.table.email') }}</th>
                             <th>{{ trans('user::users.table.created-at') }}</th>
-                            <th>{{ trans('user::users.table.actions') }}</th>
+                            <th data-sortable="false">{{ trans('user::users.table.actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,9 +67,9 @@
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{ URL::route('admin.user.user.edit', [$user->id]) }}" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-pencil"></i></a>
+                                        <a href="{{ route('admin.user.user.edit', [$user->id]) }}" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
                                         <?php if ($user->id != $currentUser->id): ?>
-                                            <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#confirmation-{{ $user->id }}"><i class="glyphicon glyphicon-trash"></i></button>
+                                            <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#modal-delete-confirmation" data-action-target="{{ route('admin.user.user.destroy', [$user->id]) }}"><i class="fa fa-trash"></i></button>
                                         <?php endif; ?>
                                     </div>
                                 </td>
@@ -96,34 +96,7 @@
 </div>
 </div>
 
-<?php if (isset($users)): ?>
-<?php $modalTitle = trans('core::core.modal.title'); ?>
-<?php $modalMessage = trans('core::core.modal.confirmation-message'); ?>
-<?php $modalCancel = trans('core::core.button.cancel'); ?>
-<?php $modalDelete = trans('core::core.button.delete'); ?>
-<?php foreach ($users as $user): ?>
-        <!-- Modal -->
-<div class="modal fade modal-danger" id="confirmation-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">{{ $modalTitle }}</h4>
-            </div>
-            <div class="modal-body">
-                {{ $modalMessage }}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline btn-flat" data-dismiss="modal">{{ $modalCancel }}</button>
-                {!! Form::open(['route' => ['admin.user.user.destroy', $user->id], 'method' => 'delete', 'class' => 'pull-left']) !!}
-                <button type="submit" class="btn btn-outline btn-flat"><i class="glyphicon glyphicon-trash"></i> {{ $modalDelete }}</button>
-                {!! Form::close() !!}
-            </div>
-        </div>
-    </div>
-</div>
-<?php endforeach; ?>
-<?php endif; ?>
+@include('core::partials.delete-modal')
 @stop
 
 @section('scripts')
@@ -147,15 +120,7 @@
             "order": [[ 0, "desc" ]],
             "language": {
                 "url": '<?php echo Module::asset("core:js/vendor/datatables/{$locale}.json") ?>'
-            },
-            "columns": [
-                null,
-                null,
-                null,
-                null,
-                null,
-                { "sortable": false }
-            ]
+            }
         });
     });
 </script>
