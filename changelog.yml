@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.12.0":
+        changed:
+            - New and updated authentication views. <strong>Important: If you published the auth views, they need to be re-published</strong>
     "1.11.0":
         changed:
             - Manual inclusing of iCheck css file has been removed
