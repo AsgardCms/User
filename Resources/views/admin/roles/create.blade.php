@@ -9,10 +9,6 @@
     </ol>
 @stop
 
-@section('styles')
-    {!! Theme::style('css/vendor/iCheck/flat/blue.css') !!}
-@stop
-
 @section('content')
 {!! Form::open(['route' => 'admin.user.role.store', 'method' => 'post']) !!}
 <div class="row">

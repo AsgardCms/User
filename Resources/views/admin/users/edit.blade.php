@@ -11,10 +11,6 @@
 </ol>
 @stop
 
-@section('styles')
-    {!! Theme::style('css/vendor/iCheck/flat/blue.css') !!}
-@stop
-
 @section('content')
 {!! Form::open(['route' => ['admin.user.user.update', $user->id], 'method' => 'put']) !!}
 <div class="row">
