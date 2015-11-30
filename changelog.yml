@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.13.1":
+        changed:
+            - Fixed yaml structure
     "1.13.0":
         changed:
             - Seeding the Translation module permissions on init
