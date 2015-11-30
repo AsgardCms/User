@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.13.0":
+        changed:
+            - Seeding the Translation module permissions on init
     "1.12.0":
         changed:
             - New and updated authentication views. <strong>Important: If you published the auth views, they need to be re-published</strong>
