@@ -24,4 +24,3 @@ notifications:
 matrix:
   allow_failures:
     - php: hhvm
-    - php: 7
