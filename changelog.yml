@@ -1,5 +1,10 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.14.0":
+        changed:
+            - Removed language files, they are now in the translation module
+        added:
+            - Adding a wysiwyg settings field.
     "1.13.1":
         changed:
             - Fixed yaml structure
