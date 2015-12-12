@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.14.1":
+        changed:
+            - Adding autofocus on the first fields of authentication views
     "1.14.0":
         changed:
             - Removed language files, they are now in the translation module
