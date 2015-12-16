@@ -27,10 +27,10 @@ class User extends EloquentUser implements UserInterface
 
     public function __construct(array $attributes = [])
     {
-        parent::__construct($attributes);
-
         $this->loginNames = config('asgard.user.users.login-columns');
         $this->fillable = config('asgard.user.users.fillable');
+
+        parent::__construct($attributes);
     }
 
     /**
