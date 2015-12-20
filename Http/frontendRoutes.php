@@ -5,8 +5,10 @@ $router->group(['prefix' => 'auth'], function () {
     get('login', ['middleware' => 'auth.guest', 'as' => 'login', 'uses' => 'AuthController@getLogin']);
     post('login', ['as' => 'login.post', 'uses' => 'AuthController@postLogin']);
     # Register
-    get('register', ['middleware' => 'auth.guest', 'as' => 'register', 'uses' => 'AuthController@getRegister']);
-    post('register', ['as' => 'register.post', 'uses' => 'AuthController@postRegister']);
+    if (config('asgard.user.users.allow_user_registration')) {
+        get('register', ['middleware' => 'auth.guest', 'as' => 'register', 'uses' => 'AuthController@getRegister']);
+        post('register', ['as' => 'register.post', 'uses' => 'AuthController@postRegister']);
+    }
     # Account Activation
     get('activate/{userId}/{activationCode}', 'AuthController@getActivate');
     # Reset password

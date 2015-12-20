@@ -23,7 +23,12 @@ return [
     | only supported by the Sentinel user driver
     */
     'login-columns' => ['email'],
-
+    /*
+    |--------------------------------------------------------------------------
+    | Allow anonymous user registration
+    |--------------------------------------------------------------------------
+    */
+    'allow_user_registration' => true,
     /*
     |--------------------------------------------------------------------------
     | Fillable user fields
