@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.15.1":
+        changed:
+            - Config vars ineffective when instantiating with attributes
     "1.15.0":
         added:
             - Adding config option to disable the user registration routes
