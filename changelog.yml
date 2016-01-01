@@ -1,6 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
-    "1.14.1":
+    "1.15.0":
+        added:
+            - Adding config option to disable the user registration routes
         changed:
             - Adding autofocus on the first fields of authentication views
     "1.14.0":
