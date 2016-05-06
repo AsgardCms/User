@@ -3,7 +3,7 @@
   "alias": "user",
   "description": "The user module is responsible for managing users and permissions.",
   "keywords": [],
-  "version": "1.15.1",
+  "version": "1.16.0",
   "active": 1,
   "order": 1,
   "providers": [

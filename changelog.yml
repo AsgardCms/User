@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.16.0":
+        changed:
+            - Fire event on manual user creation
     "1.15.1":
         changed:
             - Config vars ineffective when instantiating with attributes
