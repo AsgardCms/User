@@ -28,6 +28,15 @@ interface UserRepository
     public function createWithRoles($data, $roles, $activated = false);
 
     /**
+     * Create a user and assign roles to it
+     * But don't fire the user created event
+     * @param array $data
+     * @param array $roles
+     * @param bool $activated
+     */
+    public function createWithRolesFromCli($data, $roles, $activated = false);
+
+    /**
      * Find a user by its ID
      * @param $id
      * @return mixed

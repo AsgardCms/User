@@ -42,7 +42,7 @@ class SentinelUserRepository implements UserRepository
     public function create(array $data)
     {
         $user = $this->user->create((array) $data);
-        
+
         event(new UserHasRegistered($user));
 
         return $user;
@@ -58,6 +58,28 @@ class SentinelUserRepository implements UserRepository
     {
         $this->hashPassword($data);
         $user = $this->create((array) $data);
+
+        if (!empty($roles)) {
+            $user->roles()->attach($roles);
+        }
+
+        if ($activated) {
+            $activation = Activation::create($user);
+            Activation::complete($user, $activation->code);
+        }
+    }
+
+    /**
+     * Create a user and assign roles to it
+     * But don't fire the user created event
+     * @param array $data
+     * @param array $roles
+     * @param bool $activated
+     */
+    public function createWithRolesFromCli($data, $roles, $activated = false)
+    {
+        $this->hashPassword($data);
+        $user = $this->user->create((array) $data);
 
         if (!empty($roles)) {
             $user->roles()->attach($roles);
