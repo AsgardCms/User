@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.16.1":
+        added:
+            - Adding method to create a role without triggering the event
     "1.16.0":
         changed:
             - Fire event on manual user creation
