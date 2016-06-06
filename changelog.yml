@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.17.0":
+        added:
+            - Adding ability to send a reset password email to user
     "1.16.1":
         added:
             - Adding method to create a role without triggering the event
