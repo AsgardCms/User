@@ -106,7 +106,7 @@
                             </div>
                             <div class="col-md-6">
                                 <h4>{{ trans('user::users.tabs.or send reset password mail') }}</h4>
-                                <a href="#" class="btn btn-flat bg-maroon" data-toggle="tooltip" data-placement="bottom" title="Coming soon">
+                                <a href="{{ route("admin.user.user.sendResetPassword", $user->id) }}" class="btn btn-flat bg-maroon">
                                     {{ trans('user::users.send reset password email') }}
                                 </a>
                             </div>

@@ -1,6 +1,7 @@
 <?php namespace Modules\User\Http\Controllers\Admin;
 
 use Modules\Core\Contracts\Authentication;
+use Modules\User\Events\UserHasBegunResetProcess;
 use Modules\User\Http\Requests\CreateUserRequest;
 use Modules\User\Http\Requests\UpdateUserRequest;
 use Modules\User\Permissions\PermissionManager;
@@ -136,5 +137,17 @@ class UserController extends BaseUserModuleController
         flash(trans('user::messages.user deleted'));
 
         return redirect()->route('admin.user.user.index');
+    }
+
+    public function sendResetPassword($user, Authentication $auth)
+    {
+        $user = $this->user->find($user);
+        $code = $auth->createReminderCode($user);
+
+        event(new UserHasBegunResetProcess($user, $code));
+
+        flash(trans('user::auth.reset password email was sent'));
+
+        return redirect()->route('admin.user.user.edit', $user->id);
     }
 }

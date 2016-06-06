@@ -6,6 +6,7 @@ $router->group(['prefix' => '/user'], function () {
     post('users', ['as' => 'admin.user.user.store', 'uses' => 'UserController@store']);
     get('users/{users}/edit', ['as' => 'admin.user.user.edit', 'uses' => 'UserController@edit']);
     put('users/{users}/edit', ['as' => 'admin.user.user.update', 'uses' => 'UserController@update']);
+    get('users/{users}/sendResetPassword', ['as' => 'admin.user.user.sendResetPassword', 'uses' => 'UserController@sendResetPassword']);
     delete('users/{users}', ['as' => 'admin.user.user.destroy', 'uses' => 'UserController@destroy']);
 
     get('roles', ['as' => 'admin.user.role.index', 'uses' => 'RolesController@index']);

@@ -7,6 +7,7 @@ return [
         'edit',
         'update',
         'destroy',
+        'sendResetPassword',
     ],
     'user.roles' => [
         'index',
