@@ -8,10 +8,17 @@ use Modules\User\Http\Requests\LoginRequest;
 use Modules\User\Http\Requests\RegisterRequest;
 use Modules\User\Http\Requests\ResetCompleteRequest;
 use Modules\User\Http\Requests\ResetRequest;
+use Modules\User\Services\UserRegistration;
 
 class AuthController extends BasePublicController
 {
     use DispatchesJobs;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+    }
 
     public function getLogin()
     {
@@ -45,7 +52,7 @@ class AuthController extends BasePublicController
 
     public function postRegister(RegisterRequest $request)
     {
-        app('Modules\User\Services\UserRegistration')->register($request->all());
+        app(UserRegistration::class)->register($request->all());
 
         flash()->success(trans('user::messages.account created check email for activation'));
 
