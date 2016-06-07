@@ -1,5 +1,9 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "1.18.0":
+        changed:
+            - User reset process is now handled by a service class
+            - Using the <code>$router</code> variable over the route helpers
     "1.17.0":
         added:
             - Adding ability to send a reset password email to user
