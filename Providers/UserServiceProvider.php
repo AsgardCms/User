@@ -1,9 +1,11 @@
 <?php namespace Modules\User\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Modules\Core\Traits\CanPublishConfiguration;
 
 class UserServiceProvider extends ServiceProvider
 {
+    use CanPublishConfiguration;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -55,6 +57,9 @@ class UserServiceProvider extends ServiceProvider
         ]);
         $this->loadViewsFrom(base_path('resources/views/asgard/user'), 'user');
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'user');
+        
+        $this->publishConfig('user', 'permissions');
+        $this->publishConfig('user', 'users');
     }
 
     /**
