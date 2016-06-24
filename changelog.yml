@@ -1,5 +1,10 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "2.0@unreleased":
+        removed:
+            - Removing Sentry and Usher user providers
+        changed:
+            - Using new more flexible way of handle permissions via middleware
     "1.18.0":
         changed:
             - User reset process is now handled by a service class
