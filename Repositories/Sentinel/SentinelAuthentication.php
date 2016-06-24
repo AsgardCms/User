@@ -159,8 +159,10 @@ class SentinelAuthentication implements Authentication
      */
     public function id()
     {
-        if (! $user = $this->check()) {
-            return;
+        $user = $this->user();
+
+        if ($user === null) {
+            return 0;
         }
 
         return $user->id;
