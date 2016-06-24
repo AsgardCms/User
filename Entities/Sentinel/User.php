@@ -2,7 +2,6 @@
 
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Users\EloquentUser;
-use Illuminate\Support\Facades\Config;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\User\Entities\UserInterface;
 use Modules\User\Presenters\UserPresenter;
@@ -75,8 +74,8 @@ class User extends EloquentUser implements UserInterface
         $config = implode('.', ['relations', $class_name, $method]);
 
         #i: Relation method resolver
-        if (Config::has($config)) {
-            $function = Config::get($config);
+        if (config()->has($config)) {
+            $function = config()->get($config);
 
             return $function($this);
         }
