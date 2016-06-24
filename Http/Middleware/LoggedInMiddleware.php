@@ -2,6 +2,11 @@
 
 use Modules\Core\Contracts\Authentication;
 
+/**
+ * Class LoggedInMiddleware
+ * @package Modules\User\Http\Middleware
+ * Middleware to make sure affected routes need a logged in user
+ */
 class LoggedInMiddleware
 {
     /**
@@ -22,7 +27,7 @@ class LoggedInMiddleware
      */
     public function handle($request, \Closure $next)
     {
-        if (! $this->auth->check()) {
+        if ($this->auth->check() === false) {
             return redirect()->guest('auth/login');
         }
 
