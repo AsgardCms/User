@@ -1,6 +1,8 @@
 url: https://github.com/AsgardCms/User
 versions:
     "2.0@unreleased":
+        added:
+            - Laravel 5.2 compatibility
         removed:
             - Removing Sentry and Usher user providers
         changed:
