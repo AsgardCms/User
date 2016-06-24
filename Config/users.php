@@ -6,7 +6,6 @@ return [
     | Define which user driver to use.
     |--------------------------------------------------------------------------
     | Current default and only option : Sentinel
-    | Sentry option is outdated
     */
     'driver' => 'Sentinel',
     /*
