@@ -40,10 +40,34 @@ $router->group(['prefix' => '/user'], function (Router $router) {
         'middleware' => 'can:user.users.destroy',
     ]);
 
-    $router->get('roles', ['as' => 'admin.user.role.index', 'uses' => 'RolesController@index']);
-    $router->get('roles/create', ['as' => 'admin.user.role.create', 'uses' => 'RolesController@create']);
-    $router->post('roles', ['as' => 'admin.user.role.store', 'uses' => 'RolesController@store']);
-    $router->get('roles/{roles}/edit', ['as' => 'admin.user.role.edit', 'uses' => 'RolesController@edit']);
-    $router->put('roles/{roles}/edit', ['as' => 'admin.user.role.update', 'uses' => 'RolesController@update']);
-    $router->delete('roles/{roles}', ['as' => 'admin.user.role.destroy', 'uses' => 'RolesController@destroy']);
+    $router->get('roles', [
+        'as' => 'admin.user.role.index',
+        'uses' => 'RolesController@index',
+        'middleware' => 'can:user.roles.index',
+    ]);
+    $router->get('roles/create', [
+        'as' => 'admin.user.role.create',
+        'uses' => 'RolesController@create',
+        'middleware' => 'can:user.roles.create',
+    ]);
+    $router->post('roles', [
+        'as' => 'admin.user.role.store',
+        'uses' => 'RolesController@store',
+        'middleware' => 'can:user.roles.create',
+    ]);
+    $router->get('roles/{roles}/edit', [
+        'as' => 'admin.user.role.edit',
+        'uses' => 'RolesController@edit',
+        'middleware' => 'can:user.roles.edit',
+    ]);
+    $router->put('roles/{roles}/edit', [
+        'as' => 'admin.user.role.update',
+        'uses' => 'RolesController@update',
+        'middleware' => 'can:user.roles.edit',
+    ]);
+    $router->delete('roles/{roles}', [
+        'as' => 'admin.user.role.destroy',
+        'uses' => 'RolesController@destroy',
+        'middleware' => 'can:user.roles.destroy',
+    ]);
 });
