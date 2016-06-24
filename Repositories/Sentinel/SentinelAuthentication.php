@@ -131,9 +131,24 @@ class SentinelAuthentication implements Authentication
 
     /**
      * Check if the user is logged in
-     * @return mixed
+     * @return bool
      */
     public function check()
+    {
+        $user = Sentinel::check();
+
+        if ($user) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Get the currently logged in user
+     * @return \Modules\User\Entities\UserInterface
+     */
+    public function user()
     {
         return Sentinel::check();
     }
