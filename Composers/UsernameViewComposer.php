@@ -17,6 +17,6 @@ class UsernameViewComposer
 
     public function compose(View $view)
     {
-        $view->with('user', $this->auth->check());
+        $view->with('user', $this->auth->user());
     }
 }
