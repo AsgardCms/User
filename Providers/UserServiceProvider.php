@@ -4,10 +4,14 @@ use Cartalyst\Sentinel\Laravel\SentinelServiceProvider;
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Contracts\Authentication;
 use Modules\Core\Traits\CanPublishConfiguration;
+use Modules\User\Entities\UserToken;
 use Modules\User\Http\Middleware\GuestMiddleware;
 use Modules\User\Http\Middleware\LoggedInMiddleware;
+use Modules\User\Repositories\Cache\CacheUserTokenDecorator;
+use Modules\User\Repositories\Eloquent\EloquentUserTokenRepository;
 use Modules\User\Repositories\RoleRepository;
 use Modules\User\Repositories\UserRepository;
+use Modules\User\Repositories\UserTokenRepository;
 
 class UserServiceProvider extends ServiceProvider
 {
@@ -88,6 +92,15 @@ class UserServiceProvider extends ServiceProvider
             Authentication::class,
             "Modules\\User\\Repositories\\{$driver}\\{$driver}Authentication"
         );
+        $this->app->bind(UserTokenRepository::class, function () {
+            $repository = new EloquentUserTokenRepository(new UserToken());
+
+            if (! config('app.cache')) {
+                return $repository;
+            }
+
+            return new CacheUserTokenDecorator($repository);
+        });
     }
 
     private function registerMiddleware()
