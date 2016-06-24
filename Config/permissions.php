@@ -12,4 +12,9 @@ return [
         'edit',
         'destroy',
     ],
+    'account.api-keys' => [
+        'index',
+        'create',
+        'destroy',
+    ],
 ];
