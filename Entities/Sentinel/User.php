@@ -5,6 +5,7 @@ use Cartalyst\Sentinel\Users\EloquentUser;
 use Illuminate\Support\Facades\Config;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\User\Entities\UserInterface;
+use Modules\User\Presenters\UserPresenter;
 
 class User extends EloquentUser implements UserInterface
 {
@@ -23,7 +24,7 @@ class User extends EloquentUser implements UserInterface
      */
     protected $loginNames = ['email'];
 
-    protected $presenter = 'Modules\User\Presenters\UserPresenter';
+    protected $presenter = UserPresenter::class;
 
     public function __construct(array $attributes = [])
     {
