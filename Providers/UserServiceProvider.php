@@ -1,7 +1,13 @@
 <?php namespace Modules\User\Providers;
 
+use Cartalyst\Sentinel\Laravel\SentinelServiceProvider;
 use Illuminate\Support\ServiceProvider;
+use Modules\Core\Contracts\Authentication;
 use Modules\Core\Traits\CanPublishConfiguration;
+use Modules\User\Http\Middleware\GuestMiddleware;
+use Modules\User\Http\Middleware\LoggedInMiddleware;
+use Modules\User\Repositories\RoleRepository;
+use Modules\User\Repositories\UserRepository;
 
 class UserServiceProvider extends ServiceProvider
 {
@@ -17,19 +23,15 @@ class UserServiceProvider extends ServiceProvider
      * @var array
      */
     protected $providers = [
-        'Sentinel' => 'Cartalyst\\Sentinel\\Laravel\\SentinelServiceProvider',
-        'Sentry'   => 'Cartalyst\\Sentry\\SentryServiceProvider',
-        'Usher'    => 'Maatwebsite\\Usher\\UsherServiceProvider'
+        'Sentinel' => SentinelServiceProvider::class,
     ];
 
     /**
      * @var array
      */
     protected $middleware = [
-        'User' => [
-            'auth.guest' => 'GuestMiddleware',
-            'logged.in' => 'LoggedInMiddleware'
-        ],
+        'auth.guest' => GuestMiddleware::class,
+        'logged.in' => LoggedInMiddleware::class
     ];
 
     /**
@@ -39,9 +41,7 @@ class UserServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register(
-            $this->getUserPackageServiceProvider()
-        );
+        $this->app->register($this->getUserPackageServiceProvider());
 
         $this->registerBindings();
     }
@@ -50,14 +50,14 @@ class UserServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerMiddleware($this->app['router']);
+        $this->registerMiddleware();
 
         $this->publishes([
             __DIR__ . '/../Resources/views' => base_path('resources/views/asgard/user'),
         ]);
         $this->loadViewsFrom(base_path('resources/views/asgard/user'), 'user');
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'user');
-        
+
         $this->publishConfig('user', 'permissions');
         $this->publishConfig('user', 'users');
     }
@@ -77,28 +77,23 @@ class UserServiceProvider extends ServiceProvider
         $driver = config('asgard.user.users.driver', 'Sentinel');
 
         $this->app->bind(
-            'Modules\User\Repositories\UserRepository',
+            UserRepository::class,
             "Modules\\User\\Repositories\\{$driver}\\{$driver}UserRepository"
         );
-
         $this->app->bind(
-            'Modules\User\Repositories\RoleRepository',
+            RoleRepository::class,
             "Modules\\User\\Repositories\\{$driver}\\{$driver}RoleRepository"
         );
         $this->app->bind(
-            'Modules\Core\Contracts\Authentication',
+            Authentication::class,
             "Modules\\User\\Repositories\\{$driver}\\{$driver}Authentication"
         );
     }
 
-    private function registerMiddleware($router)
+    private function registerMiddleware()
     {
-        foreach ($this->middleware as $module => $middlewares) {
-            foreach ($middlewares as $name => $middleware) {
-                $class = "Modules\\{$module}\\Http\\Middleware\\{$middleware}";
-
-                $router->middleware($name, $class);
-            }
+        foreach ($this->middleware as $name => $class) {
+            $this->app['router']->middleware($name, $class);
         }
     }
 
