@@ -1,5 +1,7 @@
 <?php namespace Modules\User\Repositories;
 
+use Modules\User\Entities\UserInterface;
+
 /**
  * Interface UserRepository
  * @package Modules\User\Repositories
@@ -33,6 +35,7 @@ interface UserRepository
      * @param array $data
      * @param array $roles
      * @param bool $activated
+     * @return UserInterface
      */
     public function createWithRolesFromCli($data, $roles, $activated = false);
 
