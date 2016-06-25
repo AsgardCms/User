@@ -3,6 +3,7 @@ versions:
     "2.0@unreleased":
         added:
             - Laravel 5.2 compatibility
+            - Added api keys management per user. With API middleware to protect internal APIs and public APIs.
         removed:
             - Removing Sentry and Usher user providers
         changed:
