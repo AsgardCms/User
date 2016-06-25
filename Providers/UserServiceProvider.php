@@ -5,6 +5,8 @@ use Illuminate\Support\ServiceProvider;
 use Modules\Core\Contracts\Authentication;
 use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\User\Entities\UserToken;
+use Modules\User\Http\Middleware\AuthorisedApiToken;
+use Modules\User\Http\Middleware\AuthorisedApiTokenAdmin;
 use Modules\User\Http\Middleware\GuestMiddleware;
 use Modules\User\Http\Middleware\LoggedInMiddleware;
 use Modules\User\Repositories\Cache\CacheUserTokenDecorator;
@@ -35,7 +37,9 @@ class UserServiceProvider extends ServiceProvider
      */
     protected $middleware = [
         'auth.guest' => GuestMiddleware::class,
-        'logged.in' => LoggedInMiddleware::class
+        'logged.in' => LoggedInMiddleware::class,
+        'api.token' => AuthorisedApiToken::class,
+        'api.token.admin' => AuthorisedApiTokenAdmin::class,
     ];
 
     /**
