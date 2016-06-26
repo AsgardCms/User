@@ -21,4 +21,10 @@ interface UserInterface
      * @return bool
      */
     public function isActivated();
+
+    /**
+     * Get the first available api key
+     * @return string
+     */
+    public function getFirstApiKey();
 }

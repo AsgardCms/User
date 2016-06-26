@@ -4,6 +4,7 @@ use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Users\EloquentUser;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\User\Entities\UserInterface;
+use Modules\User\Entities\UserToken;
 use Modules\User\Presenters\UserPresenter;
 
 class User extends EloquentUser implements UserInterface
@@ -64,6 +65,29 @@ class User extends EloquentUser implements UserInterface
         }
 
         return false;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function api_keys()
+    {
+        return $this->hasMany(UserToken::class);
+    }
+
+    /**
+     * Get the first available api key
+     * @return string
+     */
+    public function getFirstApiKey()
+    {
+        $userToken = $this->api_keys->first();
+
+        if ($userToken === null) {
+            return '';
+        }
+
+        return $userToken->access_token;
     }
 
     public function __call($method, $parameters)
