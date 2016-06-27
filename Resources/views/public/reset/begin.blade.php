@@ -11,7 +11,7 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">{{ trans('user::auth.to reset password complete this form') }}</p>
-        @include('flash::message')
+        @include('partials.notifications')
 
         {!! Form::open(['route' => 'reset.post']) !!}
             <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">

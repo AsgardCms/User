@@ -10,7 +10,7 @@
 
     <div class="register-box-body">
         <p class="login-box-msg">{{ trans('user::auth.register') }}</p>
-
+        @include('partials.notifications')
         {!! Form::open(['route' => 'register.post']) !!}
             <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error has-feedback' : '' }}">
                 <input type="email" name="email" class="form-control" autofocus

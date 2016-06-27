@@ -11,7 +11,7 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">{{ trans('user::auth.sign in welcome message') }}</p>
-        @include('flash::message')
+        @include('partials.notifications')
 
         {!! Form::open(['route' => 'login.post']) !!}
             <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">

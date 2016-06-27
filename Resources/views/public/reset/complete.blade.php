@@ -10,7 +10,7 @@
     </div>
     <div class="login-box-body">
         <p class="login-box-msg">{{ trans('user::auth.reset password') }}</p>
-        @include('flash::message')
+        @include('partials.notifications')
 
         {!! Form::open() !!}
         <div class="form-group has-feedback {{ $errors->has('password') ? ' has-error' : '' }}">
