@@ -6,6 +6,7 @@ versions:
             - Added api keys management per user. With API middleware to protect internal APIs and public APIs.
         removed:
             - Removing Sentry and Usher user providers
+            - Removing laracasts/flash dependency
         changed:
             - Using new more flexible way of handle permissions via middleware
     "1.18.0":

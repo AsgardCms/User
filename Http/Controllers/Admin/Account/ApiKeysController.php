@@ -37,17 +37,15 @@ class ApiKeysController extends AdminBaseController
     {
         $this->userToken->generateFor($this->auth->id());
 
-        flash(trans('user:users.token generated'));
-
-        return redirect()->route('admin.account.api.index');
+        return redirect()->route('admin.account.api.index')
+            ->withSuccess(trans('user:users.token generated'));
     }
 
     public function destroy(UserToken $userToken)
     {
         $this->userToken->destroy($userToken);
 
-        flash(trans('core::core.messages.resource deleted', ['name' => 'Api Token']));
-
-        return redirect()->route('admin.account.api.index');
+        return redirect()->route('admin.account.api.index')
+            ->withSuccess(trans('core::core.messages.resource deleted', ['name' => 'Api Token']));
     }
 }
