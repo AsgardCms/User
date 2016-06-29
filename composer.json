@@ -34,12 +34,6 @@
     "fzaninotto/faker": "~1.5",
     "mockery/mockery": "^0.9.4"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/nWidart/modules"
-    }
-  ],
   "autoload": {
     "psr-4": {
       "Modules\\User\\": ".",
