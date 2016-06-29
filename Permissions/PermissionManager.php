@@ -1,6 +1,6 @@
 <?php namespace Modules\User\Permissions;
 
-use Pingpong\Modules\Module;
+use Nwidart\Modules\Module;
 
 class PermissionManager
 {
