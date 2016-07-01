@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Http\Middleware;
+<?php
+
+namespace Modules\User\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

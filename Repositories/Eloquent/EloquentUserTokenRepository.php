@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Repositories\Eloquent;
+<?php
+
+namespace Modules\User\Repositories\Eloquent;
 
 use Illuminate\Database\QueryException;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;

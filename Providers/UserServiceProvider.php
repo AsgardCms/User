@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Providers;
+<?php
+
+namespace Modules\User\Providers;
 
 use Cartalyst\Sentinel\Laravel\SentinelServiceProvider;
 use Illuminate\Support\ServiceProvider;

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Routing\Router;
-/** @var Router $router */
 
+/** @var Router $router */
 $router->group(['prefix' => 'auth'], function (Router $router) {
     # Login
     $router->get('login', ['middleware' => 'auth.guest', 'as' => 'login', 'uses' => 'AuthController@getLogin']);

@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Permissions;
+<?php
+
+namespace Modules\User\Permissions;
 
 use Nwidart\Modules\Module;
 

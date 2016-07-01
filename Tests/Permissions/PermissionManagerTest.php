@@ -46,7 +46,7 @@ class PermissionManagerTest extends BaseTestCase
             'permission2' => 'true',
             'permission3' => 'false',
             'permission4' => 'false',
-            'permission5' => 'true'
+            'permission5' => 'true',
         ];
 
         $expected = [
@@ -54,7 +54,7 @@ class PermissionManagerTest extends BaseTestCase
             'permission2' => true,
             'permission3' => false,
             'permission4' => false,
-            'permission5' => true
+            'permission5' => true,
         ];
 
         $manager = new PermissionManager();

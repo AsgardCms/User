@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Http\Middleware;
+<?php
+
+namespace Modules\User\Http\Middleware;
 
 use Modules\Core\Contracts\Authentication;
 

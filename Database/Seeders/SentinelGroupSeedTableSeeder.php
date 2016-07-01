@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Database\Seeders;
+<?php
+
+namespace Modules\User\Database\Seeders;
 
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Illuminate\Database\Eloquent\Model;

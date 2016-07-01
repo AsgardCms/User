@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Services;
+<?php
+
+namespace Modules\User\Services;
 
 use Modules\Core\Contracts\Authentication;
 use Modules\User\Events\UserHasRegistered;

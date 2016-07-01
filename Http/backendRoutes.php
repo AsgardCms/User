@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Routing\Router;
-/** @var Router $router */
 
+/** @var Router $router */
 $router->group(['prefix' => '/user'], function (Router $router) {
     $router->get('users', [
         'as' => 'admin.user.user.index',
@@ -82,12 +82,12 @@ $router->group(['prefix' => '/account'], function (Router $router) {
         'middleware' => 'can:account.api-keys.index',
     ]);
     $router->get('api-keys/create', [
-        'as' => 'admin.account.api.create', 
+        'as' => 'admin.account.api.create',
         'uses' => 'Account\ApiKeysController@create',
         'middleware' => 'can:account.api-keys.create',
     ]);
     $router->delete('api-keys/{userTokenId}', [
-        'as' => 'admin.account.api.destroy', 
+        'as' => 'admin.account.api.destroy',
         'uses' => 'Account\ApiKeysController@destroy',
         'middleware' => 'can:account.api-keys.destroy',
     ]);

@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Http\Controllers\Admin\Account;
+<?php
+
+namespace Modules\User\Http\Controllers\Admin\Account;
 
 use Modules\Core\Contracts\Authentication;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;

@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Events\Handlers;
+<?php
+
+namespace Modules\User\Events\Handlers;
 
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Mail;

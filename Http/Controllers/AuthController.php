@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Http\Controllers;
+<?php
+
+namespace Modules\User\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Modules\Core\Http\Controllers\BasePublicController;
@@ -18,7 +20,6 @@ class AuthController extends BasePublicController
     public function __construct()
     {
         parent::__construct();
-
     }
 
     public function getLogin()

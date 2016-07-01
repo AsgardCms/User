@@ -13,7 +13,7 @@ view()->composer(
         'partials.sidebar-nav',
         'partials.top-nav',
         'layouts.master',
-        'partials.*'
+        'partials.*',
     ],
     'Modules\User\Composers\UsernameViewComposer'
 );

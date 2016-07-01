@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Http\Controllers\Admin;
+<?php
+
+namespace Modules\User\Http\Controllers\Admin;
 
 use Modules\Core\Contracts\Authentication;
 use Modules\User\Events\UserHasBegunResetProcess;

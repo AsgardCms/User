@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Repositories\Cache;
+<?php
+
+namespace Modules\User\Repositories\Cache;
 
 use Modules\Core\Repositories\Cache\BaseCacheDecorator;
 use Modules\User\Repositories\UserTokenRepository;

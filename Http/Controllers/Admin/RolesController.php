@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Http\Controllers\Admin;
+<?php
+
+namespace Modules\User\Http\Controllers\Admin;
 
 use Modules\User\Http\Requests\RolesRequest;
 use Modules\User\Permissions\PermissionManager;
