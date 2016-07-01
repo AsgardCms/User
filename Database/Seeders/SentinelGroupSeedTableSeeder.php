@@ -44,6 +44,7 @@ class SentinelGroupSeedTableSeeder extends Seeder
             'workshop.modules.show' => true,
             'workshop.modules.disable' => true,
             'workshop.modules.enable' => true,
+            'workshop.modules.update' => true,
             'workshop.themes.index' => true,
             'workshop.themes.show' => true,
             /* Roles */
@@ -56,6 +57,10 @@ class SentinelGroupSeedTableSeeder extends Seeder
             'user.users.create' => true,
             'user.users.edit' => true,
             'user.users.destroy' => true,
+            /* API keys */
+            'account.api-keys.index' => true,
+            'account.api-keys.create' => true,
+            'account.api-keys.destroy' => true,
             /* Menu */
             'menu.menus.index' => true,
             'menu.menus.create' => true,
