@@ -109,4 +109,16 @@ class User extends EloquentUser implements UserInterface
         #i: No relation found, return the call to parent (Eloquent) to handle it.
         return parent::__call($method, $parameters);
     }
+
+    /**
+     * Check if the user has access to the given permission name
+     * @param string $permission
+     * @return boolean
+     */
+    public function hasAccess($permission)
+    {
+        $permissions = $this->getPermissionsInstance();
+
+        return $permissions->hasAccess($permission);
+    }
 }
