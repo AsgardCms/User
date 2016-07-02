@@ -5,6 +5,8 @@ versions:
             - Laravel 5.2 compatibility
             - Added api keys management per user. With API middleware to protect internal APIs and public APIs.
             - <code>Authentication</code> contract has been moved to the User module (from Core Module)
+            - Adding hasAccess method on UserInterface to check for given permission(s)
+            - Adding a token can middleware to validate API routes for permissions
         removed:
             - Removing Sentry and Usher user providers
             - Removing laracasts/flash dependency
