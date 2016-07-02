@@ -11,6 +11,7 @@ use Modules\User\Http\Middleware\AuthorisedApiToken;
 use Modules\User\Http\Middleware\AuthorisedApiTokenAdmin;
 use Modules\User\Http\Middleware\GuestMiddleware;
 use Modules\User\Http\Middleware\LoggedInMiddleware;
+use Modules\User\Http\Middleware\TokenCan;
 use Modules\User\Repositories\Cache\CacheUserTokenDecorator;
 use Modules\User\Repositories\Eloquent\EloquentUserTokenRepository;
 use Modules\User\Repositories\RoleRepository;
@@ -42,6 +43,7 @@ class UserServiceProvider extends ServiceProvider
         'logged.in' => LoggedInMiddleware::class,
         'api.token' => AuthorisedApiToken::class,
         'api.token.admin' => AuthorisedApiTokenAdmin::class,
+        'token-can' => TokenCan::class,
     ];
 
     /**
