@@ -2,7 +2,7 @@
 
 namespace Modules\User\Services;
 
-use Modules\Core\Contracts\Authentication;
+use Modules\User\Contracts\Authentication;
 use Modules\User\Events\UserHasBegunResetProcess;
 use Modules\User\Exceptions\InvalidOrExpiredResetCode;
 use Modules\User\Exceptions\UserNotFoundException;

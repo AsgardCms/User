@@ -2,7 +2,7 @@
 
 namespace Modules\User\Http\Controllers\Admin;
 
-use Modules\Core\Contracts\Authentication;
+use Modules\User\Contracts\Authentication;
 use Modules\User\Events\UserHasBegunResetProcess;
 use Modules\User\Http\Requests\CreateUserRequest;
 use Modules\User\Http\Requests\UpdateUserRequest;

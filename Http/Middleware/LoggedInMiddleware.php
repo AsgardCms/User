@@ -2,7 +2,7 @@
 
 namespace Modules\User\Http\Middleware;
 
-use Modules\Core\Contracts\Authentication;
+use Modules\User\Contracts\Authentication;
 
 /**
  * Class LoggedInMiddleware

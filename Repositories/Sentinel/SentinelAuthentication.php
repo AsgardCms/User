@@ -7,7 +7,7 @@ use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Laravel\Facades\Reminder;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
-use Modules\Core\Contracts\Authentication;
+use Modules\User\Contracts\Authentication;
 use Modules\User\Events\UserHasActivatedAccount;
 
 class SentinelAuthentication implements Authentication
