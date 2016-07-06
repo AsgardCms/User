@@ -18,6 +18,7 @@
     "Reminder": "Cartalyst\\Sentinel\\Laravel\\Facades\\Reminder"
   },
   "files": [
-    "composers.php"
+    "composers.php",
+    "helpers.php"
   ]
 }
