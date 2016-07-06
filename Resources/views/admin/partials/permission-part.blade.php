@@ -1,10 +1,10 @@
 <div class="row permission">
     <div class="col-sm-2">
         <div class="visible-sm-block visible-md-block visible-lg-block">
-            <label class="control-label text-right" style="display: block">{{ ucfirst($permissionAction) }}</label>
+            <label class="control-label text-right" style="display: block">{{ $permissionLabel }}</label>
         </div>
         <div class="visible-xs-block">
-            <label class="control-label">{{ ucfirst($permissionAction) }}</label>
+            <label class="control-label">{{ $permissionLabel }}</label>
         </div>
     </div>
     <div class="col-sm-10">

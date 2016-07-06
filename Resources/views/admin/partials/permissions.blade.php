@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <?php foreach ($permissionActions as $permissionAction): ?>
+                            <?php foreach ($permissionActions as $permissionAction => $permissionLabel): ?>
                                 <div class="col-md-12">
                                     @include('user::admin.partials.permission-part')
                                 </div>
