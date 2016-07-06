@@ -11,42 +11,15 @@ class PermissionManagerTest extends BaseTestCase
     /**
      * @test
      */
-    public function it_should_know_if_permissions_are_all_false()
-    {
-        $modules = $this->getModulesRepositoryMock();
-        $this->app->instance('modules', $modules);
-
-        $manager = new PermissionManager();
-
-        $allFalsePermissions = $manager->permissionsAreAllFalse([
-            'permission1' => 'false',
-            'permission2' => 'false',
-            'permission3' => 'false',
-            'permission4' => 'false',
-        ]);
-
-        $mixedPermissions = $manager->permissionsAreAllFalse([
-            'permission1' => 'true',
-            'permission2' => 'false',
-            'permission3' => 'false',
-            'permission4' => 'true',
-        ]);
-
-        $this->assertSame(true, $allFalsePermissions);
-        $this->assertSame(false, $mixedPermissions);
-    }
-
-    /**
-     * @test
-     */
     public function it_should_clean_permissions()
     {
         $input = [
-            'permission1' => 'true',
-            'permission2' => 'true',
-            'permission3' => 'false',
-            'permission4' => 'false',
-            'permission5' => 'true',
+            'permission1' => '1',
+            'permission2' => '1',
+            'permission3' => '-1',
+            'permission4' => '-1',
+            'permission5' => '0',
+            'permission6' => '0',
         ];
 
         $expected = [
@@ -54,18 +27,12 @@ class PermissionManagerTest extends BaseTestCase
             'permission2' => true,
             'permission3' => false,
             'permission4' => false,
-            'permission5' => true,
         ];
 
         $manager = new PermissionManager();
 
         $actual = $manager->clean($input);
 
-        $this->assertSame($expected, $actual, "The PermissionManager should clean the permissions and fix their states.");
-    }
-
-    protected function getModulesRepositoryMock()
-    {
-        return Mockery::mock(Repository::class);
+        $this->assertSame($expected, $actual, 'The PermissionManager should clean the permissions and fix their states.');
     }
 }
