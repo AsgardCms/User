@@ -1,5 +1,5 @@
 <div class="row permission">
-    <div class="col-sm-2">
+    <div class="col-sm-3">
         <div class="visible-sm-block visible-md-block visible-lg-block">
             <label class="control-label text-right" style="display: block">{{ $permissionLabel }}</label>
         </div>
@@ -7,7 +7,7 @@
             <label class="control-label">{{ $permissionLabel }}</label>
         </div>
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-9">
         <?php if (isset($model)): ?>
             <?php $current = current_permission_value($model, $subPermissionTitle, $permissionAction); ?>
         <?php endif; ?>
