@@ -1,10 +1,10 @@
 <div class="row permission">
     <div class="col-sm-3">
         <div class="visible-sm-block visible-md-block visible-lg-block">
-            <label class="control-label text-right" style="display: block">{{ $permissionLabel }}</label>
+            <label class="control-label text-right" style="display: block">{{ trans($permissionLabel) }}</label>
         </div>
         <div class="visible-xs-block">
-            <label class="control-label">{{ $permissionLabel }}</label>
+            <label class="control-label">{{ trans($permissionLabel) }}</label>
         </div>
     </div>
     <div class="col-sm-9">
