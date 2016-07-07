@@ -7,6 +7,8 @@ versions:
             - <code>Authentication</code> contract has been moved to the User module (from Core Module)
             - Adding hasAccess method on UserInterface to check for given permission(s)
             - Adding a token can middleware to validate API routes for permissions
+            - Completely revamped user / role permission UI to allow easy inheritance from role
+            - Permissions have a nice label displayed
         removed:
             - Removing Sentry and Usher user providers
             - Removing laracasts/flash dependency
