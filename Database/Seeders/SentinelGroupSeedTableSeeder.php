@@ -90,6 +90,11 @@ class SentinelGroupSeedTableSeeder extends Seeder
             'translation.translations.edit' => true,
             'translation.translations.export' => true,
             'translation.translations.import' => true,
+            /* Tags */
+            'tag.tags.index' => true,
+            'tag.tags.create' => true,
+            'tag.tags.edit' => true,
+            'tag.tags.destroy' => true,
         ];
         $group->save();
     }
