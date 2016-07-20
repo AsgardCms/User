@@ -30,7 +30,7 @@
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox"> {{ trans('user::auth.remember me') }}
+                            <input type="checkbox" name="remember_me"> {{ trans('user::auth.remember me') }}
                         </label>
                     </div>
                 </div>
