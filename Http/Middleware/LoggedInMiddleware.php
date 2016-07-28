@@ -30,7 +30,7 @@ class LoggedInMiddleware
     public function handle($request, \Closure $next)
     {
         if ($this->auth->check() === false) {
-            return redirect()->guest('auth/login');
+            return redirect()->guest(config('asgard.user.users.redirect_route_not_logged_in', 'auth/login'));
         }
 
         return $next($request);
