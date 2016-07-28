@@ -16,8 +16,8 @@ return [
     'redirect_route_after_login' => 'homepage',
     /*
     |--------------------------------------------------------------------------
-    | Define which route to redirect to after accessing resource that
-    | requires to be logged in
+    | Define which route the user should be redirected to after accessing
+    | a resource that requires to be logged in
     |--------------------------------------------------------------------------
     */
     'redirect_route_not_logged_in' => 'auth/login',
