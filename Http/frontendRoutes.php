@@ -8,7 +8,7 @@ $router->group(['prefix' => 'auth'], function (Router $router) {
     $router->get('login', ['middleware' => 'auth.guest', 'as' => 'login', 'uses' => 'AuthController@getLogin']);
     $router->post('login', ['as' => 'login.post', 'uses' => 'AuthController@postLogin']);
     # Register
-    if (config('asgard.user.users.allow_user_registration', true)) {
+    if (config('asgard.user.config.allow_user_registration', true)) {
         $router->get('register', ['middleware' => 'auth.guest', 'as' => 'register', 'uses' => 'AuthController@getRegister']);
         $router->post('register', ['as' => 'register.post', 'uses' => 'AuthController@postRegister']);
     }

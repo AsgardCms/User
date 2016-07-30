@@ -71,7 +71,7 @@ class UserServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'user');
 
         $this->publishConfig('user', 'permissions');
-        $this->publishConfig('user', 'users');
+        $this->publishConfig('user', 'config');
     }
 
     /**
@@ -86,7 +86,7 @@ class UserServiceProvider extends ServiceProvider
 
     private function registerBindings()
     {
-        $driver = config('asgard.user.users.driver', 'Sentinel');
+        $driver = config('asgard.user.config.driver', 'Sentinel');
 
         $this->app->bind(
             UserRepository::class,
@@ -120,7 +120,7 @@ class UserServiceProvider extends ServiceProvider
 
     private function getUserPackageServiceProvider()
     {
-        $driver = config('asgard.user.users.driver', 'Sentinel');
+        $driver = config('asgard.user.config.driver', 'Sentinel');
 
         if (!isset($this->providers[$driver])) {
             throw new \Exception("Driver [{$driver}] does not exist");

@@ -43,7 +43,7 @@
         </form>
 
         <a href="{{ route('reset')}}">{{ trans('user::auth.forgot password') }}</a><br>
-        @if (config('asgard.user.users.allow_user_registration'))
+        @if (config('asgard.user.config.allow_user_registration'))
             <a href="{{ route('register')}}" class="text-center">{{ trans('user::auth.register')}}</a>
         @endif
     </div>

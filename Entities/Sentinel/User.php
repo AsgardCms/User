@@ -30,8 +30,8 @@ class User extends EloquentUser implements UserInterface
 
     public function __construct(array $attributes = [])
     {
-        $this->loginNames = config('asgard.user.users.login-columns');
-        $this->fillable = config('asgard.user.users.fillable');
+        $this->loginNames = config('asgard.user.config.login-columns');
+        $this->fillable = config('asgard.user.config.fillable');
 
         parent::__construct($attributes);
     }
