@@ -2,7 +2,6 @@
 
 namespace Modules\User\Tests\Permissions;
 
-use Mockery;
 use Modules\Core\Tests\BaseTestCase;
 use Modules\User\Permissions\PermissionManager;
 

@@ -10,6 +10,7 @@ if (function_exists('current_permission_value') === false) {
         if ($value === false) {
             return -1;
         }
+
         return 0;
     }
 }
