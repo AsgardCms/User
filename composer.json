@@ -32,7 +32,9 @@
     "orchestra/testbench": "~3.2",
     "scrutinizer/ocular": "~1.1",
     "fzaninotto/faker": "~1.5",
-    "mockery/mockery": "^0.9.4"
+    "mockery/mockery": "^0.9.4",
+    "phpro/grumphp": "^0.9.1",
+    "friendsofphp/php-cs-fixer": "^1.11"
   },
   "autoload": {
     "psr-4": {
