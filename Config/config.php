@@ -48,7 +48,17 @@ return [
         'first_name',
         'last_name',
     ],
-
+    /*
+     |--------------------------------------------------------------------------
+     | Dynamic relations
+     |--------------------------------------------------------------------------
+     | Add relations that will be dynamically added to the User entity
+     */
+    'relations' => [
+//        'extension' => function ($self) {
+//            return $self->belongsTo(UserExtension::class, 'user_id', 'id')->first();
+//        }
+    ],
     /*
     |--------------------------------------------------------------------------
     | Custom Sidebar Class

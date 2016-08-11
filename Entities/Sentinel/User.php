@@ -94,10 +94,8 @@ class User extends EloquentUser implements UserInterface
 
     public function __call($method, $parameters)
     {
-        $class_name = class_basename($this);
-
         #i: Convert array to dot notation
-        $config = implode('.', ['relations', $class_name, $method]);
+        $config = implode('.', ['asgard.user.config.relations', $method]);
 
         #i: Relation method resolver
         if (config()->has($config)) {
