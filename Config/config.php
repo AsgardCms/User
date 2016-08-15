@@ -37,6 +37,12 @@ return [
     'allow_user_registration' => true,
     /*
     |--------------------------------------------------------------------------
+    | The default role for new user registrations
+    |--------------------------------------------------------------------------
+    */
+    'default_role' => null,
+    /*
+    |--------------------------------------------------------------------------
     | Fillable user fields
     |--------------------------------------------------------------------------
     | Set the fillable user fields, those fields will be mass assigned
