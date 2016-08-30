@@ -72,6 +72,8 @@ class UserServiceProvider extends ServiceProvider
 
         $this->publishConfig('user', 'permissions');
         $this->publishConfig('user', 'config');
+
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
     }
 
     /**
