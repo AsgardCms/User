@@ -18,7 +18,7 @@
   ],
   "support": {
     "email": "support@asgardcms.com",
-    "issues": "https://github.com/AsgardCms/User/issues",
+    "issues": "https://github.com/AsgardCms/Platform/issues",
     "source": "https://github.com/AsgardCms/User"
   },
   "require": {
@@ -29,7 +29,7 @@
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0",
-    "orchestra/testbench": "~3.2",
+    "orchestra/testbench": "3.3.*",
     "scrutinizer/ocular": "~1.1",
     "fzaninotto/faker": "~1.5",
     "mockery/mockery": "^0.9.4",
