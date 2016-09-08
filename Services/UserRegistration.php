@@ -55,7 +55,7 @@ class UserRegistration
 
     private function assignUserToUsersGroup($user)
     {
-        $role = $this->role->findByName($this->getDefaultRole());
+        $role = $this->role->findByName(config('asgard.user.config.default_role'));
 
         $this->auth->assignRole($user, $role);
     }
@@ -77,15 +77,5 @@ class UserRegistration
     {
         $profileData = array_merge($this->input['profile'], ['user_id' => $user->id]);
         app('Modules\Profile\Repositories\ProfileRepository')->create($profileData);
-    }
-
-    /**
-     * @return string
-     */
-    private function getDefaultRole()
-    {
-        $defaultRole = config('asgard.user.config.default_role');
-
-        return $defaultRole !== null ? $defaultRole : 'User';
     }
 }
