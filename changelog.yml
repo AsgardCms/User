@@ -16,6 +16,7 @@ versions:
             - Using new more flexible way of handle permissions via middleware
             - Refactor and restructure the permissions to allow inheritance via GUI
             - Rename the users.php file to config.php
+            - Use Mailable classes from laravel 5.3
     "1.18.0":
         changed:
             - User reset process is now handled by a service class
