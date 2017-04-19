@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Http\Controllers;
+<?php
+
+namespace Modules\User\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Modules\Core\Http\Controllers\BasePublicController;
@@ -18,7 +20,6 @@ class AuthController extends BasePublicController
     public function __construct()
     {
         parent::__construct();
-
     }
 
     public function getLogin()
@@ -36,14 +37,11 @@ class AuthController extends BasePublicController
 
         $error = $this->auth->login($credentials, $remember);
         if (!$error) {
-            flash()->success(trans('user::messages.successfully logged in'));
-
-            return redirect()->intended('/');
+            return redirect()->intended('/')
+                ->withSuccess(trans('user::messages.successfully logged in'));
         }
 
-        flash()->error($error);
-
-        return redirect()->back()->withInput();
+        return redirect()->back()->withInput()->withError($error);
     }
 
     public function getRegister()
@@ -55,9 +53,8 @@ class AuthController extends BasePublicController
     {
         app(UserRegistration::class)->register($request->all());
 
-        flash()->success(trans('user::messages.account created check email for activation'));
-
-        return redirect()->route('register');
+        return redirect()->route('register')
+            ->withSuccess(trans('user::messages.account created check email for activation'));
     }
 
     public function getLogout()
@@ -70,13 +67,12 @@ class AuthController extends BasePublicController
     public function getActivate($userId, $code)
     {
         if ($this->auth->activate($userId, $code)) {
-            flash()->success(trans('user::messages.account activated you can now login'));
-
-            return redirect()->route('login');
+            return redirect()->route('login')
+                ->withSuccess(trans('user::messages.account activated you can now login'));
         }
-        flash()->error(trans('user::messages.there was an error with the activation'));
 
-        return redirect()->route('register');
+        return redirect()->route('register')
+            ->withError(trans('user::messages.there was an error with the activation'));
     }
 
     public function getReset()
@@ -89,14 +85,12 @@ class AuthController extends BasePublicController
         try {
             app(UserResetter::class)->startReset($request->all());
         } catch (UserNotFoundException $e) {
-            flash()->error(trans('user::messages.no user found'));
-
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()
+                ->withError(trans('user::messages.no user found'));
         }
 
-        flash()->success(trans('user::messages.check email to reset password'));
-
-        return redirect()->route('reset');
+        return redirect()->route('reset')
+            ->withSuccess(trans('user::messages.check email to reset password'));
     }
 
     public function getResetComplete()
@@ -111,17 +105,14 @@ class AuthController extends BasePublicController
                 array_merge($request->all(), ['userId' => $userId, 'code' => $code])
             );
         } catch (UserNotFoundException $e) {
-            flash()->error(trans('user::messages.user no longer exists'));
-
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()
+                ->withError(trans('user::messages.user no longer exists'));
         } catch (InvalidOrExpiredResetCode $e) {
-            flash()->error(trans('user::messages.invalid reset code'));
-
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()
+                ->withError(trans('user::messages.invalid reset code'));
         }
 
-        flash()->success(trans('user::messages.password reset'));
-
-        return redirect()->route('login');
+        return redirect()->route('login')
+            ->withSuccess(trans('user::messages.password reset'));
     }
 }

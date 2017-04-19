@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Events;
+<?php
+
+namespace Modules\User\Events;
 
 class UserHasRegistered
 {

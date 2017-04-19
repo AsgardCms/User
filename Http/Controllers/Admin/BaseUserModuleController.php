@@ -1,5 +1,8 @@
-<?php namespace Modules\User\Http\Controllers\Admin;
+<?php
 
+namespace Modules\User\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 use Modules\User\Permissions\PermissionManager;
 
@@ -11,17 +14,13 @@ abstract class BaseUserModuleController extends AdminBaseController
     protected $permissions;
 
     /**
-     * @param $request
+     * @param Request $request
      * @return array
      */
-    protected function mergeRequestWithPermissions($request)
+    protected function mergeRequestWithPermissions(Request $request)
     {
-        $permissions = [];
+        $permissions = $this->permissions->clean($request->permissions);
 
-        if (! $this->permissions->permissionsAreAllFalse($request->permissions)) {
-            $permissions = $this->permissions->clean($request->permissions);
-        }
-
-        return array_merge($request->all(), [ 'permissions' => $permissions ]);
+        return array_merge($request->all(), ['permissions' => $permissions]);
     }
 }

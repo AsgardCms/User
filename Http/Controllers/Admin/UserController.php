@@ -1,6 +1,8 @@
-<?php namespace Modules\User\Http\Controllers\Admin;
+<?php
 
-use Modules\Core\Contracts\Authentication;
+namespace Modules\User\Http\Controllers\Admin;
+
+use Modules\User\Contracts\Authentication;
 use Modules\User\Events\UserHasBegunResetProcess;
 use Modules\User\Http\Requests\CreateUserRequest;
 use Modules\User\Http\Requests\UpdateUserRequest;
@@ -52,7 +54,7 @@ class UserController extends BaseUserModuleController
     {
         $users = $this->user->all();
 
-        $currentUser = $this->auth->check();
+        $currentUser = $this->auth->user();
 
         return view('user::admin.users.index', compact('users', 'currentUser'));
     }
@@ -81,9 +83,8 @@ class UserController extends BaseUserModuleController
 
         $this->user->createWithRoles($data, $request->roles, true);
 
-        flash(trans('user::messages.user created'));
-
-        return redirect()->route('admin.user.user.index');
+        return redirect()->route('admin.user.user.index')
+            ->withSuccess(trans('user::messages.user created'));
     }
 
     /**
@@ -95,13 +96,12 @@ class UserController extends BaseUserModuleController
     public function edit($id)
     {
         if (!$user = $this->user->find($id)) {
-            flash()->error(trans('user::messages.user not found'));
-
-            return redirect()->route('admin.user.user.index');
+            return redirect()->route('admin.user.user.index')
+                ->withError(trans('user::messages.user not found'));
         }
         $roles = $this->role->all();
 
-        $currentUser = $this->auth->check();
+        $currentUser = $this->auth->user();
 
         return view('user::admin.users.edit', compact('user', 'roles', 'currentUser'));
     }
@@ -119,9 +119,8 @@ class UserController extends BaseUserModuleController
 
         $this->user->updateAndSyncRoles($id, $data, $request->roles);
 
-        flash(trans('user::messages.user updated'));
-
-        return redirect()->route('admin.user.user.index');
+        return redirect()->route('admin.user.user.index')
+            ->withSuccess(trans('user::messages.user updated'));
     }
 
     /**
@@ -134,9 +133,8 @@ class UserController extends BaseUserModuleController
     {
         $this->user->delete($id);
 
-        flash(trans('user::messages.user deleted'));
-
-        return redirect()->route('admin.user.user.index');
+        return redirect()->route('admin.user.user.index')
+            ->withSuccess(trans('user::messages.user deleted'));
     }
 
     public function sendResetPassword($user, Authentication $auth)
@@ -146,8 +144,7 @@ class UserController extends BaseUserModuleController
 
         event(new UserHasBegunResetProcess($user, $code));
 
-        flash(trans('user::auth.reset password email was sent'));
-
-        return redirect()->route('admin.user.user.edit', $user->id);
+        return redirect()->route('admin.user.user.edit', $user->id)
+            ->withSuccess(trans('user::auth.reset password email was sent'));
     }
 }

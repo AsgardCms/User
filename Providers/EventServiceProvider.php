@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Providers;
+<?php
+
+namespace Modules\User\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Maatwebsite\Sidebar\Domain\Events\FlushesSidebarCache;

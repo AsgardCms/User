@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Database\Seeders;
+<?php
+
+namespace Modules\User\Database\Seeders;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
@@ -14,6 +16,6 @@ class UserDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        $this->call("Modules\\User\\Database\\Seeders\\SentinelGroupSeedTableSeeder");
+        $this->call(SentinelGroupSeedTableSeeder::class);
     }
 }

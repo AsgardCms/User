@@ -11,7 +11,7 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">{{ trans('user::auth.sign in welcome message') }}</p>
-        @include('flash::message')
+        @include('partials.notifications')
 
         {!! Form::open(['route' => 'login.post']) !!}
             <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
@@ -30,7 +30,7 @@
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox"> {{ trans('user::auth.remember me') }}
+                            <input type="checkbox" name="remember_me"> {{ trans('user::auth.remember me') }}
                         </label>
                     </div>
                 </div>

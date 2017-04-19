@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Repositories;
+<?php
+
+namespace Modules\User\Repositories;
 
 /**
  * Interface RoleRepository

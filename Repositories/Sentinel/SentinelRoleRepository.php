@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Repositories\Sentinel;
+<?php
+
+namespace Modules\User\Repositories\Sentinel;
 
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Modules\User\Events\RoleWasUpdated;

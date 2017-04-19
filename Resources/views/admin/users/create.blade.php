@@ -37,21 +37,21 @@
                             <div class="col-sm-4">
                                 <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                                     {!! Form::label('first_name', trans('user::users.form.first-name')) !!}
-                                    {!! Form::text('first_name', Input::old('first_name'), ['class' => 'form-control', 'placeholder' => trans('user::users.form.first-name')]) !!}
+                                    {!! Form::text('first_name', old('first_name'), ['class' => 'form-control', 'placeholder' => trans('user::users.form.first-name')]) !!}
                                     {!! $errors->first('first_name', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
                                     {!! Form::label('last_name', trans('user::users.form.last-name')) !!}
-                                    {!! Form::text('last_name', Input::old('last_name'), ['class' => 'form-control', 'placeholder' => trans('user::users.form.last-name')]) !!}
+                                    {!! Form::text('last_name', old('last_name'), ['class' => 'form-control', 'placeholder' => trans('user::users.form.last-name')]) !!}
                                     {!! $errors->first('last_name', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                     {!! Form::label('email', trans('user::users.form.email')) !!}
-                                    {!! Form::email('email', Input::old('email'), ['class' => 'form-control', 'placeholder' => trans('user::users.form.email')]) !!}
+                                    {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => trans('user::users.form.email')]) !!}
                                     {!! $errors->first('email', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>

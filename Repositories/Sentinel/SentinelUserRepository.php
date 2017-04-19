@@ -1,8 +1,11 @@
-<?php namespace Modules\User\Repositories\Sentinel;
+<?php
+
+namespace Modules\User\Repositories\Sentinel;
 
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Illuminate\Support\Facades\Hash;
+use Modules\User\Entities\Sentinel\User;
 use Modules\User\Events\UserHasRegistered;
 use Modules\User\Events\UserWasUpdated;
 use Modules\User\Exceptions\UserNotFoundException;
@@ -75,6 +78,7 @@ class SentinelUserRepository implements UserRepository
      * @param array $data
      * @param array $roles
      * @param bool $activated
+     * @return User
      */
     public function createWithRolesFromCli($data, $roles, $activated = false)
     {
@@ -89,6 +93,8 @@ class SentinelUserRepository implements UserRepository
             $activation = Activation::create($user);
             Activation::complete($user, $activation->code);
         }
+
+        return $user;
     }
 
     /**

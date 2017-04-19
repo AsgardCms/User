@@ -1,10 +1,13 @@
-<?php namespace Modules\User\Entities\Sentinel;
+<?php
+
+namespace Modules\User\Entities\Sentinel;
 
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Users\EloquentUser;
-use Illuminate\Support\Facades\Config;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\User\Entities\UserInterface;
+use Modules\User\Entities\UserToken;
+use Modules\User\Presenters\UserPresenter;
 
 class User extends EloquentUser implements UserInterface
 {
@@ -23,7 +26,7 @@ class User extends EloquentUser implements UserInterface
      */
     protected $loginNames = ['email'];
 
-    protected $presenter = 'Modules\User\Presenters\UserPresenter';
+    protected $presenter = UserPresenter::class;
 
     public function __construct(array $attributes = [])
     {
@@ -66,6 +69,29 @@ class User extends EloquentUser implements UserInterface
         return false;
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function api_keys()
+    {
+        return $this->hasMany(UserToken::class);
+    }
+
+    /**
+     * Get the first available api key
+     * @return string
+     */
+    public function getFirstApiKey()
+    {
+        $userToken = $this->api_keys->first();
+
+        if ($userToken === null) {
+            return '';
+        }
+
+        return $userToken->access_token;
+    }
+
     public function __call($method, $parameters)
     {
         $class_name = class_basename($this);
@@ -74,13 +100,25 @@ class User extends EloquentUser implements UserInterface
         $config = implode('.', ['relations', $class_name, $method]);
 
         #i: Relation method resolver
-        if (Config::has($config)) {
-            $function = Config::get($config);
+        if (config()->has($config)) {
+            $function = config()->get($config);
 
             return $function($this);
         }
 
         #i: No relation found, return the call to parent (Eloquent) to handle it.
         return parent::__call($method, $parameters);
+    }
+
+    /**
+     * Check if the user has access to the given permission name
+     * @param string $permission
+     * @return boolean
+     */
+    public function hasAccess($permission)
+    {
+        $permissions = $this->getPermissionsInstance();
+
+        return $permissions->hasAccess($permission);
     }
 }

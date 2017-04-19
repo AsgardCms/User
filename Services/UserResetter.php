@@ -1,6 +1,8 @@
-<?php namespace Modules\User\Services;
+<?php
 
-use Modules\Core\Contracts\Authentication;
+namespace Modules\User\Services;
+
+use Modules\User\Contracts\Authentication;
 use Modules\User\Events\UserHasBegunResetProcess;
 use Modules\User\Exceptions\InvalidOrExpiredResetCode;
 use Modules\User\Exceptions\UserNotFoundException;

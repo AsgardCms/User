@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Http\Controllers\Admin;
+<?php
+
+namespace Modules\User\Http\Controllers\Admin;
 
 use Modules\User\Http\Requests\RolesRequest;
 use Modules\User\Permissions\PermissionManager;
@@ -53,9 +55,8 @@ class RolesController extends BaseUserModuleController
 
         $this->role->create($data);
 
-        flash(trans('user::messages.role created'));
-
-        return redirect()->route('admin.user.role.index');
+        return redirect()->route('admin.user.role.index')
+            ->withSuccess(trans('user::messages.role created'));
     }
 
     /**
@@ -67,9 +68,8 @@ class RolesController extends BaseUserModuleController
     public function edit($id)
     {
         if (!$role = $this->role->find($id)) {
-            flash()->error(trans('user::messages.role not found'));
-
-            return redirect()->route('admin.user.role.index');
+            return redirect()->route('admin.user.role.index')
+                ->withError(trans('user::messages.role not found'));
         }
 
         return view('user::admin.roles.edit', compact('role'));
@@ -88,9 +88,8 @@ class RolesController extends BaseUserModuleController
 
         $this->role->update($id, $data);
 
-        flash(trans('user::messages.role updated'));
-
-        return redirect()->route('admin.user.role.index');
+        return redirect()->route('admin.user.role.index')
+            ->withSuccess(trans('user::messages.role updated'));
     }
 
     /**
@@ -103,8 +102,7 @@ class RolesController extends BaseUserModuleController
     {
         $this->role->delete($id);
 
-        flash(trans('user::messages.role deleted'));
-
-        return redirect()->route('admin.user.role.index');
+        return redirect()->route('admin.user.role.index')
+            ->withSuccess(trans('user::messages.role deleted'));
     }
 }

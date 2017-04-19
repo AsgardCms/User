@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Entities;
+<?php
+
+namespace Modules\User\Entities;
 
 interface UserInterface
 {
@@ -21,4 +23,17 @@ interface UserInterface
      * @return bool
      */
     public function isActivated();
+
+    /**
+     * Get the first available api key
+     * @return string
+     */
+    public function getFirstApiKey();
+
+    /**
+     * Check if the user has access to the given permission name
+     * @param string $permission
+     * @return boolean
+     */
+    public function hasAccess($permission);
 }

@@ -1,7 +1,9 @@
-<?php namespace Modules\User\Composers;
+<?php
+
+namespace Modules\User\Composers;
 
 use Illuminate\Contracts\View\View;
-use Modules\Core\Contracts\Authentication;
+use Modules\User\Contracts\Authentication;
 
 class UsernameViewComposer
 {
@@ -17,6 +19,6 @@ class UsernameViewComposer
 
     public function compose(View $view)
     {
-        $view->with('user', $this->auth->check());
+        $view->with('user', $this->auth->user());
     }
 }

@@ -1,5 +1,20 @@
 url: https://github.com/AsgardCms/User
 versions:
+    "2.0@unreleased":
+        added:
+            - Laravel 5.2 compatibility
+            - Added api keys management per user. With API middleware to protect internal APIs and public APIs.
+            - <code>Authentication</code> contract has been moved to the User module (from Core Module)
+            - Adding hasAccess method on UserInterface to check for given permission(s)
+            - Adding a token can middleware to validate API routes for permissions
+            - Completely revamped user / role permission UI to allow easy inheritance from role
+            - Permissions have a nice label displayed
+        removed:
+            - Removing Sentry and Usher user providers
+            - Removing laracasts/flash dependency
+        changed:
+            - Using new more flexible way of handle permissions via middleware
+            - Refactor and restructure the permissions to allow inheritance via GUI
     "1.18.0":
         changed:
             - User reset process is now handled by a service class
